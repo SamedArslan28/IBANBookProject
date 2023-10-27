@@ -1,14 +1,14 @@
 //
-//  AyBenAPPTests.swift
-//  AyBenAPPTests
+//  IbanBookProjectTests.swift
+//  IbanBookProjectTests
 //
 //  Created by Abdulsamed Arslan on 15.08.2023.
 //
 
 import XCTest
-@testable import AyBenAPP
+@testable import IbanBookProject
 
-final class AyBenAPPTests: XCTestCase {
+final class IbanBookProjectTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

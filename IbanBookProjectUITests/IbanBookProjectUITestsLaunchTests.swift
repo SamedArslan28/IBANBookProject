@@ -1,13 +1,13 @@
 //
-//  AyBenAPPUITestsLaunchTests.swift
-//  AyBenAPPUITests
+//  IbanBookProjectUITestsLaunchTests.swift
+//  IbanBookProjectUITests
 //
 //  Created by Abdulsamed Arslan on 15.08.2023.
 //
 
 import XCTest
 
-final class AyBenAPPUITestsLaunchTests: XCTestCase {
+final class IbanBookProjectUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
