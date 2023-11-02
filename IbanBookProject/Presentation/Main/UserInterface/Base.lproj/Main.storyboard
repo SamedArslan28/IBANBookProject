@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="IbanBookProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5N-Un-UYW">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOX-m6-jMm">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="303"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-qy-QLc">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="303"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E21-JH-u88">
+                                                        <rect key="frame" x="0.0" y="-2.3333333333333286" width="393" height="201.99999999999994"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="B15-hJ-5UE"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fcu-wG-pis" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="200" width="393" height="34.333333333333343"/>
+                                                        <accessibility key="accessibilityConfiguration" label="samed"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASG-ya-eVY">
+                                                        <rect key="frame" x="0.0" y="234.33333333333331" width="393" height="34.333333333333314"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0in-UB-txc">
+                                                        <rect key="frame" x="0.0" y="268.66666666666669" width="393" height="34.333333333333314"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Fcu-wG-pis" firstAttribute="centerX" secondItem="ME0-qy-QLc" secondAttribute="centerX" id="zK9-Fb-bZ9"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="ME0-qy-QLc" firstAttribute="leading" secondItem="UOX-m6-jMm" secondAttribute="leading" id="HPm-oY-Thb"/>
+                                            <constraint firstItem="ME0-qy-QLc" firstAttribute="top" secondItem="UOX-m6-jMm" secondAttribute="top" id="Tse-32-Bu7"/>
+                                            <constraint firstAttribute="trailing" secondItem="ME0-qy-QLc" secondAttribute="trailing" id="mRP-j9-09g"/>
+                                            <constraint firstAttribute="bottom" secondItem="ME0-qy-QLc" secondAttribute="bottom" id="saV-ve-Ikd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UOX-m6-jMm" secondAttribute="trailing" id="8fY-8q-MzE"/>
+                                    <constraint firstItem="UOX-m6-jMm" firstAttribute="top" secondItem="q5N-Un-UYW" secondAttribute="top" id="Bbn-xt-xvd"/>
+                                    <constraint firstItem="ME0-qy-QLc" firstAttribute="width" secondItem="q5N-Un-UYW" secondAttribute="width" id="Ec9-0C-3NG"/>
+                                    <constraint firstAttribute="bottom" secondItem="UOX-m6-jMm" secondAttribute="bottom" id="cDW-Az-8Vo"/>
+                                    <constraint firstItem="UOX-m6-jMm" firstAttribute="leading" secondItem="q5N-Un-UYW" secondAttribute="leading" id="khi-qx-djd"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q5N-Un-UYW" secondAttribute="trailing" id="0fU-Rm-E5b"/>
+                            <constraint firstItem="q5N-Un-UYW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IEa-jI-cUM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q5N-Un-UYW" secondAttribute="bottom" id="KIY-8x-tfU"/>
+                            <constraint firstItem="q5N-Un-UYW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SWI-sq-OHM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
