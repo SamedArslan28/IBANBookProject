@@ -6,3 +6,26 @@
 //
 
 import Foundation
+import UIKit
+
+final class BaseLabel: UILabel {
+
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    func commonInit(){
+
+        font = .appFont
+    }
+
+
+
+
+}
