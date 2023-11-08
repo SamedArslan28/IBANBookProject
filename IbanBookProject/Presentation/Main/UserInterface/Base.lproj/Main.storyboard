@@ -82,7 +82,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <connections>
-                                                                    <segue destination="JE1-RC-dhT" kind="show" id="R3I-k8-nns"/>
+                                                                    <segue destination="2JP-Eu-pK6" kind="show" id="zTW-pQ-qbH"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrg-dc-JXN" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
@@ -145,35 +145,20 @@
             <point key="canvasLocation" x="1064.885496183206" y="-2.1126760563380285"/>
         </scene>
         <!--Iban List TableVC-->
-        <scene sceneID="UoB-vb-g55">
+        <scene sceneID="QAF-q2-p9P">
             <objects>
-                <tableViewController id="JE1-RC-dhT" customClass="IbanListTableVC" customModule="IbanBookProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="EZY-7E-0lo">
+                <viewController id="2JP-Eu-pK6" customClass="IbanListTableVC" customModule="IbanBookProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q9g-9U-Fpv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="V28-T4-cgq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="separatorColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexBackgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="demoCell" id="meM-FU-hZU">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="meM-FU-hZU" id="Hf5-md-PPe">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="JE1-RC-dhT" id="H1X-aP-crY"/>
-                            <outlet property="delegate" destination="JE1-RC-dhT" id="48w-ur-LPm"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="gMi-sj-8sW"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="44T-dz-mkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mRw-J5-nud"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZI-AL-SqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1343" y="728"/>
+            <point key="canvasLocation" x="1190" y="756"/>
         </scene>
         <!--SaveIBAN-->
         <scene sceneID="XZi-ll-djt">
