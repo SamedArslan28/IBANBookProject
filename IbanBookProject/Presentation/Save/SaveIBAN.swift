@@ -11,7 +11,7 @@ import UIKit
 final class SaveIBAN: BaseVC {
 
     // MARK: - Outlets
-    @IBOutlet private weak var IBANnumberLabel: UILabel!
+    @IBOutlet private weak var IBANNumberLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var saveButton: BaseButton!
     
@@ -26,7 +26,7 @@ final class SaveIBAN: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        IBANnumberLabel.text = "IBAN"
+        IBANNumberLabel.text = "IBAN"
         nameLabel.text = "Ad Soyad"
         saveButton.setTitle("Kaydet", for: .normal)
         nameTextField.placeholder = "Name"

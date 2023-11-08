@@ -25,7 +25,7 @@ class BaseTextField: UITextField{
         layer.cornerRadius = 12
 
 
-        font = .appFont
+        font = .appFont()
         layer.borderWidth = 1
         backgroundColor = .clear
         borderStyle = .none

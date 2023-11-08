@@ -9,11 +9,8 @@ import Foundation
 
 import UIKit
 
-extension UIFont{
-
-    static var appFont: UIFont{
-
-        return UIFont(name: "OpenSans-Regular", size: 15)!
+extension UIFont {
+    static func appFont(_ size: CGFloat = 15) -> UIFont? {
+        return UIFont(name: "OpenSans-Regular", size: size)
     }
-
 }

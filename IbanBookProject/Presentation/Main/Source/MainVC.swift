@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class MainVC: BaseVC, UINavigationControllerDelegate {
+class MainVC: BaseVC {
     @IBOutlet weak var descriptionLabel: BaseLabel!
     
     @IBOutlet weak var saveIban: BaseButton!
     @IBOutlet weak var ibanList: BaseButton!
-    @IBOutlet weak var readIBANclicked: BaseButton!
+    @IBOutlet weak var readIBANClicked: BaseButton!
 
     let imagePickerItem = UIImagePickerController()
 
@@ -25,8 +25,8 @@ final class MainVC: BaseVC, UINavigationControllerDelegate {
 
         saveIban.setTitle("IBAN Kaydet", for: .normal)
         ibanList.setTitle("IBAN Defteri", for: .normal) 
-        readIBANclicked.setTitle("IBAN Oku", for: .normal)
-        imagePickerItem.delegate = self
+        readIBANClicked.setTitle("IBAN Oku", for: .normal)
+    
 
 
 
@@ -34,23 +34,17 @@ final class MainVC: BaseVC, UINavigationControllerDelegate {
 
 
     @IBAction func selectPhotoSource(_ sender: BaseButton) {
+
         let alert = UIAlertController(title: "Kaynak Seciniz", message: "Iban nereden okunacak ?", preferredStyle: .actionSheet)
 
         alert.addAction(UIAlertAction(title: "Kamera", style: .default , handler:{ _ in
-
             self.imagePickerItem.sourceType = .camera
-
-
             self.present(self.imagePickerItem, animated: true)
         }))
 
-
-        alert.addAction(UIAlertAction(title: "Fotograflar", style: .default , handler:{ (UIAlertAction)in
-            
+        alert.addAction(UIAlertAction(title: "Fotograflar", style: .default , handler:{ _ in
             self.imagePickerItem.sourceType = .photoLibrary
             self.present(self.imagePickerItem,animated: true)
-
-
         }))
 
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
@@ -67,10 +61,8 @@ extension UIViewController: UIImagePickerControllerDelegate{
     func imagePicker(sourceType: UIImagePickerController.SourceType) -> UIImagePickerController{
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
-
+        self.present(imagePicker, animated: true)
         return imagePicker
     }
-
-
+    
 }
-

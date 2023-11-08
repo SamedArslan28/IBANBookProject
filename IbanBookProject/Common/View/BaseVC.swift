@@ -14,4 +14,5 @@ class BaseVC: UIViewController {
         navigationItem.title = title
     }
 
+
 }
