@@ -27,7 +27,7 @@ class MainVC: BaseVC {
         ibanList.setTitle("IBAN Defteri", for: .normal) 
         readIBANClicked.setTitle("IBAN Oku", for: .normal)
         setNavigationColor()
-        navigationItem.hidesBackButton = false
+        navigationItem.hidesBackButton = true
 
 
 
