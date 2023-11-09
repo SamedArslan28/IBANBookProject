@@ -16,24 +16,23 @@ final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.insetsContentViewsToSafeArea = false
-        tableView.frame = view.bounds
-
-
+        tableView.insetsContentViewsToSafeArea = true
+        view.backgroundColor = .appBackgroundColor
+        tableView.frame = view.bounds.inset(by: view.safeAreaInsets)
+        
 
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInsetAdjustmentBehavior = .always
-        tableView.tableFooterView = UIView(frame: .zero)
-
         tableView.register(UINib(nibName: "IbanCell", bundle: nil), forCellReuseIdentifier: "IbanCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         setNavigationTitle(title: "IBAN'lar")
+
+        tableView.backgroundColor = .appBackgroundColor
         view.addSubview(tableView)
 
     }
@@ -50,15 +49,25 @@ extension IbanListTableVC {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items[section].count
     }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
-
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         CGFloat(50)
     }
-    
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+
+        let label = UILabel()
+        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+        label.text = sections[section]
+        label.font = .appFont()
+        label.textColor = .black
+        headerView.backgroundColor = .appBackgroundColor
+        headerView.addSubview(label)
+
+        return headerView
+
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IbanCell", for: indexPath) as! IbanCell
