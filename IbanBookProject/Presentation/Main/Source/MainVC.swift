@@ -28,6 +28,7 @@ class MainVC: BaseVC {
         readIBANClicked.setTitle("IBAN Oku", for: .normal)
         setNavigationColor()
         navigationItem.hidesBackButton = false
+        navigationItem.hidesBackButton = false
 
 
 
