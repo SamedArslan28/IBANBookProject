@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5N-Un-UYW">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxE-fV-zLq">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="522.33333333333337"/>
@@ -148,13 +148,15 @@
         <scene sceneID="QAF-q2-p9P">
             <objects>
                 <viewController id="2JP-Eu-pK6" customClass="IbanListTableVC" customModule="IbanBookProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Q9g-9U-Fpv">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q9g-9U-Fpv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="V28-T4-cgq"/>
+                        <viewLayoutGuide key="safeArea" id="tFr-V7-jll"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="mRw-J5-nud"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZI-AL-SqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,19 +171,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyk-AK-sBg">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcq-4G-yEf">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="310.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="399"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-up-Hcd">
-                                                <rect key="frame" x="24" y="50" width="345" height="260.66666666666669"/>
+                                                <rect key="frame" x="24" y="50" width="345" height="349"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="TRR-xK-l9G">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="260.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="349"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-kl-9Sp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="160.66666666666666"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="249"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OuA-12-0DZ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="72.333333333333329"/>
@@ -229,15 +231,41 @@
                                                                             <constraint firstItem="8X3-zJ-zAk" firstAttribute="width" secondItem="uRt-C1-MbN" secondAttribute="width" id="v0D-HJ-wML"/>
                                                                         </constraints>
                                                                     </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-vN-MfW">
+                                                                        <rect key="frame" x="0.0" y="176.66666666666669" width="345" height="72.333333333333314"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-Gv-7c5">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="biQ-dQ-3lf" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="32.333333333333314" width="345" height="40"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="SSC-Ic-o0U"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="dVD-Gv-7c5" firstAttribute="width" secondItem="f1K-vN-MfW" secondAttribute="width" id="3uZ-fS-k4h"/>
+                                                                            <constraint firstItem="biQ-dQ-3lf" firstAttribute="width" secondItem="f1K-vN-MfW" secondAttribute="width" id="H3M-8J-0E5"/>
+                                                                        </constraints>
+                                                                    </stackView>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGq-dE-xtL" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="220.66666666666669" width="345" height="40"/>
+                                                                <rect key="frame" x="0.0" y="309" width="345" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="QaD-sT-dfD"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="saveButtonClicked:" destination="IfD-1V-Htc" eventType="touchUpInside" id="xs1-vb-F1e"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -280,6 +308,8 @@
                     <navigationItem key="navigationItem" id="T8O-aU-zd5"/>
                     <connections>
                         <outlet property="IBANNumberLabel" destination="8X3-zJ-zAk" id="iRd-bI-sNs"/>
+                        <outlet property="bankNameLabel" destination="dVD-Gv-7c5" id="G9Y-Bv-fFc"/>
+                        <outlet property="bankNameTextField" destination="biQ-dQ-3lf" id="OvR-S5-zWF"/>
                         <outlet property="ibanTextField" destination="qMq-Tz-xPV" id="1WK-vE-kyJ"/>
                         <outlet property="nameLabel" destination="aeZ-Db-rss" id="TJY-4G-hrn"/>
                         <outlet property="nameTextField" destination="8GT-uG-Vwh" id="Og6-Hy-xWG"/>
@@ -293,9 +323,9 @@
         <!--Navigation Controller-->
         <scene sceneID="xZA-YQ-pNX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BNA-lt-97k" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" hidesBarsOnSwipe="YES" id="BNA-lt-97k" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IQp-yJ-bpC">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="IQp-yJ-bpC">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

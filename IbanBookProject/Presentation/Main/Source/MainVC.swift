@@ -26,7 +26,9 @@ class MainVC: BaseVC {
         saveIban.setTitle("IBAN Kaydet", for: .normal)
         ibanList.setTitle("IBAN Defteri", for: .normal) 
         readIBANClicked.setTitle("IBAN Oku", for: .normal)
-    
+        setNavigationColor()
+        
+
 
 
 
