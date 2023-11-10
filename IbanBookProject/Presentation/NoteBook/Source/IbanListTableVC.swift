@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
+final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     private let sections = ["Favoriler", "Kayıtlı IBAN`larim"]
     private let items = [["Item 1", "Item 2", "Item 3"], ["Item 4", "Item 5", "Item 5", "Item 5","Item 5","Item 5","Item 5"]]
 
@@ -16,10 +16,12 @@ final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.insetsContentViewsToSafeArea = true
+
         view.backgroundColor = .appBackgroundColor
         tableView.frame = view.bounds.inset(by: view.safeAreaInsets)
-        
+        print(view.safeAreaInsets)
+        tableView.frame = CGRect(x: 0 , y: 96 , width: view.frame.width, height:view.frame.height-95)
+
 
     }
 
@@ -31,7 +33,6 @@ final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource 
         tableView.dataSource = self
         tableView.separatorStyle = .none
         setNavigationTitle(title: "IBAN'lar")
-
         tableView.backgroundColor = .appBackgroundColor
         view.addSubview(tableView)
 
@@ -57,7 +58,7 @@ extension IbanListTableVC {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
 
         let label = UILabel()
-        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+        label.frame = CGRect.init(x: 32, y: 0, width: headerView.frame.width-10, height: headerView.frame.height-10)
         label.text = sections[section]
         label.font = .appFont()
         label.textColor = .black
