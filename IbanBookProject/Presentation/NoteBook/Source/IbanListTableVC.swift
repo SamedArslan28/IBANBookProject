@@ -12,29 +12,36 @@ final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource,
     private let sections = ["Favoriler", "Kayıtlı IBAN`larim"]
     private let items = [["Item 1", "Item 2", "Item 3"], ["Item 4", "Item 5", "Item 5", "Item 5","Item 5","Item 5","Item 5"]]
 
-    private let tableView = UITableView()
-    
+
+
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        view.backgroundColor = .appBackgroundColor
-        tableView.frame = view.bounds.inset(by: view.safeAreaInsets)
-        print(view.safeAreaInsets)
-        tableView.frame = CGRect(x: 0 , y: 96 , width: view.frame.width, height:view.frame.height-95)
-
+     
 
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "IbanCell", bundle: nil), forCellReuseIdentifier: "IbanCell")
+
+        tableView.register(type: IbanCell.self, identifier: "IbanCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         setNavigationTitle(title: "IBAN'lar")
         tableView.backgroundColor = .appBackgroundColor
-        view.addSubview(tableView)
+        navigationController?.hidesBarsOnSwipe = false
+        view.backgroundColor = .appBackgroundColor
+
+
+        navigationController?.navigationBar.barTintColor = UIColor.appBackgroundColor
+        navigationController?.isToolbarHidden = true
+
+
+        // Change navigation bar title color
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
 
     }
 
@@ -54,6 +61,10 @@ extension IbanListTableVC {
         CGFloat(50)
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        sections[section]
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
 
@@ -63,15 +74,16 @@ extension IbanListTableVC {
         label.font = .appFont()
         label.textColor = .black
         headerView.backgroundColor = .appBackgroundColor
+
         headerView.addSubview(label)
 
         return headerView
 
     }
 
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IbanCell", for: indexPath) as! IbanCell
+        guard let cell = tableView.dequeue(withType: IbanCell.self, for: indexPath) as? IbanCell else{ return UITableViewCell() }
         let item = items[indexPath.section][indexPath.row]
 
         // Configure the cell with the item
