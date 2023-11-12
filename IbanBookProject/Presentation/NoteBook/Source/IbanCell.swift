@@ -24,6 +24,6 @@ class IbanCell: UITableViewCell {
         itemContainerView.layer.borderWidth = 1
         itemContainerView.layer.backgroundColor = UIColor.appBackgroundColor.cgColor
         itemContainerView.clipsToBounds = true
-//        backgroundColor = .appBackgroundColor
+
     }
 }

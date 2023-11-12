@@ -32,16 +32,11 @@ final class IbanListTableVC: BaseVC, UITableViewDelegate, UITableViewDataSource,
         tableView.separatorStyle = .none
         setNavigationTitle(title: "IBAN'lar")
         tableView.backgroundColor = .appBackgroundColor
+        
         navigationController?.hidesBarsOnSwipe = false
         view.backgroundColor = .appBackgroundColor
-
-
         navigationController?.navigationBar.barTintColor = UIColor.appBackgroundColor
         navigationController?.isToolbarHidden = true
-
-
-        // Change navigation bar title color
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
 
     }
 
@@ -58,7 +53,7 @@ extension IbanListTableVC {
         return items[section].count
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        CGFloat(50)
+        CGFloat(30)
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -66,10 +61,10 @@ extension IbanListTableVC {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 30))
 
         let label = UILabel()
-        label.frame = CGRect.init(x: 32, y: 0, width: headerView.frame.width-10, height: headerView.frame.height-10)
+        label.frame = CGRect.init(x: 32, y: 0, width: headerView.frame.width-10, height: headerView.frame.height)
         label.text = sections[section]
         label.font = .appFont()
         label.textColor = .black

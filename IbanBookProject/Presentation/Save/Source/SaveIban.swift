@@ -23,7 +23,9 @@ final class SaveIBAN: BaseVC {
    
 
     @IBAction func saveButtonClicked(_ sender: BaseButton) {
-        
+        let newItem = IbanModel(ibanNumber: ibanTextField.text!, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
+        print(newItem.itemId)
+        print(newItem.isFav)
         
     }
     // MARK: - LifeCycle

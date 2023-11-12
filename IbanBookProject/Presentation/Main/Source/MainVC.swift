@@ -9,7 +9,6 @@ import UIKit
 
 class MainVC: BaseVC {
     @IBOutlet weak var descriptionLabel: BaseLabel!
-    
     @IBOutlet weak var saveIban: BaseButton!
     @IBOutlet weak var ibanList: BaseButton!
     @IBOutlet weak var readIBANClicked: BaseButton!
@@ -19,7 +18,6 @@ class MainVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         descriptionLabel.text = "Iban Defteri uygulaması sayesinde Iban`larınızı telefon kameranızla ya da galerinizdeki resimden okuyabilirsiniz. \n\n Aynı zamanda Iban'ları kolayca kaydedebilir ve yakınlarınızla paylaşabilirsiniz."
 
@@ -28,12 +26,6 @@ class MainVC: BaseVC {
         readIBANClicked.setTitle("IBAN Oku", for: .normal)
         setNavigationColor()
         navigationItem.hidesBackButton = false
-
-
-
-
-
-
     }
 
 
