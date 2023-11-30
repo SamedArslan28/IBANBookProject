@@ -25,6 +25,7 @@ class MainVC: BaseVC {
         ibanList.setTitle("IBAN Defteri", for: .normal) 
         readIBANClicked.setTitle("IBAN Oku", for: .normal)
         setNavigationColor()
+        imagePickerItem.delegate = self
         navigationItem.hidesBackButton = false
     }
 
@@ -52,13 +53,4 @@ class MainVC: BaseVC {
 }
 
 
-extension UIViewController: UIImagePickerControllerDelegate{
 
-    func imagePicker(sourceType: UIImagePickerController.SourceType) -> UIImagePickerController{
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = sourceType
-        self.present(imagePicker, animated: true)
-        return imagePicker
-    }
-    
-}
