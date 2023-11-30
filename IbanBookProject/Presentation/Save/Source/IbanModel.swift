@@ -8,13 +8,13 @@
 import Foundation
 
 
-class IbanModel: Codable {
+final class IbanModel: Codable {
    
     var itemId: String
     var ibanNumber: String
     var bankName: String
     var ibanName: String
-    var isFav: Bool = false
+    var isFav: Bool = true
     
     init(ibanNumber: String, bankName: String, ibanName: String) {
         self.itemId = IbanModel.randomString()

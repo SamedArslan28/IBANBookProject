@@ -30,7 +30,7 @@
 		617ACF812AF9154400016949 /* SaveIban.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617ACF802AF9154400016949 /* SaveIban.swift */; };
 		6191883C2AFA92FE006A9E0D /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */; };
 		61EA012E2AFFBA6C00952312 /* IbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EA012D2AFFBA6C00952312 /* IbanModel.swift */; };
-		61F135282B1896F60029174F /* ImagePickerExstenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F135272B1896F60029174F /* ImagePickerExstenstions.swift */; };
+		61F135282B1896F60029174F /* ImagePickerExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F135272B1896F60029174F /* ImagePickerExtenstions.swift */; };
 		61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF96E02AF92F1F00083069 /* FontExtenstions.swift */; };
 		DD78B7A97BF908EFFC5920E5 /* Pods_IbanBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C128F891A6146C325D7400E /* Pods_IbanBookProject.framework */; };
 /* End PBXBuildFile section */
@@ -82,7 +82,7 @@
 		617ACF802AF9154400016949 /* SaveIban.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIban.swift; sourceTree = "<group>"; };
 		6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
 		61EA012D2AFFBA6C00952312 /* IbanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanModel.swift; sourceTree = "<group>"; };
-		61F135272B1896F60029174F /* ImagePickerExstenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerExstenstions.swift; sourceTree = "<group>"; };
+		61F135272B1896F60029174F /* ImagePickerExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerExtenstions.swift; sourceTree = "<group>"; };
 		61FF96E02AF92F1F00083069 /* FontExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtenstions.swift; sourceTree = "<group>"; };
 		7936F872A5A8FD4B3B34189E /* Pods-IbanBookProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.release.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,7 +227,7 @@
 				61361AF52AF45573003A93D9 /* ColorExtension.swift */,
 				61FF96E02AF92F1F00083069 /* FontExtenstions.swift */,
 				6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */,
-				61F135272B1896F60029174F /* ImagePickerExstenstions.swift */,
+				61F135272B1896F60029174F /* ImagePickerExtenstions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61F135282B1896F60029174F /* ImagePickerExstenstions.swift in Sources */,
+				61F135282B1896F60029174F /* ImagePickerExtenstions.swift in Sources */,
 				61EA012E2AFFBA6C00952312 /* IbanModel.swift in Sources */,
 				612C59262AEBF37600A6E997 /* BaseTextField.swift in Sources */,
 				612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */,

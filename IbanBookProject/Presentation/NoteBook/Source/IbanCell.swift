@@ -13,6 +13,8 @@ class IbanCell: UITableViewCell {
     @IBOutlet weak var ibanLabel: UILabel!
     
     
+    
+    
     @IBOutlet weak var itemContainerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,7 @@ class IbanCell: UITableViewCell {
         itemContainerView.layer.borderWidth = 1
         itemContainerView.layer.backgroundColor = UIColor.appBackgroundColor.cgColor
         itemContainerView.clipsToBounds = true
+        
 
     }
 }
