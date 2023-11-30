@@ -33,7 +33,7 @@ final class SaveIBAN: BaseVC {
         
         let newItem = IbanModel(ibanNumber: ibanTextField.text!, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
         print(newItem.itemId)
-        print(newItem.isFav)
+        print(newItem.isFavorite)
         
         
         

@@ -10,9 +10,9 @@ import UIKit
 
 final class BaseLabel: UILabel {
 
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {

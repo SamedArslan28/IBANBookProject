@@ -7,15 +7,24 @@
 
 import UIKit
 
-class IbanCell: UITableViewCell {
+final class IbanCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ibanLabel: UILabel!
+    // MARK: - OUTLET
     
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var ibanLabel: UILabel!
+    @IBOutlet private weak var itemContainerView: UIView!
     
+    // MARK: - PROPERTIES
     
+    var viewModel: IbanCellVM? {
+        didSet {
+            prepareUI()
+        }
+    }
     
-    @IBOutlet weak var itemContainerView: UIView!
+    // MARK: - LIFE CYCLE
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +35,11 @@ class IbanCell: UITableViewCell {
         itemContainerView.layer.borderWidth = 1
         itemContainerView.layer.backgroundColor = UIColor.appBackgroundColor.cgColor
         itemContainerView.clipsToBounds = true
-        
-
+    }
+    
+    private func prepareUI() {
+        guard let viewModel else { return }
+        nameLabel.text = viewModel.ibanName
+        ibanLabel.text = viewModel.iban
     }
 }

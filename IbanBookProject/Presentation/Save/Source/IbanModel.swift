@@ -7,21 +7,20 @@
 
 import Foundation
 
-
 final class IbanModel: Codable {
    
-    var itemId: String
-    var ibanNumber: String
-    var bankName: String
-    var ibanName: String
-    var isFav: Bool = true
+    var itemId: String = ""
+    var ibanNumber: String = ""
+    var bankName: String = ""
+    var ibanName: String = ""
+    var isFavorite: Bool = false
     
-    init(ibanNumber: String, bankName: String, ibanName: String) {
+    init(ibanNumber: String, bankName: String, ibanName: String, isFavorite: Bool = false) {
         self.itemId = IbanModel.randomString()
         self.ibanNumber = ibanNumber
         self.bankName = bankName
         self.ibanName = ibanName
-     
+        self.isFavorite = isFavorite
     }
     
     static func randomString(length: Int = 20) -> String {
@@ -34,7 +33,4 @@ final class IbanModel: Codable {
         }
         return randomString
     }
-    
-   
-    
 }
