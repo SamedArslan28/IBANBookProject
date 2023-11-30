@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBw-IF6fvBiyCr8wWIU5O83kANGFWz1ca4</string>
+	<string>AIzaSyCFly8Z_MREmfEjRRugmaHwfTwyyBMyLus</string>
 	<key>GCM_SENDER_ID</key>
-	<string>436182649195</string>
+	<string>717205457214</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.samedgokhan.IbanBookProject</string>
+	<string>com.stajOkulu.IbanBookProject</string>
 	<key>PROJECT_ID</key>
-	<string>ibanbookproject</string>
+	<string>ibanbookproject-32f0a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ibanbookproject.appspot.com</string>
+	<string>ibanbookproject-32f0a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:436182649195:ios:cfd56e83faeb33d28e242e</string>
+	<string>1:717205457214:ios:c7bc30e24f2393e8aa046f</string>
 </dict>
 </plist>
