@@ -13,8 +13,11 @@ import MLKitTextRecognition
 
 
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // Check if an image is selected
+    
+         // Check if an image is selected
         if let pickedImage = info[.originalImage] as? UIImage {
             // Use the pickedImage as needed, such as displaying it in an imageView
             // For example, you can set it to an imageView named ibanImageView
@@ -35,11 +38,15 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                     for line in block.lines {
                         let lineText = line.text
                         if lineText.isIban() {
-                            print(lineText)
+                            let foundIban = lineText.extractIban()
+                            self.foundIbans.append(foundIban!)
+                            
+                            
                         }
                     
                     }
                 }
+                print(self.foundIbans)
             }
             
             // Dismiss the image picker

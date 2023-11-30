@@ -14,6 +14,7 @@ class MainVC: BaseVC {
     @IBOutlet weak var readIBANClicked: BaseButton!
 
     let imagePickerItem = UIImagePickerController()
+    var foundIbans = [String]()
 
 
     override func viewDidLoad() {
