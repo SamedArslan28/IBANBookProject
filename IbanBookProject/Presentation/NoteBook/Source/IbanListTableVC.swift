@@ -56,7 +56,6 @@ extension IbanListTableVC: UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
         let label = BaseLabel(frame: CGRect(x: 32, y: 0, width: headerView.frame.width - 10, height: headerView.frame.height))
         label.text = viewModel.titleHeader(in: section)
-        
         headerView.backgroundColor = .appBackgroundColor
         headerView.addSubview(label)
         return headerView
