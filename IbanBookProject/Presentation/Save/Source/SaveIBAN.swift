@@ -10,6 +10,11 @@ import UIKit
 
 final class SaveIBAN: BaseVC {
     
+    // MARK: - PROPERTIES
+    
+    var viewModel = SaveIbanVM()
+    var ibanList = [IbanModel]()
+    
     // MARK: - Outlets
     
     @IBOutlet private weak var IBANNumberLabel: UILabel!
@@ -20,29 +25,20 @@ final class SaveIBAN: BaseVC {
     @IBOutlet weak var ibanTextField: BaseTextField!
     @IBOutlet weak var bankNameTextField: BaseTextField!
     
-    @IBAction func saveButtonClicked(_ sender: BaseButton) {
-        
-        let newItem = IbanModel(ibanNumber: ibanTextField.text!, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
-        ibanList.append(newItem)
-        viewModel.saveIban(ibanList: ibanList)
-        
-    }
-    // MARK: - PROPERTIES
     
-    private let viewModel = SaveIbanVM()
-    var ibanList = [IbanModel]()
     
     // MARK: - LifeCycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setNavigationTitle(title: "IBAN Kaydet")
-    }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        ibanList = viewModel.getIbanList()
+        setupUI()
+    }
+    
+    
+    // MARK: - FUNCTIONS
+    
+    private func setupUI() {
+        setNavigationTitle(title: "IBAN Kaydet")
         IBANNumberLabel.text = viewModel.IBANNumberLabelText
         nameLabel.text = viewModel.nameLabelText
         bankNameLabel.text = viewModel.bankNameLabelText
@@ -50,6 +46,20 @@ final class SaveIBAN: BaseVC {
         nameTextField.placeholder = viewModel.nameTextFieldPlaceholder
         ibanTextField.placeholder = viewModel.ibanTextFieldPlaceholder
         bankNameTextField.placeholder = viewModel.bankNameTextFieldPlaceholder
+        ibanList = viewModel.getIbanList()
+        
+    }
+    
+    @IBAction func saveButtonClicked(_ sender: BaseButton) {
+        
+        guard let ibanText = ibanTextField.text, ibanText.isIban() else {
+            print("Invalid IBAN or missing IBAN text")
+            return
+        }
+        let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
+        ibanList.append(newItem)
+        viewModel.saveIban(ibanList: ibanList)
+        
     }
     
 }
