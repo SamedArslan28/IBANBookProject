@@ -32,7 +32,12 @@ final class MainMV{
     
     // MARK: - FUNCTIONS
     
-    func handlePhotoSourceSelection(sourceType: UIImagePickerController.SourceType, viewController: MainVC) {
+    enum SourceType {
+        case camera
+        case photoLibrary
+    }
+    
+    func handlePhotoSourceSelection(sourceType: SourceType, viewController: MainVC) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = viewController
         
@@ -41,8 +46,7 @@ final class MainMV{
             imagePicker.sourceType = .camera
         case .photoLibrary:
             imagePicker.sourceType = .photoLibrary
-        default:
-            break
+        
         }
         
         viewController.present(imagePicker, animated: true)
