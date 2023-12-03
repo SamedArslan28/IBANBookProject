@@ -15,9 +15,9 @@ import MLKitTextRecognition
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    
-         // Check if an image is selected
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Check if an image is selected
         if let pickedImage = info[.originalImage] as? UIImage {
             // Use the pickedImage as needed, such as displaying it in an imageView
             // For example, you can set it to an imageView named ibanImageView
@@ -25,6 +25,7 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
             
             let latinOptions = TextRecognizerOptions()
             let latinTextRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
+            var ibanFound = false
             
             latinTextRecognizer.process(visionImage) { result, error in
                 guard error == nil, let result = result else {
@@ -34,27 +35,58 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                 }
                 
                 // Process the recognized text
-              
+                
+                guard !result.blocks.isEmpty else {
+                    // Display an error message
+                    let alertController = UIAlertController(title: "Dismiss Alert", message: "This is a dismiss-only alert", preferredStyle: .alert)
+                    
+                    let dismissAction = UIAlertAction(title: "Dismiss", style: .default) { _ in
+                        // Handle any action you want to perform when the dismiss button is tapped
+                        print("Dismiss button tapped")
+                    }
+                    
+                    alertController.addAction(dismissAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    // You can show an alert or update the UI to inform the user about the error
+                    return
+                }
+                
                 for block in result.blocks {
                     for line in block.lines {
                         let lineText = line.text
                         if lineText.isIban() {
                             let foundIban = lineText.extractIban()
                             self.foundIbans.append(foundIban!)
+                            ibanFound = true
                             
                             
                         }
-                    
+                        
                     }
                 }
-                print(self.foundIbans)
+                if !ibanFound {
+                    // Display an error message
+                    let alertController = UIAlertController(title: "Dismiss Alert", message: "This is a dismiss-only alert", preferredStyle: .alert)
+                    
+                    let dismissAction = UIAlertAction(title: "Dismiss", style: .default) { _ in
+                        // Handle any action you want to perform when the dismiss button is tapped
+                        print("Dismiss button tapped")
+                    }
+                        // You can show an alert or update the UI to inform the user about the error
+                        alertController.addAction(dismissAction)
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    
+                    
+                }
+                
+                // Dismiss the image picker
+                
             }
             
-            // Dismiss the image picker
-            
+            picker.dismiss(animated: true, completion: nil)
         }
         
-        picker.dismiss(animated: true, completion: nil)
     }
-    
 }
