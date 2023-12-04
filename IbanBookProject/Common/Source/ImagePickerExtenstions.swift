@@ -38,9 +38,9 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                 
                 guard !result.blocks.isEmpty else {
                     // Display an error message
-                    let alertController = UIAlertController(title: "Dismiss Alert", message: "This is a dismiss-only alert", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Herhangi bir IBAN bulunmadi", message: "Lutfen IBAN iceren bir resim seciniz", preferredStyle: .alert)
                     
-                    let dismissAction = UIAlertAction(title: "Dismiss", style: .default) { _ in
+                    let dismissAction = UIAlertAction(title: "Tamam", style: .default) { _ in
                         // Handle any action you want to perform when the dismiss button is tapped
                         print("Dismiss button tapped")
                     }
@@ -59,19 +59,17 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                             let foundIban = lineText.extractIban()
                             self.foundIbans.append(foundIban!)
                             ibanFound = true
-                            
-                            
                         }
                         
                     }
                 }
                 if !ibanFound {
                     // Display an error message
-                    let alertController = UIAlertController(title: "Dismiss Alert", message: "This is a dismiss-only alert", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "IBAN bulunamadi", message: "Lutfen baska bir fotograf seciniz", preferredStyle: .alert)
                     
-                    let dismissAction = UIAlertAction(title: "Dismiss", style: .default) { _ in
+                    let dismissAction = UIAlertAction(title: "Tamam", style: .default) { _ in
                         // Handle any action you want to perform when the dismiss button is tapped
-                        print("Dismiss button tapped")
+                        
                     }
                         // You can show an alert or update the UI to inform the user about the error
                         alertController.addAction(dismissAction)

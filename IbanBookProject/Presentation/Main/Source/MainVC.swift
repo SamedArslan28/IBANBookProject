@@ -24,8 +24,9 @@ final class MainVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        imagePickerItem.delegate = self
         setupUI()
-       
+        prepareUI()
     }
 
     // MARK: - FUNCTIONS
@@ -51,8 +52,12 @@ final class MainVC: BaseVC {
         saveIban.setTitle(viewModel.saveIbanButtonTitle, for: .normal)
         ibanList.setTitle(viewModel.ibanListButtonTitle, for: .normal)
         readIBANClicked.setTitle(viewModel.readIbanButtonTitle, for: .normal)
+        
+    
+    }
+    
+    private func prepareUI(){
         setNavigationColor()
-        imagePickerItem.delegate = self
         navigationItem.hidesBackButton = false
     }
 }

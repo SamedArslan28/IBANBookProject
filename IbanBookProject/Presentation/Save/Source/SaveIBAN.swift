@@ -32,13 +32,13 @@ final class SaveIBAN: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        prepareUI()
     }
     
     
     // MARK: - FUNCTIONS
     
     private func setupUI() {
-        setNavigationTitle(title: "IBAN Kaydet")
         IBANNumberLabel.text = viewModel.IBANNumberLabelText
         nameLabel.text = viewModel.nameLabelText
         bankNameLabel.text = viewModel.bankNameLabelText
@@ -47,13 +47,27 @@ final class SaveIBAN: BaseVC {
         ibanTextField.placeholder = viewModel.ibanTextFieldPlaceholder
         bankNameTextField.placeholder = viewModel.bankNameTextFieldPlaceholder
         ibanList = viewModel.getIbanList()
+       
         
+    }
+    private func prepareUI(){
+        setNavigationTitle(title: "IBAN Kaydet")
     }
     
     @IBAction func saveButtonClicked(_ sender: BaseButton) {
         
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            print("Invalid IBAN or missing IBAN text")
+            
+            let alertController = UIAlertController(title: "IBAN dogru degil", message: "IBAN numarasini kontrol edin", preferredStyle: .alert)
+            
+            let dismissAction = UIAlertAction(title: "Tamam", style: .default) { _ in
+                // Handle any action you want to perform when the dismiss button is tapped
+                
+            }
+            // You can show an alert or update the UI to inform the user about the error
+            alertController.addAction(dismissAction)
+            
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
