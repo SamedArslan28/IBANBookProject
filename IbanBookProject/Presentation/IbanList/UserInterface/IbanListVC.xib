@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IbanListVC" customModule="IbanBookProject" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="6Gz-ab-PgF" id="BNt-Do-0b5"/>
-                <outlet property="view" destination="pTy-KS-zQa" id="7qV-DP-dh3"/>
+                <outlet property="view" destination="pTy-KS-zQa" id="f3P-hQ-LOF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,6 +24,10 @@
                     <rect key="frame" x="0.0" y="68" width="393" height="715"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="hkE-7A-udQ"/>
+                        <outlet property="delegate" destination="-1" id="rQM-ba-Afm"/>
+                    </connections>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="drv-wh-sa4"/>

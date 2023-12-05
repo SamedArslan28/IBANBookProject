@@ -14,13 +14,14 @@ final class MainVC: BaseVC {
     @IBOutlet weak var saveIban: BaseButton!
     @IBOutlet weak var ibanList: BaseButton!
     @IBOutlet weak var readIBANClicked: BaseButton!
-
+    
     // MARK: - PROPERTIES
     let imagePickerItem = UIImagePickerController()
     let viewModel = MainMV()
     var foundIbans = [String]()
-
+    
     // MARK: - LIFECYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,19 +29,8 @@ final class MainVC: BaseVC {
         setupUI()
         prepareUI()
     }
-
-    // MARK: - FUNCTIONS
-    @IBAction func selectPhotoSource(_ sender: BaseButton) {
-        let alert = UIAlertController(title: "Kaynak Seciniz", message: "Iban nereden okunacak ?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Kamera", style: .default , handler:{ _ in
-            self.viewModel.handlePhotoSourceSelection(sourceType: .camera, viewController: self)
-        }))
-        alert.addAction(UIAlertAction(title: "Fotograflar", style: .default , handler:{ _ in
-            self.viewModel.handlePhotoSourceSelection(sourceType: .photoLibrary, viewController: self)
-        }))
-        alert.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
-        present(alert, animated: true)
-    }
+    
+    // MARK: - PRIVATE FUNCTIONS
     
     private func setupUI(){
         descriptionLabel.text = viewModel.descriptionLabelText
@@ -54,13 +44,28 @@ final class MainVC: BaseVC {
         navigationItem.hidesBackButton = false
     }
     
-    @IBAction func ibanListTapped(_ sender: Any) {
+    // MARK: - IBACTIONS
+    
+    @IBAction private func ibanListTapped(_ sender: Any) {
         let viewController = IbanListVC(nibName: "IbanListVC", bundle: Bundle.main)
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
     @IBAction private func saveIbanTapped(_ sender: Any) {
         let viewController = SaveIbanVC(nibName: "SaveIbanVC", bundle: Bundle.main)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @IBAction private func selectPhotoSource(_ sender: BaseButton) {
+        let alert = UIAlertController(title: "Kaynak Seciniz", message: "Iban nereden okunacak ?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Kamera", style: .default , handler:{ _ in
+            self.viewModel.handlePhotoSourceSelection(sourceType: .camera, viewController: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Fotograflar", style: .default , handler:{ _ in
+            self.viewModel.handlePhotoSourceSelection(sourceType: .photoLibrary, viewController: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
+        present(alert, animated: true)
     }
 }
 

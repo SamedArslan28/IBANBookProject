@@ -12,7 +12,7 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate {
     
     // MARK: - OUTLETS
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - PROPERTIES
     
@@ -23,9 +23,10 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-     
     }
+    
     // MARK: - FUNCTIONS
+    
     private func setupUI(){
         navigationController?.hidesBarsOnSwipe = false
         view.backgroundColor = .appBackgroundColor
@@ -38,23 +39,24 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate {
         tableView.backgroundColor = .appBackgroundColor
         tableView.register(type: IbanCell.self, identifier: "IbanCell")
     }
-    
-
 }
 
 
 // MARK: - TABLEVIEW EXTENSIONS
+
 extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows(in: section)
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         viewModel.titleHeader(in: section)
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         30.0
     }

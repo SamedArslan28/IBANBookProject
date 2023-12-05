@@ -11,11 +11,7 @@ final class SaveIbanVM{
     
 
     // MARK: - PROPERTIES
-    
-    var IBANNumberLabelText: String {
-        return "IBAN"
-    }
-    
+        
     var nameLabelText: String {
         return "Ad Soyad"
     }
@@ -40,50 +36,36 @@ final class SaveIbanVM{
         return "Banka Adı"
     }
     
-    
     // MARK: - PRIVATE PROPERTIES
     
-    private var userDefaults = UserDefaults.standard
     private var ibanList = [IbanModel]()
-    
     
     // MARK: - METHODS
     
     func saveIban(ibanList: [IbanModel]) {
-        do {
-            // Create JSON Encoder
-            let encoder = JSONEncoder()
-            
-            // Encode IbanModel list
-            let data = try encoder.encode(ibanList)
-            
-            // Write/Set Data
-            userDefaults.set(data, forKey: "ibans")
-            
-        } catch {
-            print("Unable to Encode IbanModel list (\(error))")
-        }
-        
+        let encoder = JSONEncoder()
+        guard let data = try? encoder.encode(ibanList) else { return }
+        CacheManager.shared.setObject(data, key: "ibans")
+    }
+    
+    func getIbanList() -> [IbanModel]? {
+        let decoder = JSONDecoder()
+        guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return nil }
+        return try? decoder.decode([IbanModel].self, from: ibans)
+    }
+}
+
+final class CacheManager {
+    static let shared = CacheManager()
+    private init() { }
+    private var userDefaults = UserDefaults.standard
+
+    func setObject(_ value: Any?, key: String) {
+        userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
     
-    func getIbanList() -> [IbanModel] {
-        
-        if let savedList = userDefaults.data(forKey: "ibans") {
-            do {
-                // Create JSON Decoder
-                let decoder = JSONDecoder()
-                
-                // Decode IbanModel list
-                ibanList = try decoder.decode([IbanModel].self, from: savedList)
-                
-            } catch {
-                print("Unable to Decode IbanModel list (\(error))")
-            }
-        }
-        
-        return ibanList
+    func getObject(key: String) -> Data? {
+        return userDefaults.data(forKey: key)
     }
-    
-    
 }

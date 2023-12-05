@@ -37,25 +37,25 @@ final class SaveIbanVC: BaseVC {
     
     
     // MARK: - FUNCTIONS
+    
     // Settings for ui componenets
     private func setupUI() {
-        IBANNumberLabel.text = viewModel.IBANNumberLabelText
+        IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
         nameLabel.text = viewModel.nameLabelText
         bankNameLabel.text = viewModel.bankNameLabelText
         saveButton.setTitle("Kaydet", for: .normal)
         nameTextField.placeholder = viewModel.nameTextFieldPlaceholder
         ibanTextField.placeholder = viewModel.ibanTextFieldPlaceholder
         bankNameTextField.placeholder = viewModel.bankNameTextFieldPlaceholder
-        ibanList = viewModel.getIbanList()
-       
-        
+        ibanList = viewModel.getIbanList() ?? []
     }
+    
     // settings for ui
     private func prepareUI(){
         setNavigationTitle(title: "IBAN Kaydet")
     }
     
-    @IBAction func saveButtonClicked(_ sender: BaseButton) {
+    @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
             
