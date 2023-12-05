@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class IbanListTableVC: BaseVC, UINavigationControllerDelegate {
+final class IbanListVC: BaseVC, UINavigationControllerDelegate {
     
     // MARK: - OUTLETS
     
@@ -44,7 +44,7 @@ final class IbanListTableVC: BaseVC, UINavigationControllerDelegate {
 
 
 // MARK: - TABLEVIEW EXTENSIONS
-extension IbanListTableVC: UITableViewDelegate, UITableViewDataSource {
+extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection

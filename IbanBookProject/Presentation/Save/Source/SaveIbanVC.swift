@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class SaveIBAN: BaseVC {
+final class SaveIbanVC: BaseVC {
     
     // MARK: - PROPERTIES
     
@@ -37,7 +37,7 @@ final class SaveIBAN: BaseVC {
     
     
     // MARK: - FUNCTIONS
-    
+    // Settings for ui componenets
     private func setupUI() {
         IBANNumberLabel.text = viewModel.IBANNumberLabelText
         nameLabel.text = viewModel.nameLabelText
@@ -50,6 +50,7 @@ final class SaveIBAN: BaseVC {
        
         
     }
+    // settings for ui
     private func prepareUI(){
         setNavigationTitle(title: "IBAN Kaydet")
     }
