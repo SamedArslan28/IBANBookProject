@@ -1,2 +1,2 @@
-# AyBenAPP
+# IBANBookProject
 Swift IBAN defteri projesi
