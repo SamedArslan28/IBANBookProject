@@ -18,30 +18,41 @@ final class MainVC: BaseVC {
     // MARK: - PROPERTIES
     let imagePickerItem = UIImagePickerController()
     let viewModel = MainMV()
-    var foundIbans = [String]()
     
     // MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        imagePickerItem.delegate = self
         setupUI()
-        prepareUI()
     }
     
     // MARK: - PRIVATE FUNCTIONS
     
     private func setupUI(){
-        descriptionLabel.text = viewModel.descriptionLabelText
-        saveIban.setTitle(viewModel.saveIbanButtonTitle, for: .normal)
-        ibanList.setTitle(viewModel.ibanListButtonTitle, for: .normal)
-        readIBANClicked.setTitle(viewModel.readIbanButtonTitle, for: .normal)
-    }
-    
-    private func prepareUI(){
+        descriptionLabel.text = MainConstants.descriptionLabelText
+        saveIban.setTitle(MainConstants.saveIbanButtonTitle, for: .normal)
+        ibanList.setTitle(MainConstants.ibanListButtonTitle, for: .normal)
+        readIBANClicked.setTitle(MainConstants.readIbanButtonTitle, for: .normal)
         setNavigationColor()
         navigationItem.hidesBackButton = false
+        imagePickerItem.delegate = self
+    }
+    
+    func handlePhotoSourceSelection(sourceType: UIImagePickerController.SourceType, viewController: MainVC) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = viewController
+        switch sourceType {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        case .savedPhotosAlbum: 
+            break
+        default:
+            break
+        }
+        viewController.present(imagePicker, animated: true)
     }
     
     // MARK: - IBACTIONS
@@ -59,10 +70,10 @@ final class MainVC: BaseVC {
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {
         let alert = UIAlertController(title: "Kaynak Seciniz", message: "Iban nereden okunacak ?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Kamera", style: .default , handler:{ _ in
-            self.viewModel.handlePhotoSourceSelection(sourceType: .camera, viewController: self)
+            self.handlePhotoSourceSelection(sourceType: .camera, viewController: self)
         }))
         alert.addAction(UIAlertAction(title: "Fotograflar", style: .default , handler:{ _ in
-            self.viewModel.handlePhotoSourceSelection(sourceType: .photoLibrary, viewController: self)
+            self.handlePhotoSourceSelection(sourceType: .photoLibrary, viewController: self)
         }))
         alert.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
         present(alert, animated: true)

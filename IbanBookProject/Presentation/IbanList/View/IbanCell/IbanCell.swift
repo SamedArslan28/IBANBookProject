@@ -11,6 +11,10 @@ final class IbanCell: UITableViewCell {
 
     // MARK: - OUTLET
     
+    @IBOutlet private weak var favoriteButton: UIButton!
+    @IBOutlet private weak var bankLabel: UILabel!
+    @IBOutlet private weak var shareButton: UIButton!
+    @IBOutlet private weak var copyButton: UIButton!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var ibanLabel: UILabel!
     @IBOutlet private weak var itemContainerView: UIView!
@@ -41,5 +45,9 @@ final class IbanCell: UITableViewCell {
         guard let viewModel else { return }
         nameLabel.text = viewModel.ibanName
         ibanLabel.text = viewModel.iban
+        bankLabel.text = viewModel.bankName
+        shareButton.titleLabel?.isHidden = true
+        favoriteButton.titleLabel?.isHidden = true
+        copyButton.titleLabel?.isHidden = true
     }
 }

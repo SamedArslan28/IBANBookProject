@@ -9,33 +9,6 @@ import Foundation
 
 final class SaveIbanVM{
     
-
-    // MARK: - PROPERTIES
-        
-    var nameLabelText: String {
-        return "Ad Soyad"
-    }
-    
-    var bankNameLabelText: String {
-        return "Banka Adı"
-    }
-    
-    var saveButtonTitle: String {
-        return "Kaydet"
-    }
-    
-    var nameTextFieldPlaceholder: String {
-        return "Ad Soyad"
-    }
-    
-    var ibanTextFieldPlaceholder: String {
-        return "TR00 0000 0000 0000 0000 0000 00"
-    }
-    
-    var bankNameTextFieldPlaceholder: String {
-        return "Banka Adı"
-    }
-    
     // MARK: - PRIVATE PROPERTIES
     
     private var ibanList = [IbanModel]()

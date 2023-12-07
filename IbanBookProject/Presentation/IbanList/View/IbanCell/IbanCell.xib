@@ -96,7 +96,6 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
                                                     <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="medium"/>
-                                                    <attributedString key="attributedTitle"/>
                                                 </buttonConfiguration>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnV-3I-zY9">
@@ -139,9 +138,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bankLabel" destination="ZhX-in-9Hg" id="CZf-0I-bT6"/>
+                <outlet property="copyButton" destination="lnV-3I-zY9" id="hl9-2r-QTP"/>
+                <outlet property="favoriteButton" destination="rsF-7T-LSn" id="Orb-ch-27v"/>
                 <outlet property="ibanLabel" destination="zQS-43-msX" id="eEu-NR-Mvg"/>
                 <outlet property="itemContainerView" destination="NLq-Mh-GjK" id="YjF-OO-kff"/>
                 <outlet property="nameLabel" destination="Fkv-af-Cu0" id="vbj-O6-52F"/>
+                <outlet property="shareButton" destination="AGI-tb-S3O" id="ix6-wP-1iS"/>
             </connections>
             <point key="canvasLocation" x="168" y="35"/>
         </tableViewCell>

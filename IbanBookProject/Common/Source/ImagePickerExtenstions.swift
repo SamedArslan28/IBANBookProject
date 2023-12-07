@@ -22,11 +22,9 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
             // Use the pickedImage as needed, such as displaying it in an imageView
             // For example, you can set it to an imageView named ibanImageView
             let visionImage = VisionImage(image: pickedImage)
-            
             let latinOptions = TextRecognizerOptions()
             let latinTextRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
             var ibanFound = false
-            
             latinTextRecognizer.process(visionImage) { result, error in
                 guard error == nil, let result = result else {
                     // Handle the error
@@ -57,7 +55,7 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                         let lineText = line.text
                         if lineText.isIban() {
                             let foundIban = lineText.extractIban()
-                            self.foundIbans.append(foundIban!)
+                            print(foundIban!)
                             ibanFound = true
                         }
                         

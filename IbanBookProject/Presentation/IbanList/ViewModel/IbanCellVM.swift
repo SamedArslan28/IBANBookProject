@@ -12,6 +12,7 @@ struct IbanCellVM {
     
     var iban: String { ibanModel.ibanNumber }
     var ibanName: String { ibanModel.ibanName }
+    var bankName: String { ibanModel.bankName }
     
     init(ibanModel: IbanModel) {
         self.ibanModel = ibanModel
