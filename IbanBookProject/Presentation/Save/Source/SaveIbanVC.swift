@@ -51,7 +51,6 @@ final class SaveIbanVC: BaseVC {
     }
     
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
-        
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
             let alertController = UIAlertController(title: "IBAN dogru degil", message: "IBAN numarasini kontrol edin", preferredStyle: .alert)
             let dismissAction = UIAlertAction(title: "Tamam", style: .cancel)
@@ -65,5 +64,4 @@ final class SaveIbanVC: BaseVC {
         let viewController = IbanListVC(nibName: "IbanListVC", bundle: Bundle.main)
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
 }
