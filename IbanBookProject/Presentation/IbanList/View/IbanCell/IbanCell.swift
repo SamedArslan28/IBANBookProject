@@ -48,8 +48,8 @@ final class IbanCell: UITableViewCell {
         nameLabel.text = viewModel.ibanName
         ibanLabel.text = viewModel.iban
         bankLabel.text = viewModel.bankName
-        shareButton.titleLabel?.isHidden = true
-        favoriteButton.titleLabel?.isHidden = true
-        copyButton.titleLabel?.isHidden = true
+        shareButton.titleLabel?.text = ""
+        favoriteButton.titleLabel?.text = ""
+        copyButton.titleLabel?.text = ""
     }
 }
