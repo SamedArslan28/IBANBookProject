@@ -23,5 +23,18 @@ extension UIViewController {
     func popVC(animated: Bool = true) {
         navigationController?.popViewController(animated: animated)
     }
+    
+    func showActionAlertCancel(errorTitle: String, errorMessage: String) {
+        let alertController = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Tamam", style: .cancel) { _ in
+            print("Dismiss button tapped")
+        }
+        alertController.addAction(dismissAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
 }
     

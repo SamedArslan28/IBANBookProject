@@ -14,42 +14,21 @@ import MLKitTextRecognition
 
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        // Check if an image is selected
         if let pickedImage = info[.originalImage] as? UIImage {
-            // Use the pickedImage as needed, such as displaying it in an imageView
-            // For example, you can set it to an imageView named ibanImageView
             let visionImage = VisionImage(image: pickedImage)
             let latinOptions = TextRecognizerOptions()
             let latinTextRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
             var ibanFound = false
             latinTextRecognizer.process(visionImage) { result, error in
                 guard error == nil, let result = result else {
-                    // Handle the error
                     print("Error recognizing text: \(error?.localizedDescription ?? "")")
                     return
                 }
-                
-                // Process the recognized text
-                
                 guard !result.blocks.isEmpty else {
-                    // Display an error message
-                    let alertController = UIAlertController(title: "Herhangi bir IBAN bulunmadi", message: "Lutfen IBAN iceren bir resim seciniz", preferredStyle: .alert)
-                    
-                    let dismissAction = UIAlertAction(title: "Tamam", style: .default) { _ in
-                        // Handle any action you want to perform when the dismiss button is tapped
-                        print("Dismiss button tapped")
-                    }
-                    
-                    alertController.addAction(dismissAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                    // You can show an alert or update the UI to inform the user about the error
+                    self.showActionAlertCancel(errorTitle: "Metin bulunamadı", errorMessage: "Okunacak bir metin bulunamadı.")
                     return
                 }
-                
                 for block in result.blocks {
                     for line in block.lines {
                         let lineText = line.text
@@ -58,31 +37,43 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                             print(foundIban!)
                             ibanFound = true
                         }
-                        
                     }
                 }
                 if !ibanFound {
-                    // Display an error message
-                    let alertController = UIAlertController(title: "IBAN bulunamadi", message: "Lutfen baska bir fotograf seciniz", preferredStyle: .alert)
-                    
-                    let dismissAction = UIAlertAction(title: "Tamam", style: .default) { _ in
-                        // Handle any action you want to perform when the dismiss button is tapped
-                        
-                    }
-                        // You can show an alert or update the UI to inform the user about the error
-                        alertController.addAction(dismissAction)
-                        
-                        self.present(alertController, animated: true, completion: nil)
-                    
-                    
+                    self.showActionAlertCancel(errorTitle: "IBAN bulunamadi", errorMessage: "Metin içerisinde IBAN bulunamdı.")
                 }
-                
-                // Dismiss the image picker
-                
             }
-            
             picker.dismiss(animated: true, completion: nil)
         }
         
+    }
+    func handlePhotoSourceSelection(sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        switch sourceType {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        case .savedPhotosAlbum:
+            break
+        default:
+            break
+        }
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func showPhotoPickerAction() {
+        let alert = UIAlertController(title: "Kaynak Seciniz", message: "Iban nereden okunacak ?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Kamera", style: .default , handler:{ [weak self] _ in
+            self?.handlePhotoSourceSelection(sourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Fotograflar", style: .default , handler:{ [weak self] _ in
+            self?.handlePhotoSourceSelection(sourceType: .photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
+        
+        // Present the action sheet
+        present(alert, animated: true, completion: nil)
     }
 }
