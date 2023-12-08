@@ -41,6 +41,8 @@ final class IbanCell: UITableViewCell {
         itemContainerView.clipsToBounds = true
     }
     
+    // MARK: - PRIVATE FUNCTIONS
+    
     private func prepareUI() {
         guard let viewModel else { return }
         nameLabel.text = viewModel.ibanName

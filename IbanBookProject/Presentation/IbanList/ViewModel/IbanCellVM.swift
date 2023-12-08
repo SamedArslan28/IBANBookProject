@@ -7,12 +7,18 @@
 
 import Foundation
 
-struct IbanCellVM {
-    private let ibanModel: IbanModel
+class IbanCellVM {
+    
+    // MARK: - PRIVATE PROPERTIES
+    private var ibanModel: IbanModel
+    
+    // MARK: - COMPUTED PROPERTIES
     
     var iban: String { ibanModel.ibanNumber }
     var ibanName: String { ibanModel.ibanName }
     var bankName: String { ibanModel.bankName }
+   
+    // MARK: - LIFECYCLE
     
     init(ibanModel: IbanModel) {
         self.ibanModel = ibanModel

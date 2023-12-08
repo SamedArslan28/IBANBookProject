@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SaveIbanVM{
+final class SaveIbanVM {
     
     // MARK: - PRIVATE PROPERTIES
     

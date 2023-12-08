@@ -17,7 +17,6 @@ final class MainVC: BaseVC {
     
     // MARK: - PROPERTIES
     let imagePickerItem = UIImagePickerController()
-    let viewModel = MainMV()
     
     // MARK: - LIFECYCLE
     
@@ -37,6 +36,7 @@ final class MainVC: BaseVC {
         setNavigationColor()
         navigationItem.hidesBackButton = false
         imagePickerItem.delegate = self
+        navigationController?.setToolbarHidden(true, animated: true)
     }
     
     func handlePhotoSourceSelection(sourceType: UIImagePickerController.SourceType, viewController: MainVC) {

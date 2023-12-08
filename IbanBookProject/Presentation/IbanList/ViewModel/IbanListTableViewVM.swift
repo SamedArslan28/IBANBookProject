@@ -14,21 +14,24 @@ private enum TableSectionTypes: String {
 
 final class IbanListTableViewVM {
     
-    // MARK: PRIVATE PROPERTIES
+    // MARK: - LIFECYCLE
+    
+    init() {
+        items = getData()?.reversed() ?? []
+    }
+    
+    // MARK: - PRIVATE PROPERTIES
     
     private let titles: [TableSectionTypes] = [.favorites, .savedIbans]
-    private let items = [IbanModel(ibanNumber: "aaakskan", bankName: "şklefmsk", ibanName: "sldkmfskndf"),
-                         IbanModel(ibanNumber: "bbbakskan", bankName: "alksnfaknfşklefmsk", ibanName: "aknflkansldkmfskndf"),
-                         IbanModel(ibanNumber: "cccakskan", bankName: "şklefmsk", ibanName: "sldkmfskndf", isFavorite: true),
-                         IbanModel(ibanNumber: "dddakskan", bankName: "şklefmsk", ibanName: "sldkmfskndf", isFavorite: true)]
+    private var items = [IbanModel]()
     
-    // MARK: COMPUTED PROPERTIES
+    // MARK: - COMPUTED PROPERTIES
 
     private var nonFavoriteItemList: [IbanModel] { items.filter { !$0.isFavorite } }
     private var favoriteItemList: [IbanModel] { items.filter { $0.isFavorite } }
     var numberOfSection: Int { titles.count }
 
-    // MARK: FUNCTIONS
+    // MARK: - FUNCTIONS
     
     func numberOfRows(in section: Int) -> Int {
         switch titles[section] {
@@ -51,4 +54,12 @@ final class IbanListTableViewVM {
             nonFavoriteItemList[indexPath.row]
         }
     }
+    // MARK: - PRIVATE FUNCTIONS
+    
+    private func getData() -> [IbanModel]?{
+        let decoder = JSONDecoder()
+        guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return nil }
+        return try? decoder.decode([IbanModel].self, from: ibans)
+    }
+    
 }

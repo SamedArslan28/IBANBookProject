@@ -53,22 +53,17 @@ final class SaveIbanVC: BaseVC {
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            
             let alertController = UIAlertController(title: "IBAN dogru degil", message: "IBAN numarasini kontrol edin", preferredStyle: .alert)
-            
-            let dismissAction = UIAlertAction(title: "Tamam", style: .default) { _ in
-                // Handle any action you want to perform when the dismiss button is tapped
-                
-            }
-            // You can show an alert or update the UI to inform the user about the error
+            let dismissAction = UIAlertAction(title: "Tamam", style: .cancel)
             alertController.addAction(dismissAction)
-            
             self.present(alertController, animated: true, completion: nil)
             return
         }
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
         ibanList.append(newItem)
         viewModel.saveIban(ibanList: ibanList)
+        let viewController = IbanListVC(nibName: "IbanListVC", bundle: Bundle.main)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

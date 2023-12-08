@@ -20,9 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Gz-ab-PgF">
-                    <rect key="frame" x="0.0" y="68" width="393" height="715"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Gz-ab-PgF">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="hkE-7A-udQ"/>
@@ -32,6 +31,12 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="drv-wh-sa4"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="drv-wh-sa4" firstAttribute="bottom" secondItem="6Gz-ab-PgF" secondAttribute="bottom" id="5ci-I2-WY8"/>
+                <constraint firstItem="6Gz-ab-PgF" firstAttribute="trailing" secondItem="drv-wh-sa4" secondAttribute="trailing" id="IfH-qP-Qmp"/>
+                <constraint firstItem="6Gz-ab-PgF" firstAttribute="top" secondItem="drv-wh-sa4" secondAttribute="top" id="Jiw-Zz-b9E"/>
+                <constraint firstItem="6Gz-ab-PgF" firstAttribute="leading" secondItem="drv-wh-sa4" secondAttribute="leading" id="h3j-mm-kwc"/>
+            </constraints>
             <point key="canvasLocation" x="-714" y="110"/>
         </view>
     </objects>
