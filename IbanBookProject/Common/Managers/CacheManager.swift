@@ -8,9 +8,20 @@
 import Foundation
 
 final class CacheManager {
+    
+    // MARK: - STATIC PROPERTIES
+    
     static let shared = CacheManager()
+    
+    // MARK: - LIFECYCLE
+    
     private init() { }
+    
+    // MARK: - PRIVATE PROPERTIES
+    
     private var userDefaults = UserDefaults.standard
+    
+    // MARK: - FUNCTIONS
     
     func setObject(_ value: Any?, key: String) {
         userDefaults.set(value, forKey: key)

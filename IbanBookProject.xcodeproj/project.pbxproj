@@ -204,12 +204,12 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		6128392D2B23413C00F4B988 /* Service */ = {
+		6128392D2B23413C00F4B988 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				6128392E2B23417B00F4B988 /* CacheManager.swift */,
 			);
-			path = Service;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		612C59132AEBF21400A6E997 /* Application */ = {
@@ -280,7 +280,7 @@
 		612C591E2AEBF33500A6E997 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				6128392D2B23413C00F4B988 /* Service */,
+				6128392D2B23413C00F4B988 /* Managers */,
 				612C59222AEBF35300A6E997 /* View */,
 				612C591F2AEBF33C00A6E997 /* Extenstions */,
 			);
