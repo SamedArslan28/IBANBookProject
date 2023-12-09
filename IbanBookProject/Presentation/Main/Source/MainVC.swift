@@ -34,7 +34,7 @@ final class MainVC: BaseVC {
         navigationItem.hidesBackButton = false
         navigationController?.setToolbarHidden(true, animated: true)
     }
-  
+    
     // MARK: - IBACTIONS
     
     @IBAction private func ibanListTapped(_ sender: Any) {
@@ -46,7 +46,7 @@ final class MainVC: BaseVC {
         let viewController = SaveIbanVC(nibName: "SaveIbanVC", bundle: Bundle.main)
         navigationController?.pushViewController(viewController, animated: true)
     }
-
+    
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {
         self.showPhotoPickerAction()
     }

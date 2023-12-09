@@ -72,8 +72,6 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
             self?.handlePhotoSourceSelection(sourceType: .photoLibrary)
         }))
         alert.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
-        
-        // Present the action sheet
         present(alert, animated: true, completion: nil)
     }
 }

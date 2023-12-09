@@ -11,7 +11,6 @@ import UIKit
 
 extension UIColor {
     // Hex code of the color #f15a2f
-    
     static var themeColor: UIColor {
         return UIColor(red: 0.9450980392156862, green: 0.35294117647058826, blue: 0.1843137254901961, alpha: 1)
     }

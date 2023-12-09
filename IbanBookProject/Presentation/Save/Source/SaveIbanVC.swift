@@ -17,9 +17,9 @@ final class SaveIbanVC: BaseVC {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var IBANNumberLabel: UILabel!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet weak var bankNameLabel: UILabel!
+    @IBOutlet private weak var IBANNumberLabel: BaseLabel!
+    @IBOutlet private weak var nameLabel: BaseLabel!
+    @IBOutlet weak var bankNameLabel: BaseLabel!
     @IBOutlet private weak var saveButton: BaseButton!
     @IBOutlet weak var nameTextField: BaseTextField!
     @IBOutlet weak var ibanTextField: BaseTextField!

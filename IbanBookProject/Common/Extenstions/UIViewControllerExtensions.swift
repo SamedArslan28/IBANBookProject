@@ -32,9 +32,5 @@ extension UIViewController {
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
-    
-    
-    
 }
     

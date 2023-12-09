@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 final class BaseButton: UIButton {
+    
+    // MARK: - LIFECYCLE
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -20,6 +21,8 @@ final class BaseButton: UIButton {
         commonInit()
     }
 
+    // MARK: - PRIVATE FUNCTIONS
+    
     private func commonInit() {
         // Customize other button properties here if needed
         let customFont =  UIFont(name: "OpenSans-Regular", size: 15)

@@ -9,10 +9,8 @@ import Foundation
 import UIKit
 
 class BaseTextField: UITextField{
-    
-
     override class func awakeFromNib() {
-        
+        super.awakeFromNib()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -21,20 +19,16 @@ class BaseTextField: UITextField{
     }
 
     private func commonInit() {
-
         layer.cornerRadius = 12
-
-
         font = .appFont()
         layer.borderWidth = 1
         backgroundColor = .clear
         borderStyle = .none
-        layer.borderColor = UIColor.lightGray.cgColor
-
-
+        layer.borderColor = UIColor.gray.cgColor
     }
+    
     let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-
+    
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
@@ -46,8 +40,6 @@ class BaseTextField: UITextField{
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-
-
 }
 
 

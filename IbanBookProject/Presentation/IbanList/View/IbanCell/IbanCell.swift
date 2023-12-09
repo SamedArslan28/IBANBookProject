@@ -11,12 +11,12 @@ final class IbanCell: UITableViewCell {
 
     // MARK: - OUTLET
     
-    @IBOutlet private weak var favoriteButton: UIButton!
-    @IBOutlet private weak var bankLabel: UILabel!
-    @IBOutlet private weak var shareButton: UIButton!
-    @IBOutlet private weak var copyButton: UIButton!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var ibanLabel: UILabel!
+    @IBOutlet private weak var favoriteButton: BaseButton!
+    @IBOutlet private weak var bankLabel: BaseLabel!
+    @IBOutlet private weak var shareButton: BaseButton!
+    @IBOutlet private weak var copyButton: BaseButton!
+    @IBOutlet private weak var nameLabel: BaseLabel!
+    @IBOutlet private weak var ibanLabel: BaseLabel!
     @IBOutlet private weak var itemContainerView: UIView!
     
     // MARK: - PROPERTIES
