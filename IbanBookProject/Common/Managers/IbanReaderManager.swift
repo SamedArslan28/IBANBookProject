@@ -16,19 +16,16 @@ class IbanReaderManager {
     static let shared = IbanReaderManager()
     
     func processImage(image: UIImage, viewController: UIViewController){
-        
         let pickedImage = image
         let visionImage = VisionImage(image: pickedImage)
         let latinOptions = TextRecognizerOptions()
         let latinTextRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
         var ibanFound = false
         latinTextRecognizer.process(visionImage) { result, error in
-            guard error == nil, let result = result else {
-                print("Error recognizing text: \(error?.localizedDescription ?? "")")
+            guard error == nil, let result = result else { return }
+            guard !result.blocks.isEmpty else {
+                CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage, viewController: viewController)
                 return
-            }
-            if let !result.blocks.isEmpty  {
-                CustomAlerts.shared.showActionAlertCancel(errorTitle: "demo", errorMessage: "demo", viewController: viewController)
             }
             for block in result.blocks {
                 for line in block.lines {
@@ -41,10 +38,8 @@ class IbanReaderManager {
                 }
             }
             if !ibanFound {
-                CustomAlerts.shared.showActionAlertCancel(errorTitle: "demo2", errorMessage: "demo2", viewController: viewController)
+                CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage:IbanReaderManangerConstants.alertMessage, viewController: viewController)
             }
         }
-        
-        
     }
 }

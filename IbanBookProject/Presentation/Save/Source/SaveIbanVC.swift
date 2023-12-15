@@ -25,8 +25,6 @@ final class SaveIbanVC: BaseVC {
     @IBOutlet weak var ibanTextField: BaseTextField!
     @IBOutlet weak var bankNameTextField: BaseTextField!
     
-    
-    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -37,7 +35,6 @@ final class SaveIbanVC: BaseVC {
     
     // MARK: - FUNCTIONS
     
-    // Settings for ui componenets
     private func setupUI() {
         IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
         nameLabel.text = SaveIbanConstants.fullNameLabelText
@@ -52,10 +49,7 @@ final class SaveIbanVC: BaseVC {
     
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            let alertController = UIAlertController(title: "IBAN dogru degil", message: "IBAN numarasini kontrol edin", preferredStyle: .alert)
-            let dismissAction = UIAlertAction(title: "Tamam", style: .cancel)
-            alertController.addAction(dismissAction)
-            self.present(alertController, animated: true, completion: nil)
+            CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage, viewController: self)
             return
         }
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
