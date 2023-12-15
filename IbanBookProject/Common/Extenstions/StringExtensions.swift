@@ -12,7 +12,7 @@ import UIKit
 extension String {
     func isIban() -> Bool {
         // Define the pattern
-        let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
+        let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
         // Create a regular expression object
         guard let regex = try? NSRegularExpression(pattern: pattern) else {
             return false
@@ -26,7 +26,7 @@ extension String {
     
     func extractIban() -> String? {
         // Define the pattern
-        let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
+        let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
         // Create a regular expression object
         guard let regex = try? NSRegularExpression(pattern: pattern) else {
             return nil

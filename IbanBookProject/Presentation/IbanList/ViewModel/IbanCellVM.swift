@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 class IbanCellVM {
     
     // MARK: - PRIVATE PROPERTIES
@@ -17,6 +19,8 @@ class IbanCellVM {
     var iban: String { ibanModel.ibanNumber }
     var ibanName: String { ibanModel.ibanName }
     var bankName: String { ibanModel.bankName }
+    var id: String { ibanModel.itemId }
+    var isFav: Bool { ibanModel.isFavorite }
    
     // MARK: - LIFECYCLE
     

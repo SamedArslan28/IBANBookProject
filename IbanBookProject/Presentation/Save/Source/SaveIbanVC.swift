@@ -19,11 +19,11 @@ final class SaveIbanVC: BaseVC {
     
     @IBOutlet private weak var IBANNumberLabel: BaseLabel!
     @IBOutlet private weak var nameLabel: BaseLabel!
-    @IBOutlet weak var bankNameLabel: BaseLabel!
+    @IBOutlet private weak var bankNameLabel: BaseLabel!
     @IBOutlet private weak var saveButton: BaseButton!
-    @IBOutlet weak var nameTextField: BaseTextField!
-    @IBOutlet weak var ibanTextField: BaseTextField!
-    @IBOutlet weak var bankNameTextField: BaseTextField!
+    @IBOutlet private weak var nameTextField: BaseTextField!
+    @IBOutlet private weak var ibanTextField: BaseTextField!
+    @IBOutlet private weak var bankNameTextField: BaseTextField!
     
     // MARK: - LifeCycle
     

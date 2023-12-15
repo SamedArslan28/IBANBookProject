@@ -23,7 +23,7 @@ final class IbanListTableViewVM {
     // MARK: - PRIVATE PROPERTIES
     
     private let titles: [TableSectionTypes] = [.favorites, .savedIbans]
-    private var items = [IbanModel]()
+    var items = [IbanModel]()
     
     // MARK: - COMPUTED PROPERTIES
 
@@ -60,6 +60,11 @@ final class IbanListTableViewVM {
         let decoder = JSONDecoder()
         guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return nil }
         return try? decoder.decode([IbanModel].self, from: ibans)
+    }
+    func saveIban(ibanList: [IbanModel]) {
+        let encoder = JSONEncoder()
+        guard let data = try? encoder.encode(ibanList) else { return }
+        CacheManager.shared.setObject(data, key: "ibans")
     }
     
 }

@@ -7,11 +7,13 @@
 
 import UIKit
 
-final class IbanCell: UITableViewCell {
 
+
+final class IbanCell: UITableViewCell {
+  
     // MARK: - OUTLET
     
-    @IBOutlet private weak var favoriteButton: BaseButton!
+    @IBOutlet weak var favoriteButton: BaseButton!
     @IBOutlet private weak var bankLabel: BaseLabel!
     @IBOutlet private weak var shareButton: BaseButton!
     @IBOutlet private weak var copyButton: BaseButton!
@@ -26,7 +28,8 @@ final class IbanCell: UITableViewCell {
             prepareUI()
         }
     }
-    
+    var delegate: IbanCellDelegate?
+        
     // MARK: - LIFE CYCLE
     
     override func awakeFromNib() {
@@ -48,8 +51,18 @@ final class IbanCell: UITableViewCell {
         nameLabel.text = viewModel.ibanName
         ibanLabel.text = viewModel.iban
         bankLabel.text = viewModel.bankName
-        shareButton.titleLabel?.text = ""
-        favoriteButton.titleLabel?.text = ""
-        copyButton.titleLabel?.text = ""
+    }
+    @IBAction private func shareButtonTapped(_ sender: Any) {
+        guard let viewModel = viewModel else { return }
+        delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
+    }
+    @IBAction func copyButtonTapped(_ sender: Any) {
+        guard let viewModel = viewModel else{ return }
+        let data = "\(viewModel.iban)"
+        UIPasteboard.general.string = data
+        delegate?.isCopiedToClipboard()
+    }
+    @IBAction func favouriteButtonTapped(_ sender: Any) {
+        delegate?.isFavChanged(id: viewModel!.id)
     }
 }

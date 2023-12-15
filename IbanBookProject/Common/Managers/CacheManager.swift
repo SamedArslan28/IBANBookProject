@@ -31,4 +31,7 @@ final class CacheManager {
     func getObject(key: String) -> Data? {
         return userDefaults.data(forKey: key)
     }
+    func synchronizeData() {
+        userDefaults.synchronize()
+    }
 }
