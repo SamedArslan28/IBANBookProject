@@ -7,13 +7,11 @@
 
 import UIKit
 
-
-
 final class IbanCell: UITableViewCell {
   
     // MARK: - OUTLET
     
-    @IBOutlet weak var favoriteButton: BaseButton!
+    @IBOutlet private weak var favoriteButton: BaseButton!
     @IBOutlet private weak var bankLabel: BaseLabel!
     @IBOutlet private weak var shareButton: BaseButton!
     @IBOutlet private weak var copyButton: BaseButton!
@@ -34,7 +32,6 @@ final class IbanCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         nameLabel.font = .appFont(16)
         ibanLabel.font = .appFont(16)
         itemContainerView.layer.cornerRadius = 12
@@ -51,18 +48,23 @@ final class IbanCell: UITableViewCell {
         nameLabel.text = viewModel.ibanName
         ibanLabel.text = viewModel.iban
         bankLabel.text = viewModel.bankName
+        favoriteButton.setImage(UIImage(systemName: viewModel.rowType == .favorites ? "star.fill" : "star"), for: .normal)
     }
+    
     @IBAction private func shareButtonTapped(_ sender: Any) {
-        guard let viewModel = viewModel else { return }
+        guard let viewModel else { return }
         delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
     }
-    @IBAction func copyButtonTapped(_ sender: Any) {
-        guard let viewModel = viewModel else{ return }
+    
+    @IBAction private func copyButtonTapped(_ sender: Any) {
+        guard let viewModel else { return }
         let data = "\(viewModel.iban)"
         UIPasteboard.general.string = data
         delegate?.isCopiedToClipboard()
     }
-    @IBAction func favouriteButtonTapped(_ sender: Any) {
-        delegate?.isFavChanged(id: viewModel!.id)
+    
+    @IBAction private func favouriteButtonTapped(_ sender: Any) {
+        guard let viewModel else { return }
+        delegate?.isFavChanged(id: viewModel.id)
     }
 }

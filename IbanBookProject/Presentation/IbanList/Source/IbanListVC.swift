@@ -8,12 +8,13 @@
 
 import UIKit
 
-final class IbanListVC: BaseVC, UINavigationControllerDelegate, IbanCellDelegate {
+final class IbanListVC: BaseVC, UINavigationControllerDelegate {
     
     // MARK: - OUTLETS
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var notificationLabel: BaseLabel!
+    @IBOutlet private weak var notificationLabel: BaseLabel!
+    
     // MARK: - PROPERTIES
     
     private let viewModel = IbanListTableViewVM()
@@ -40,32 +41,6 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate, IbanCellDelegate
         tableView.register(type: IbanCell.self, identifier: "IbanCell")
         notificationLabel.alpha = 0
         notificationLabel.textColor = .themeColor
-    }
-    
-    func showShareOptions(ibanName: String, ibanNumber: String, bankName: String) {
-        let data = "\(ibanName)\n\(ibanNumber)\n\(bankName)"
-        let shareVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        present(shareVC, animated: true)
-    }
-    
-    func isCopiedToClipboard() {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .showHideTransitionViews) {
-            self.notificationLabel.alpha = 1
-        }
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-            UIView.animate(withDuration: 0.5, delay: 0, options: .showHideTransitionViews) {
-                self.notificationLabel.alpha = 0
-            }
-        }
-    }
-    
-    func isFavChanged(id: String) {
-        let foundItem = viewModel.items.first { item in item.itemId == id }
-        foundItem?.isFavorite.toggle()
-        UIView.transition(with: tableView, duration: 0.1, options: .transitionCrossDissolve) {
-            self.tableView.reloadData()
-        }
-        viewModel.saveIban(ibanList: viewModel.items)
     }
 }
 
@@ -98,14 +73,37 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeue(withType: IbanCell.self, for: indexPath) as? IbanCell else{ return .init() }
+        guard let cell = tableView.dequeue(withType: IbanCell.self, for: indexPath) as? IbanCell else { return .init() }
         cell.delegate = self
-        if indexPath.section == 0 {
-            cell.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        }else{
-            cell.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-        }
-        cell.viewModel = IbanCellVM(ibanModel: viewModel.getIbanItem(at: indexPath))
+        cell.viewModel = viewModel.getIbanCellVM(at: indexPath)
         return cell
+    }
+}
+
+// MARK: - IBAN CELL DELEGATE
+
+extension IbanListVC: IbanCellDelegate {
+    func showShareOptions(ibanName: String, ibanNumber: String, bankName: String) {
+        let data = "\(ibanName)\n\(ibanNumber)\n\(bankName)"
+        let shareVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        present(shareVC, animated: true)
+    }
+    
+    func isCopiedToClipboard() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .showHideTransitionViews) {
+            self.notificationLabel.alpha = 1
+        }
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+            UIView.animate(withDuration: 0.5, delay: 0, options: .showHideTransitionViews) {
+                self.notificationLabel.alpha = 0
+            }
+        }
+    }
+    
+    func isFavChanged(id: String) {
+        viewModel.changeFavoriteStatus(at: id)
+        UIView.transition(with: tableView, duration: 0.1, options: .transitionCrossDissolve) {
+            self.tableView.reloadData()
+        }
     }
 }

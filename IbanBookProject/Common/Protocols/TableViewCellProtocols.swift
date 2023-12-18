@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol IbanCellDelegate {
-    func showShareOptions(ibanName:String, ibanNumber:String, bankName:String)
+protocol IbanCellDelegate: AnyObject {
     func isCopiedToClipboard()
     func isFavChanged(id: String)
+    func showShareOptions(ibanName: String, ibanNumber: String, bankName: String)
 }

@@ -10,12 +10,11 @@ import UIKit
 import MLKitVision
 import MLKitTextRecognition
 
-class IbanReaderManager {
+final class IbanReaderManager {
     private init(){ }
-    
     static let shared = IbanReaderManager()
     
-    func processImage(image: UIImage, viewController: UIViewController){
+    func processImage(image: UIImage) {
         let pickedImage = image
         let visionImage = VisionImage(image: pickedImage)
         let latinOptions = TextRecognizerOptions()
@@ -24,7 +23,7 @@ class IbanReaderManager {
         latinTextRecognizer.process(visionImage) { result, error in
             guard error == nil, let result = result else { return }
             guard !result.blocks.isEmpty else {
-                CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage, viewController: viewController)
+                //CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage, viewController: viewController)
                 return
             }
             for block in result.blocks {
@@ -38,7 +37,7 @@ class IbanReaderManager {
                 }
             }
             if !ibanFound {
-                CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage:IbanReaderManangerConstants.alertMessage, viewController: viewController)
+                //CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage:IbanReaderManangerConstants.alertMessage, viewController: viewController)
             }
         }
     }

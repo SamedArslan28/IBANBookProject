@@ -13,6 +13,7 @@ class IbanCellVM {
     
     // MARK: - PRIVATE PROPERTIES
     private var ibanModel: IbanModel
+    var rowType: SectionTypes
     
     // MARK: - COMPUTED PROPERTIES
     
@@ -21,10 +22,12 @@ class IbanCellVM {
     var bankName: String { ibanModel.bankName }
     var id: String { ibanModel.itemId }
     var isFav: Bool { ibanModel.isFavorite }
+    
    
     // MARK: - LIFECYCLE
     
-    init(ibanModel: IbanModel) {
+    init(ibanModel: IbanModel, rowType: SectionTypes) {
         self.ibanModel = ibanModel
+        self.rowType = rowType
     }
 }

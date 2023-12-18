@@ -49,7 +49,7 @@ final class SaveIbanVC: BaseVC {
     
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage, viewController: self)
+            showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage)
             return
         }
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)

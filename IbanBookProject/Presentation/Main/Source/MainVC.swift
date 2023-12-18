@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MLKitVision
+import MLKitTextRecognition
 
 final class MainVC: BaseVC {
     
@@ -48,6 +50,20 @@ final class MainVC: BaseVC {
     }
     
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {
-        self.showPhotoPickerAction()
+        DispatchQueue.main.async {
+            self.showPhotoPickerAction()
+        }
+    }
+}
+
+extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        IbanReaderManager.shared.processImage(image: image)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func showPhotoPickerAction() {
+        showImagePickerAlert()
     }
 }
