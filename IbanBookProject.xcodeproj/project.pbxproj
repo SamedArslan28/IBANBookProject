@@ -299,7 +299,6 @@
 			children = (
 				61222F732B2C574400982F89 /* Protocols */,
 				6168B06D2B28B5C600D33D46 /* Constants */,
-				6152A5482B24B486004459AD /* Utils */,
 				6128392D2B23413C00F4B988 /* Managers */,
 				612C59222AEBF35300A6E997 /* View */,
 				612C591F2AEBF33C00A6E997 /* Extenstions */,
@@ -329,13 +328,6 @@
 				615597F92AF94032008351F7 /* BaseVC.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6152A5482B24B486004459AD /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		6165D7082B1B72220097E4EB /* ViewModel */ = {
