@@ -9,7 +9,9 @@ import UIKit
 import MLKitVision
 import MLKitTextRecognition
 
-final class MainVC: BaseVC {
+final class MainVC: BaseVC,Coordinating {
+    
+    var coordinator: Coordinator?
     
     // MARK: - OUTLETS
     @IBOutlet weak var descriptionLabel: BaseLabel!
@@ -40,13 +42,11 @@ final class MainVC: BaseVC {
     // MARK: - IBACTIONS
     
     @IBAction private func ibanListTapped(_ sender: Any) {
-        let viewController = IbanListVC(nibName: "IbanListVC", bundle: Bundle.main)
-        navigationController?.pushViewController(viewController, animated: true)
+        coordinator?.eventOccured(with: .IbanList)
     }
     
     @IBAction private func saveIbanTapped(_ sender: Any) {
-        let viewController = SaveIbanVC(nibName: "SaveIbanVC", bundle: Bundle.main)
-        navigationController?.pushViewController(viewController, animated: true)
+        coordinator?.eventOccured(with: .SaveIban)
     }
     
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {

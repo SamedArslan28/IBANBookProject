@@ -19,16 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         /// 2. Create a new UIWindow using the windowScene constructor which takes in a window scene.
+        let navController = UINavigationController()
+        let coordinator = MainCoordinator()
+        coordinator.navigationController = navController
         let window = UIWindow(windowScene: windowScene)
-        /// 3. Create a view hierarchy programmatically
-        let viewController = MainVC(nibName: "MainVC", bundle: Bundle.main)
-        let navigation = UINavigationController(rootViewController: viewController)
-        navigation.toolbar.isHidden = true
-        /// 4. Set the root view controller of the window with your view controller
-        window.rootViewController = navigation
-        /// 5. Set the window and call makeKeyAndVisible()
-        self.window = window
+        window.rootViewController = navController
         window.makeKeyAndVisible()
+        self.window = window
+        coordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class IbanListVC: BaseVC, UINavigationControllerDelegate {
+final class IbanListVC: BaseVC, UINavigationControllerDelegate,Coordinating {
+    var coordinator: Coordinator?
+    
     
     // MARK: - OUTLETS
     
