@@ -16,8 +16,5 @@ class BaseVC: UIViewController {
 
     func setNavigationColor (){
         navigationItem.titleView?.tintColor = .appBackgroundColor
-
     }
-
-
 }

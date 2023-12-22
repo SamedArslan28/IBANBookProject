@@ -41,8 +41,26 @@ final class SaveIbanVC: BaseVC {
         bankNameLabel.text = SaveIbanConstants.bankNameLabelText
         saveButton.setTitle("Kaydet", for: .normal)
         nameTextField.placeholder = SaveIbanConstants.nameTextFieldPlaceholder
+        nameTextField.setPlaceholderColor(.black , alpha: 0.6)
         ibanTextField.placeholder = SaveIbanConstants.ibanTextFieldPlaceholder
+        ibanTextField.setPlaceholderColor(.black, alpha: 0.6)
         bankNameTextField.placeholder = SaveIbanConstants.bankNameTextFieldPlaceholder
+        bankNameTextField.setPlaceholderColor(.black, alpha: 0.6)
+        nameTextField.setbackg(color: .clear)
+        ibanTextField.setbackg(color: .clear)
+        bankNameTextField.setbackg(color: .clear)
+        nameTextField.setBorderColor(color: UIColor.lightGray.cgColor)
+        ibanTextField.setBorderColor(color: UIColor.lightGray.cgColor)
+        bankNameTextField.setBorderColor(color: UIColor.lightGray.cgColor)
+        nameTextField.setBorderWith(witdht: 2)
+        ibanTextField.setBorderWith(witdht: 2)
+        bankNameTextField.setBorderWith(witdht: 2)
+        nameTextField.setBorderStyle(.none)
+        bankNameTextField.setBorderStyle(.none)
+        ibanTextField.setBorderStyle(.none)
+        nameTextField.setFontSize(16)
+        ibanTextField.setFontSize(16)
+        nameTextField.setFontSize(16)
         ibanList = viewModel.getIbanList() ?? []
         setNavigationTitle(title: "IBAN Kaydet")
     }

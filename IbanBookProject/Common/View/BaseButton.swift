@@ -28,7 +28,7 @@ final class BaseButton: UIButton {
         let customFont =  UIFont(name: "OpenSans-Regular", size: 15)
         backgroundColor = .themeColor
         tintColor = .white
-        layer.cornerRadius = 20.0
+        layer.cornerRadius = 16.0
         titleLabel?.textAlignment = .center
         titleLabel?.font = customFont
     }

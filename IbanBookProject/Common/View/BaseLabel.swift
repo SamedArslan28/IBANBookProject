@@ -22,8 +22,4 @@ final class BaseLabel: UILabel {
     func commonInit(){
         font = .appFont()
     }
-
-
-
-
 }
