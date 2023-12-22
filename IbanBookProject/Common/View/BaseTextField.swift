@@ -37,11 +37,11 @@ class BaseTextField: UITextField{
     }
     
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+        return bounds.insetBy(dx: 20, dy: 10)
     }
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+        return bounds.insetBy(dx: 20 , dy: 0)
     }
     
     func setBorderWith(witdht: CGFloat) {
@@ -80,7 +80,8 @@ class BaseTextField: UITextField{
            } else {
                self.font = UIFont.systemFont(ofSize: size)
            }
-       }
-}
+        }
+    }
+
 
 

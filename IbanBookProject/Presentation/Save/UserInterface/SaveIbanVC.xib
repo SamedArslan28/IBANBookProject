@@ -49,12 +49,12 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-qj-iUJ" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-qj-iUJ" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="32.333333333333329" width="345" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="50" id="fTl-rl-MfT"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
