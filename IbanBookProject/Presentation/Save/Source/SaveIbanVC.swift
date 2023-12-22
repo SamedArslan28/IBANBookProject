@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-final class SaveIbanVC: BaseVC, Coordinating {
-    var coordinator: Coordinator?
+final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - PROPERTIES
     
@@ -33,7 +32,6 @@ final class SaveIbanVC: BaseVC, Coordinating {
         setupUI()
     }
     
-    
     // MARK: - FUNCTIONS
     
     private func setupUI() {
@@ -56,7 +54,7 @@ final class SaveIbanVC: BaseVC, Coordinating {
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
         ibanList.append(newItem)
         viewModel.saveIban(ibanList: ibanList)
-        coordinator?.eventOccured(with: .IbanList)
+        
         
     }
 }

@@ -8,14 +8,11 @@
 
 import UIKit
 
-final class IbanListVC: BaseVC, UINavigationControllerDelegate,Coordinating {
-    var coordinator: Coordinator?
-    
-    
+final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
+   
     // MARK: - OUTLETS
     
     @IBOutlet private weak var tableView: UITableView!
-    
     
     // MARK: - PROPERTIES
     
@@ -90,9 +87,12 @@ extension IbanListVC: IbanCellDelegate {
     }
     
     func isCopiedToClipboard() {
-        showToast(message: "Coppied to Clipboard", font: .appFont()!)
+//        showToast(message: "Coppied to Clipboard", font: .appFont()!)
+//        let saveIbanVC = SaveIbanVC.create()
+//        navigationController?.pushViewController(saveIbanVC, animated: true)
+        pushVC(key: .saveIban)
     }
-    
+
     func isFavChanged(id: String) {
         viewModel.changeFavoriteStatus(at: id)
         UIView.transition(with: tableView, duration: 0.1, options: .transitionCrossDissolve) {

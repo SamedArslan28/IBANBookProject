@@ -18,6 +18,4 @@ class BaseVC: UIViewController {
         navigationItem.titleView?.tintColor = .appBackgroundColor
 
     }
-
-
 }

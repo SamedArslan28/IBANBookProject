@@ -11,9 +11,6 @@ import MLKitVision
 import MLKitTextRecognition
 
 final class IbanReaderManager {
-    private init(){ }
-    static let shared = IbanReaderManager()
-    
     func processImage(image: UIImage) {
         let pickedImage = image
         let visionImage = VisionImage(image: pickedImage)
