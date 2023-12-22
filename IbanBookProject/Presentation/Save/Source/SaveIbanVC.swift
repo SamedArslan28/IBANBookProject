@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class SaveIbanVC: BaseVC {
+final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - PROPERTIES
     
@@ -31,7 +31,6 @@ final class SaveIbanVC: BaseVC {
         super.viewDidLoad()
         setupUI()
     }
-    
     
     // MARK: - FUNCTIONS
     
@@ -73,7 +72,7 @@ final class SaveIbanVC: BaseVC {
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
         ibanList.append(newItem)
         viewModel.saveIban(ibanList: ibanList)
-        let viewController = IbanListVC(nibName: "IbanListVC", bundle: Bundle.main)
-        navigationController?.pushViewController(viewController, animated: true)
+        
+        
     }
 }

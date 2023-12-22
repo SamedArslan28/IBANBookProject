@@ -8,12 +8,11 @@
 
 import UIKit
 
-final class IbanListVC: BaseVC, UINavigationControllerDelegate {
-    
+final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
+   
     // MARK: - OUTLETS
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var notificationLabel: BaseLabel!
     
     // MARK: - PROPERTIES
     
@@ -39,8 +38,6 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .appBackgroundColor
         tableView.register(type: IbanCell.self, identifier: "IbanCell")
-        notificationLabel.alpha = 0
-        notificationLabel.textColor = .themeColor
     }
 }
 
@@ -90,20 +87,34 @@ extension IbanListVC: IbanCellDelegate {
     }
     
     func isCopiedToClipboard() {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .showHideTransitionViews) {
-            self.notificationLabel.alpha = 1
-        }
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-            UIView.animate(withDuration: 0.5, delay: 0, options: .showHideTransitionViews) {
-                self.notificationLabel.alpha = 0
-            }
-        }
+//        showToast(message: "Coppied to Clipboard", font: .appFont()!)
+//        let saveIbanVC = SaveIbanVC.create()
+//        navigationController?.pushViewController(saveIbanVC, animated: true)
+        pushVC(key: .saveIban)
     }
-    
+
     func isFavChanged(id: String) {
         viewModel.changeFavoriteStatus(at: id)
         UIView.transition(with: tableView, duration: 0.1, options: .transitionCrossDissolve) {
             self.tableView.reloadData()
         }
+    }
+    
+    func showToast(message : String, font: UIFont) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.0, delay: 0.0, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
