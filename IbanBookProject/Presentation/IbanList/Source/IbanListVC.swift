@@ -9,24 +9,24 @@
 import UIKit
 
 final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
-   
+
     // MARK: - OUTLETS
-    
+
     @IBOutlet private weak var tableView: UITableView!
-    
+
     // MARK: - PROPERTIES
-    
+
     private let viewModel = IbanListTableViewVM()
-    
+
     // MARK: - LIFE CYCLE
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+
     // MARK: - FUNCTIONS
-    
+
     private func setupUI(){
         navigationController?.hidesBarsOnSwipe = false
         view.backgroundColor = .appBackgroundColor
@@ -47,19 +47,21 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+
         return viewModel.numberOfRows(in: section)
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         viewModel.titleHeader(in: section)
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         30.0
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 32))
         let label = BaseLabel(frame: CGRect(x: 32, y: 0, width: headerView.frame.width - 12, height: headerView.frame.height))
@@ -68,7 +70,7 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
         headerView.addSubview(label)
         return headerView
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeue(withType: IbanCell.self, for: indexPath) as? IbanCell else { return .init() }
         cell.delegate = self
@@ -85,12 +87,9 @@ extension IbanListVC: IbanCellDelegate {
         let shareVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         present(shareVC, animated: true)
     }
-    
+
     func isCopiedToClipboard() {
-//        showToast(message: "Coppied to Clipboard", font: .appFont()!)
-//        let saveIbanVC = SaveIbanVC.create()
-//        navigationController?.pushViewController(saveIbanVC, animated: true)
-        pushVC(key: .saveIban)
+        showToast(message: "Coppied to Clipboard", font: .appFont()!)
     }
 
     func isFavChanged(id: String) {
@@ -99,7 +98,7 @@ extension IbanListVC: IbanCellDelegate {
             self.tableView.reloadData()
         }
     }
-    
+
     func showToast(message : String, font: UIFont) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)

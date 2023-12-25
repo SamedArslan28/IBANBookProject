@@ -10,16 +10,19 @@ import UIKit
 import MLKitVision
 import MLKitTextRecognition
 
-final class IbanReaderManager {
-    func processImage(image: UIImage) {
+final class IbanReaderManager  {
+    func processImage(image: UIImage, completion: @escaping ([String]) -> Void) {
+        var foundItems = [String]()
         let pickedImage = image
         let visionImage = VisionImage(image: pickedImage)
         let latinOptions = TextRecognizerOptions()
         let latinTextRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
         var ibanFound = false
         latinTextRecognizer.process(visionImage) { result, error in
-            guard error == nil, let result = result else { return }
+            guard error == nil, let result = result else { completion([]) ;return  }
+            
             guard !result.blocks.isEmpty else {
+                completion([])
                 //CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage, viewController: viewController)
                 return
             }
@@ -27,15 +30,20 @@ final class IbanReaderManager {
                 for line in block.lines {
                     let lineText = line.text
                     if lineText.isIban() {
-                        let foundIban = lineText.extractIban()
-                        print(foundIban!)
-                        ibanFound = true
+                        if let foundIban = lineText.extractIban(){
+                            foundItems.append(foundIban)
+                            ibanFound = true
+                        }
                     }
                 }
             }
+            
             if !ibanFound {
                 //CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage:IbanReaderManangerConstants.alertMessage, viewController: viewController)
             }
+            completion(foundItems)
         }
+        
+        
     }
 }

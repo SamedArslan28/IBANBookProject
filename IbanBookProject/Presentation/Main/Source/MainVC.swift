@@ -10,7 +10,9 @@ import MLKitVision
 import MLKitTextRecognition
 
 final class MainVC: BaseVC, Navigable {
- 
+    
+   
+    
     // MARK: - OUTLETS
     @IBOutlet weak var descriptionLabel: BaseLabel!
     @IBOutlet weak var saveIban: BaseButton!
@@ -43,7 +45,8 @@ final class MainVC: BaseVC, Navigable {
         pushVC(key: .ibanList)
     }
     @IBAction private func saveIbanTapped(_ sender: Any) {
-        pushVC(key: .saveIban, data: "laknflka")
+        pushVC(key: .saveIban)
+        
     }
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {
         DispatchQueue.main.async {
@@ -55,9 +58,14 @@ final class MainVC: BaseVC, Navigable {
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
-        IbanReaderManager().processImage(image: image)
+        let reader = IbanReaderManager()
+        reader.processImage(image: image){ foundItems in
+            
+            self.pushVC(key: .saveIban, data:foundItems.first)
+        }
         picker.dismiss(animated: true, completion: nil)
     }
+    
     func showPhotoPickerAction() {
         showImagePickerAlert()
     }

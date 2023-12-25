@@ -35,6 +35,9 @@ final class SaveIbanVC: BaseVC, Navigable {
     // MARK: - FUNCTIONS
     
     private func setupUI() {
+        if let data = dataa{
+            ibanTextField.text = data as! String
+        }
         IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
         nameLabel.text = SaveIbanConstants.fullNameLabelText
         bankNameLabel.text = SaveIbanConstants.bankNameLabelText
@@ -72,7 +75,5 @@ final class SaveIbanVC: BaseVC, Navigable {
         let newItem = IbanModel(ibanNumber: ibanText, bankName: bankNameTextField.text!, ibanName: nameTextField.text!)
         ibanList.append(newItem)
         viewModel.saveIban(ibanList: ibanList)
-        
-        
     }
 }

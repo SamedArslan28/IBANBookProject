@@ -34,6 +34,21 @@ extension UIViewController {
     }
 }
 
+extension UIViewController {
+    private static var _myComputedProperty = [String:String]()
+    
+    var dataa: Any? {
+        get {
+            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+            return UIViewController._myComputedProperty[tmpAddress] ?? ""
+        }
+        set(newValue) {
+            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+            UIViewController._myComputedProperty[tmpAddress] = (newValue as? String)
+        }
+    }
+}
+
 protocol Navigable { }
 
 extension Navigable where Self: UIViewController {
@@ -45,13 +60,13 @@ extension Navigable where Self: UIViewController {
     
     func pushVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
-        viewController.data = data
+        viewController.dataa = data
         navigationController?.pushViewController(viewController, animated: animated)
     }
     
     func presentVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
-        viewController.data = data
+        viewController.dataa = data
         navigationController?.present(viewController, animated: animated)
     }
     
