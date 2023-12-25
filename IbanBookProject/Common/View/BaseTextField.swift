@@ -33,7 +33,7 @@ class BaseTextField: UITextField{
     let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+        return bounds.insetBy(dx: 20 , dy: 0)
     }
     
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
