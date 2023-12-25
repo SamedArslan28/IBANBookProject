@@ -36,7 +36,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     private func setupUI() {
         if let data = dataa{
-            ibanTextField.text = data as! String
+            ibanTextField.text = data as? String 
         }
         IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
         nameLabel.text = SaveIbanConstants.fullNameLabelText
