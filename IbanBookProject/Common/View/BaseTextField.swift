@@ -44,15 +44,15 @@ class BaseTextField: UITextField{
         return bounds.insetBy(dx: 20 , dy: 0)
     }
     
-    func setBorderWith(witdht: CGFloat) {
-        self.layer.borderWidth = witdht
+    func setBorderWidth(width: CGFloat) {
+        self.layer.borderWidth = width
     }
-    func setbackg(color: UIColor){
+    func setBackground(color: UIColor){
         self.backgroundColor = color
     }
     
-    func setcornerRadius(witdht: CGFloat){
-        self.layer.cornerRadius = witdht
+    func setCornerRadius(width: CGFloat){
+        self.layer.cornerRadius = width
     }
     func setBorderStyle(_ style: UITextField.BorderStyle) {
         self.borderStyle = style
