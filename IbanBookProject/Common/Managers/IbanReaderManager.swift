@@ -37,13 +37,10 @@ final class IbanReaderManager  {
                     }
                 }
             }
-            
             if !ibanFound {
                 //CustomAlerts.shared.showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage:IbanReaderManangerConstants.alertMessage, viewController: viewController)
             }
             completion(foundItems)
         }
-        
-        
     }
 }
