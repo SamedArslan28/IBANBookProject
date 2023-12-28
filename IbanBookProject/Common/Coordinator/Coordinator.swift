@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 enum ControllerKey: String {
-    case main = "MainVC"
-    case ibanList = "IbanListVC"
-    case saveIban = "SaveIbanVC"
+    case main
+    case ibanList
+    case saveIban 
     
     var controllerType: AnyClass {
         switch self {
@@ -35,19 +35,32 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    private static var _myComputedProperty = [String:String]()
-    
+    //    private static var _myComputedProperty = [String:String]()
+    //
+    //    var dataa: Any? {
+    //        get {
+    //            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+    //            return UIViewController._myComputedProperty[tmpAddress] ?? ""
+    //        }
+    //        set(newValue) {
+    //            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+    //            UIViewController._myComputedProperty[tmpAddress] = (newValue as? String)
+    //        }
+    //    }
+
+
+    private static var myComputedProperty: [Int: Any] = [:]
+
     var dataa: Any? {
         get {
-            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            return UIViewController._myComputedProperty[tmpAddress] ?? ""
+            let key = ObjectIdentifier(self).hashValue
+            return UIViewController.myComputedProperty[key]
         }
         set(newValue) {
-            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            UIViewController._myComputedProperty[tmpAddress] = (newValue as? String)
+            let key = ObjectIdentifier(self).hashValue
+            UIViewController.myComputedProperty[key] = newValue
         }
-    }
-}
+    }}
 
 protocol Navigable { }
 
