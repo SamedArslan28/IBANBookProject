@@ -28,4 +28,39 @@ final class SaveIbanVM {
     }
 }
 
+/*
+Halkbank
+VakıfBank
+Ziraat Bankası
+Akbank
+Anadolubank
+Fibabanka
+Şekerbank
+Turkish Bank
+Türk Ticaret Bankası
+Türkiye İş Bankası
+Yapı Kredi
+Alternatif Bank
+Arap Türk Bankası
+Bank of China Turkey
+Burgan Bank
+Citibank
+DenizBank
+Deutsche Bank
+Garanti BBVA
+HSBC
+ICBC Turkey Bank
+ING
+MUFG Bank Turkey A.Ş.
+Odeabank
+QNB Finansbank
+Rabobank
+Turkland Bank A.Ş.
+TEB
+Bank Mellat
+Habib Bank
+Intesa Sanpaolo
+JPMorgan Chase Bank
+Société Générale
+Birleşik Fon Bankası */
 

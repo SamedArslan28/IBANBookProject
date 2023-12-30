@@ -12,28 +12,30 @@ import MLKitTextRecognition
 final class MainVC: BaseVC, Navigable {
 
     // MARK: - OUTLETS
-    
+
     @IBOutlet weak var descriptionLabel: BaseLabel!
     @IBOutlet weak var saveIban: BaseButton!
     @IBOutlet weak var ibanList: BaseButton!
     @IBOutlet weak var readIBANClicked: BaseButton!
-     lazy var imagePicker: UIImagePickerController = {
+
+    // MARK: - PROPERTIES
+
+    lazy var imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
         picker.delegate = self
         return picker
     }()
-    
 
     // MARK: - LIFECYCLE
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
     }
-    
+
     // MARK: - PRIVATE FUNCTIONS
-    
+
     private func setupUI(){
         descriptionLabel.text = MainConstants.descriptionLabelText
         saveIban.setTitle(MainConstants.saveIbanButtonTitle, for: .normal)
@@ -43,16 +45,15 @@ final class MainVC: BaseVC, Navigable {
         navigationItem.hidesBackButton = false
         navigationController?.setToolbarHidden(true, animated: true)
     }
-    
+
     // MARK: - IBACTIONS
-    
+
     @IBAction private func ibanListTapped(_ sender: Any) {
         pushVC(key: .ibanList)
     }
 
     @IBAction private func saveIbanTapped(_ sender: Any) {
         pushVC(key: .saveIban)
-        
     }
 
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {
@@ -67,8 +68,15 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         let reader = IbanReaderManager()
-        reader.processImage(image: image){ [weak self] foundItems in
-            self?.pushVC(key: .saveIban, data:foundItems.first)
+        reader.processImage(image: image){ [weak self] item in
+            if item.isEmpty {
+                self?.showActionAlertCancel(errorTitle: "Iban Bulunamadı.", errorMessage: "Lutfen baska bir fotograf seciniz.")
+            } else if item.count > 1 {
+                
+            }
+            else{
+                self?.pushVC(key: .saveIban, data:item.first)
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -77,21 +85,17 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         let alert = UIAlertController(title: CustomAlertsConstants.imagePickerTitle,
                                       message: CustomAlertsConstants.imagePickerMessage,
                                       preferredStyle: .actionSheet)
-
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker,
                                       style: .default ,
                                       handler: { [weak self] _ in
             self?.showImagePicker(sourceType: .camera)
         }))
-
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker,
                                       style: .default ,
                                       handler: { [weak self] _ in
             self?.showImagePicker(sourceType: .photoLibrary)
         }))
-
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel, style: .cancel))
-
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
@@ -102,7 +106,5 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         DispatchQueue.main.async {
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-
     }
-
 }
