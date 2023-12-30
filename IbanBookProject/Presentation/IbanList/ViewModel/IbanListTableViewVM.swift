@@ -99,7 +99,7 @@ final class IbanListTableViewVM {
     private func prepareIbanLists() {
         items.removeAll()
         rowTypes.removeAll()
-        items = getData()?.reversed() ?? []
+        items = getData() ?? []
         if !favoriteItemList.isEmpty {
             rowTypes.append(.favorites)
         }
@@ -113,6 +113,12 @@ final class IbanListTableViewVM {
         guard let data = try? encoder.encode(items) else { return }
         CacheManager.shared.setObject(data, key: Constant.ibanListCacheKey)
         prepareIbanLists()
+    }
+
+    func deleteItemAtIndexPath(_ indexPath: IndexPath) {
+        let item = getIbanItem(rowType: rowTypes.get(at: indexPath.section) ?? .nonFavorites, at: indexPath)
+        items.removeAll(where:{ $0.itemId == item?.itemId })
+        updateIbanCache()
     }
 }
 

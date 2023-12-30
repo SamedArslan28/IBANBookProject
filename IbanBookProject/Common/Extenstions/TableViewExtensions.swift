@@ -37,6 +37,7 @@ extension UITableView {
         return dequeueReusableCell(withIdentifier: type.identifier, for: indexPath) as? T
     }
     
+
 }
 
  extension UITableViewCell {

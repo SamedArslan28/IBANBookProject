@@ -49,8 +49,6 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-
         return viewModel.numberOfRows(in: section)
     }
 
@@ -76,6 +74,18 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.viewModel = viewModel.getIbanCellVM(at: indexPath)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) {[weak self] (_, _, completion) in
+            self?.viewModel.deleteItemAtIndexPath(indexPath)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completion(true)
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+        swipeConfig.performsFirstActionWithFullSwipe = true
+        return swipeConfig
     }
 }
 

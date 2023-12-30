@@ -74,7 +74,6 @@ final class SaveIbanVC: BaseVC, Navigable {
         }
         let bankName = bankNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
         if bankName.isEmpty || name.isEmpty {
             showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Banka adı ve isim alanları doldurulmalıdır.")
         } else {

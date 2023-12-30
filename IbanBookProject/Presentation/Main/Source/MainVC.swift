@@ -59,9 +59,8 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         let reader = IbanReaderManager()
-        reader.processImage(image: image){ foundItems in
-            
-            self.pushVC(key: .saveIban, data:foundItems.first)
+        reader.processImage(image: image){ [weak self] foundItems in
+            self?.pushVC(key: .saveIban, data:foundItems.first)
         }
         picker.dismiss(animated: true, completion: nil)
     }
