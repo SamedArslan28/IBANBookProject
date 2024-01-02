@@ -28,8 +28,13 @@ class BaseTextField: UITextField{
         layer.borderWidth = 2
         backgroundColor = .clear
         borderStyle = .none
-        layer.borderColor = UIColor.gray.cgColor
+        self.setBackground(color: .clear)
+        self.setBorderColor(color: UIColor.lightGray.cgColor)
+        self.setPlaceholderColor(.black , alpha: 0.6)
+        self.setBorderStyle(.none)
+        self.setFontSize(16)
     }
+    
     let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {

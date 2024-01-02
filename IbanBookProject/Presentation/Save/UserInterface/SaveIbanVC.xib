@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,7 @@
                 <outlet property="ibanTextField" destination="Yj2-ho-Bk8" id="lJZ-QC-TTu"/>
                 <outlet property="nameLabel" destination="g0N-az-2do" id="f2m-tl-fP7"/>
                 <outlet property="nameTextField" destination="nXs-qj-iUJ" id="CVf-dd-eiR"/>
+                <outlet property="otherTextField" destination="QYk-SL-QeM" id="r4Q-BK-QUp"/>
                 <outlet property="saveButton" destination="hEu-4Z-TEv" id="1o2-NH-4AY"/>
                 <outlet property="view" destination="u14-f9-t6i" id="Dhe-t8-h1m"/>
             </connections>
@@ -29,16 +30,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="New-5e-Ysa">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="439"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="501"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZLP-mr-FDo">
-                                    <rect key="frame" x="24" y="50" width="345" height="389"/>
+                                    <rect key="frame" x="24" y="50" width="345" height="451"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="GMf-0e-jMd">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="389"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="451"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DOb-xj-Fqu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="279"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="341"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="D6N-OI-1QU">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="82.333333333333329"/>
@@ -54,7 +55,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="50" id="fTl-rl-MfT"/>
                                                                     </constraints>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
@@ -87,7 +88,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OXV-er-nqz">
-                                                            <rect key="frame" x="0.0" y="196.66666666666666" width="345" height="82.333333333333343"/>
+                                                            <rect key="frame" x="0.0" y="196.66666666666663" width="345" height="144.33333333333337"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gd-hL-HpT">
                                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -103,6 +104,14 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-SL-QeM" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="94.333333333333343" width="345" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="wpV-wR-U9B"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="QXh-9q-bbb" firstAttribute="width" secondItem="OXV-er-nqz" secondAttribute="width" id="mUy-Nf-fTg"/>
@@ -112,7 +121,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEu-4Z-TEv" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="339" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="401" width="345" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="N0R-aw-zjd"/>
                                                     </constraints>

@@ -14,9 +14,12 @@ final class SaveIbanVC: BaseVC, Navigable {
 
     var viewModel = SaveIbanVM()
     var ibanList = [IbanModel]()
+    let banks = ["Halkbank", "VakıfBank", "Ziraat Bankası", "Akbank", "Anadolubank", "Other"]
+    var pickerView = UIPickerView()
 
     // MARK: - Outlets
 
+    @IBOutlet weak var otherTextField: BaseTextField!
     @IBOutlet private weak var IBANNumberLabel: BaseLabel!
     @IBOutlet private weak var nameLabel: BaseLabel!
     @IBOutlet private weak var bankNameLabel: BaseLabel!
@@ -24,7 +27,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     @IBOutlet private weak var nameTextField: BaseTextField!
     @IBOutlet private weak var ibanTextField: BaseTextField!
     @IBOutlet private weak var bankNameTextField: BaseTextField!
-
+   
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -43,44 +46,97 @@ final class SaveIbanVC: BaseVC, Navigable {
         bankNameLabel.text = SaveIbanConstants.bankNameLabelText
         saveButton.setTitle("Kaydet", for: .normal)
         nameTextField.placeholder = SaveIbanConstants.nameTextFieldPlaceholder
-        nameTextField.setPlaceholderColor(.black , alpha: 0.6)
         ibanTextField.placeholder = SaveIbanConstants.ibanTextFieldPlaceholder
-        ibanTextField.setPlaceholderColor(.black, alpha: 0.6)
         bankNameTextField.placeholder = SaveIbanConstants.bankNameTextFieldPlaceholder
-        bankNameTextField.setPlaceholderColor(.black, alpha: 0.6)
-        nameTextField.setBackground(color: .clear)
-        ibanTextField.setBackground(color: .clear)
-        bankNameTextField.setBackground(color: .clear)
-        nameTextField.setBorderColor(color: UIColor.lightGray.cgColor)
-        ibanTextField.setBorderColor(color: UIColor.lightGray.cgColor)
-        bankNameTextField.setBorderColor(color: UIColor.lightGray.cgColor)
-        nameTextField.setBorderWidth(width: 2)
-        ibanTextField.setBorderWidth(width: 2)
-        bankNameTextField.setBorderWidth(width: 2)
-        nameTextField.setBorderStyle(.none)
-        bankNameTextField.setBorderStyle(.none)
-        ibanTextField.setBorderStyle(.none)
-        nameTextField.setFontSize(16)
-        ibanTextField.setFontSize(16)
-        nameTextField.setFontSize(16)
         ibanList = viewModel.getIbanList() ?? []
         setNavigationTitle(title: "IBAN Kaydet")
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.selectRow(0, inComponent: 0, animated: false)
+        otherTextField.isHidden = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        bankNameTextField.delegate = self
+        bankNameTextField.inputView = pickerView
     }
 
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
-        guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage)
-            return
+            guard let ibanText = ibanTextField.text, ibanText.isIban() else {
+                showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage)
+                return
+            }
+            
+            let selectedBankName: String
+            if let selectedOption = bankNameTextField.text, selectedOption == "Other" {
+                // If "Other" is selected, use the text from otherTextField
+                selectedBankName = otherTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            } else {
+                // If any other option is selected, use the text from bankNameTextField
+                selectedBankName = bankNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            }
+            
+            let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            if selectedBankName.isEmpty || name.isEmpty {
+                showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Banka adı ve isim alanları doldurulmalıdır.")
+            } else {
+                let newItem = IbanModel(ibanNumber: ibanText, bankName: selectedBankName, ibanName: name)
+                ibanList.append(newItem)
+                viewModel.saveIban(ibanList: ibanList)
+                pushVC(key: .ibanList)
+            }
+    }
+    // MARK: - UITextFieldDelegate
+
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss the keyboard when Return is tapped
+        textField.resignFirstResponder()
+        return true
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+// MARK: - SAVEIBANVC EXTENSIONS
+extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+   
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return banks.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return banks[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedOption = banks[row]
+        bankNameTextField.text = selectedOption
+        UIView.animate(withDuration: 0.3) {
+            // Show/hide the additional text field with animation based on the selected option
+            self.otherTextField?.alpha = (selectedOption == "Other") ? 1.0 : 0.0
+            self.otherTextField?.transform = (selectedOption == "Other") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
+            // Keep the "Save" button at the fixed Y-coordinate
         }
-        let bankName = bankNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        if bankName.isEmpty || name.isEmpty {
-            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Banka adı ve isim alanları doldurulmalıdır.")
-        } else {
-            let newItem = IbanModel(ibanNumber: ibanText, bankName: bankName, ibanName: name)
-            ibanList.append(newItem)
-            viewModel.saveIban(ibanList: ibanList)
-            pushVC(key: .ibanList)
+        // Hide the other text field if the selected option is not "Other"
+        otherTextField?.isHidden = (selectedOption != "Other")
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let selectedRow = banks.firstIndex(of: textField.text ?? "") {
+            pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+            // Show/hide the additional text field with animation based on the selected option
+            UIView.animate(withDuration: 0.3) {
+                self.otherTextField?.alpha = (self.banks[selectedRow] == "Other") ? 1.0 : 0.0
+                self.otherTextField?.transform = (self.banks[selectedRow] == "Other") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
+            }
+            // Hide the other text field if the selected option is not "Other"
+            otherTextField?.isHidden = (self.banks[selectedRow] != "Other")
         }
     }
+    
 }
