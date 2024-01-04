@@ -68,14 +68,29 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         let reader = IbanReaderManager()
-        reader.processImage(image: image){ [weak self] item in
-            if item.isEmpty {
+        reader.processImage(image: image){ [weak self] items in
+            if items.isEmpty {
                 self?.showActionAlertCancel(errorTitle: "Iban Bulunamadı.", errorMessage: "Lutfen baska bir fotograf seciniz.")
-            } else if item.count > 1 {
+            } else if items.count > 1 {
+                let actionSheet = UIAlertController(title: "Choose an item", message: nil, preferredStyle: .actionSheet)
                 
+                for (_, item) in items.enumerated() {
+                    let action = UIAlertAction(title: "\(item)", style: .default) { _ in
+                        // Push the view controller with the selected item's data
+                        self?.pushVC(key: .saveIban, data: item)
+                    }
+                    actionSheet.addAction(action)
+                }
+                
+                // Add a cancel action
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                actionSheet.addAction(cancelAction)
+                
+                // Present the action sheet
+                self?.present(actionSheet, animated: true, completion: nil)
             }
             else{
-                self?.pushVC(key: .saveIban, data:item.first)
+                self?.pushVC(key: .saveIban, data:items.first)
             }
         }
         picker.dismiss(animated: true, completion: nil)

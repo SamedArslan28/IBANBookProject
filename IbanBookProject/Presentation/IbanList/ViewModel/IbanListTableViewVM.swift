@@ -99,7 +99,7 @@ final class IbanListTableViewVM {
     private func prepareIbanLists() {
         items.removeAll()
         rowTypes.removeAll()
-        items = getData() ?? []
+        items = getData()?.reversed() ?? []
         if !favoriteItemList.isEmpty {
             rowTypes.append(.favorites)
         }

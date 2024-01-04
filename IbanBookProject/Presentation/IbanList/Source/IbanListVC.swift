@@ -77,7 +77,7 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) {[weak self] (_, _, completion) in
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [ weak self ](_, _, completion) in
             self?.viewModel.deleteItemAtIndexPath(indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
             completion(true)
