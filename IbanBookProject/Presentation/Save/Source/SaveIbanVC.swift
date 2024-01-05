@@ -33,7 +33,12 @@ final class SaveIbanVC: BaseVC, Navigable {
         "TEB",
         "JPMorgan Chase Bank",
         "Diğer"]
-    var pickerView = UIPickerView()
+    lazy var pickerView: UIPickerView = {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        return pickerView
+    }()
 
     // MARK: - Outlets
 
@@ -56,10 +61,9 @@ final class SaveIbanVC: BaseVC, Navigable {
     // MARK: - FUNCTIONS
 
     private func setupUI() {
-        
+
         saveButton.setTitle("Kaydet", for: .normal)
         setNavigationTitle(title: "IBAN Kaydet")
-
         if let data = data{
             ibanTextField.text = data as? String
         }
@@ -82,7 +86,7 @@ final class SaveIbanVC: BaseVC, Navigable {
 
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
             guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-                showActionAlertCancel(errorTitle: IbanReaderManangerConstants.alertTitle, errorMessage: IbanReaderManangerConstants.alertMessage)
+                showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Butun alanlar doldurulmalidir.")
                 return
             }
             let selectedBankName: String
@@ -149,4 +153,6 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
             otherTextField?.isHidden = (self.banks[selectedRow] != "Diğer")
         }
     }
+    
+    
 }
