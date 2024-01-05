@@ -149,8 +149,11 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
             UIView.animate(withDuration: 0.5) {
                 self.otherTextField?.alpha = (self.banks[selectedRow] == "Diğer") ? 1.0 : 0.0
                 self.otherTextField?.transform = (self.banks[selectedRow] == "Diğer") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
+            }completion: { _ in
+                UIView.animate(withDuration: 0.5) {
+                    self.otherTextField?.isHidden = (self.banks[selectedRow] != "Diğer")
+                }
             }
-            otherTextField?.isHidden = (self.banks[selectedRow] != "Diğer")
         }
     }
     
