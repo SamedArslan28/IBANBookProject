@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1510"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1D55369E4C8976F396F83588DAC03C4"
-               BuildableName = "MLKitVision"
-               BlueprintName = "MLKitVision"
+               BlueprintIdentifier = "25E9E9A17BC3F670357D7385C521E48E"
+               BuildableName = "FirebaseCoreInternal.framework"
+               BlueprintName = "FirebaseCoreInternal"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

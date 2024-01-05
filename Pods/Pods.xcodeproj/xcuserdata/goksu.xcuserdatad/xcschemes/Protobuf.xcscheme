@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1510"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C0371EE948D0357B8EE0E34ABB44BF0"
-               BuildableName = "GoogleDataTransport.framework"
-               BlueprintName = "GoogleDataTransport"
+               BlueprintIdentifier = "470FE31978DC918618A329D8B55C85FF"
+               BuildableName = "Protobuf.framework"
+               BlueprintName = "Protobuf"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

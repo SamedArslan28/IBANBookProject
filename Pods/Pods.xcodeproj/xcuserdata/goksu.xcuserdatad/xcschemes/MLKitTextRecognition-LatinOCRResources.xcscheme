@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1510"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97DAD515BF40CDEC167BB52A9E6A9AE4"
-               BuildableName = "MLKitTextRecognitionCommon"
-               BlueprintName = "MLKitTextRecognitionCommon"
+               BlueprintIdentifier = "4BF7DEAEB670A65D317D7EFB7999CE7E"
+               BuildableName = "LatinOCRResources.bundle"
+               BlueprintName = "MLKitTextRecognition-LatinOCRResources"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

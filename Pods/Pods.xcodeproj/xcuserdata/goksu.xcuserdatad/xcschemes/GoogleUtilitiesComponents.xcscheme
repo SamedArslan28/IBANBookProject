@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1510"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D2B5E7DCCBBFB32341D857D01211A1A3"
-               BuildableName = "nanopb.framework"
-               BlueprintName = "nanopb"
+               BlueprintIdentifier = "A64F5725956770327D080E1EB31878EE"
+               BuildableName = "GoogleUtilitiesComponents.framework"
+               BlueprintName = "GoogleUtilitiesComponents"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
