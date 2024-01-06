@@ -36,7 +36,7 @@ final class IbanListTableViewVM {
     
     // MARK: - PRIVATE PROPERTIES
     
-    private var items = [IbanModel]()
+     var items = [IbanModel]()
     private var rowTypes: [SectionTypes] = []
 
     // MARK: - COMPUTED PROPERTIES
@@ -63,7 +63,7 @@ final class IbanListTableViewVM {
     }
     
     func getIbanCellVM(at indexPath: IndexPath) -> IbanCellVM? {
-        guard let rowType = rowTypes.get(at: indexPath.section), 
+        guard let rowType = rowTypes.get(at: indexPath.section),
               let ibanItem = getIbanItem(rowType: rowType, at: indexPath) else { return nil }
         return IbanCellVM(ibanModel: ibanItem , rowType: rowType)
     }
@@ -74,6 +74,11 @@ final class IbanListTableViewVM {
         updateIbanCache()
     }
     
+    func deleteItemAtIndexPath(_ indexPath: IndexPath) {
+        let item = getIbanItem(rowType: rowTypes.get(at: indexPath.section) ?? .nonFavorites, at: indexPath)
+        items.removeAll(where:{ $0.itemId == item?.itemId })
+        updateIbanCache()
+    }
 
     // MARK: - PRIVATE FUNCTIONS
     
@@ -113,12 +118,6 @@ final class IbanListTableViewVM {
         guard let data = try? encoder.encode(items) else { return }
         CacheManager.shared.setObject(data, key: Constant.ibanListCacheKey)
         prepareIbanLists()
-    }
-
-    func deleteItemAtIndexPath(_ indexPath: IndexPath) {
-        let item = getIbanItem(rowType: rowTypes.get(at: indexPath.section) ?? .nonFavorites, at: indexPath)
-        items.removeAll(where:{ $0.itemId == item?.itemId })
-        updateIbanCache()
     }
 }
 

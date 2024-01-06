@@ -28,11 +28,12 @@ class BaseTextField: UITextField{
         layer.borderWidth = 2
         backgroundColor = .clear
         borderStyle = .none
-        self.setBackground(color: .clear)
-        self.setBorderColor(color: UIColor.lightGray.cgColor)
-        self.setPlaceholderColor(.black , alpha: 0.6)
-        self.setBorderStyle(.none)
-        self.setFontSize(16)
+        setBackground(color: .clear)
+        setBorderColor(color: UIColor.lightGray.cgColor)
+        setPlaceholderColor(.black , alpha: 0.6)
+        setBorderStyle(.none)
+        setFontSize(16)
+        autocorrectionType = .no
     }
     
     let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
@@ -52,6 +53,7 @@ class BaseTextField: UITextField{
     func setBorderWidth(width: CGFloat) {
         self.layer.borderWidth = width
     }
+    
     func setBackground(color: UIColor){
         self.backgroundColor = color
     }
@@ -59,13 +61,16 @@ class BaseTextField: UITextField{
     func setCornerRadius(width: CGFloat){
         self.layer.cornerRadius = width
     }
+    
     func setBorderStyle(_ style: UITextField.BorderStyle) {
         self.borderStyle = style
     }
+    
     func setBorderColor(color: CGColor) {
         let myColor = UIColor(cgColor: color).withAlphaComponent(0.5)
         self.layer.borderColor = myColor.cgColor
     }
+    
     func setPlaceholderColor(_ color: UIColor, alpha: CGFloat) {
          guard let placeholderText = self.placeholder else {
              return
@@ -79,6 +84,7 @@ class BaseTextField: UITextField{
          ]
          self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: attributes)
      }
+    
     func setFontSize(_ size: CGFloat) {
            if let font = self.font {
                self.font = UIFont(name: font.fontName, size: size)

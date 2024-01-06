@@ -51,7 +51,6 @@ extension UIViewController {
 //    }
 //}
 
-
 protocol Navigable { }
 
 extension Navigable where Self: UIViewController {
