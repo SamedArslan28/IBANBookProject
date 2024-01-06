@@ -81,9 +81,7 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [ weak self ](_, _, completion) in
             self?.viewModel.deleteItemAtIndexPath(indexPath)
-            tableView.reloadData()
             tableView.deleteRows(at: [indexPath], with: .fade)
-        
             completion(true)
         }
         deleteAction.image = UIImage(systemName: "trash")
@@ -91,8 +89,9 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
         swipeConfig.performsFirstActionWithFullSwipe = false
         return swipeConfig
     }
+    
     private func updateEmptyMessage() {
-        if viewModel.items.isEmpty {
+        if viewModel.getItemsCount() {
             let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             messageLabel.text = "Kayıtlı IBAN bulunmamaktadır."
             messageLabel.textAlignment = .center

@@ -36,7 +36,7 @@ final class IbanListTableViewVM {
     
     // MARK: - PRIVATE PROPERTIES
     
-     var items = [IbanModel]()
+    private var items = [IbanModel]()
     private var rowTypes: [SectionTypes] = []
 
     // MARK: - COMPUTED PROPERTIES
@@ -68,6 +68,10 @@ final class IbanListTableViewVM {
         return IbanCellVM(ibanModel: ibanItem , rowType: rowType)
     }
     
+    func getItemsCount() -> Bool {
+        return items.isEmpty ? true : false
+    }
+    
     func changeFavoriteStatus(at id: String) {
         guard let foundItem = getItem(with: id) else { return }
         foundItem.isFavorite.toggle() // reference type
@@ -75,9 +79,18 @@ final class IbanListTableViewVM {
     }
     
     func deleteItemAtIndexPath(_ indexPath: IndexPath) {
-        let item = getIbanItem(rowType: rowTypes.get(at: indexPath.section) ?? .nonFavorites, at: indexPath)
+        let rowType = rowTypes.get(at: indexPath.section)
+        let item: IbanModel?
+        switch rowType {
+        case .favorites:
+            item = favoriteItemList.get(at: indexPath.row)
+        case .nonFavorites:
+            item = nonFavoriteItemList.get(at: indexPath.row)
+        case .none:
+            return
+        }
         items.removeAll(where:{ $0.itemId == item?.itemId })
-        updateIbanCache()
+        prepareIbanLists()
     }
 
     // MARK: - PRIVATE FUNCTIONS

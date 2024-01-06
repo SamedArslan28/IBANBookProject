@@ -34,6 +34,7 @@ class BaseTextField: UITextField{
         setBorderStyle(.none)
         setFontSize(16)
         autocorrectionType = .no
+        autocapitalizationType = .words
     }
     
     let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
