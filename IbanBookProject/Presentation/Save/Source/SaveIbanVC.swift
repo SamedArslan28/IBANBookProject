@@ -64,7 +64,7 @@ final class SaveIbanVC: BaseVC, Navigable {
 
         saveButton.setTitle("Kaydet", for: .normal)
         setNavigationTitle(title: "IBAN Kaydet")
-        if let data = data{
+        if let data = data {
             ibanTextField.text = data as? String
         }
         IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
@@ -130,7 +130,7 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return banks[row]
+        return banks.get(at: row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -147,10 +147,10 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
         if let selectedRow = banks.firstIndex(of: textField.text ?? "") {
             pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
             UIView.animate(withDuration: 0.5) {
-                self.otherTextField?.alpha = (self.banks[selectedRow] == "Diğer") ? 1.0 : 0.0
-                self.otherTextField?.transform = (self.banks[selectedRow] == "Diğer") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
+                self.otherTextField?.alpha = (self.banks.get(at: selectedRow) == "Diğer") ? 1.0 : 0.0
+                self.otherTextField?.transform = (self.banks.get(at: selectedRow) == "Diğer") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
             }
-            otherTextField?.isHidden = (self.banks[selectedRow] != "Diğer")
+            otherTextField?.isHidden = (self.banks.get(at: selectedRow) != "Diğer")
         }
     }
     

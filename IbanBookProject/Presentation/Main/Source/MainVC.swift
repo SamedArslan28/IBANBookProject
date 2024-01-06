@@ -10,39 +10,41 @@ import MLKitVision
 import MLKitTextRecognition
 
 final class MainVC: BaseVC, Navigable {
-
+    
     // MARK: - OUTLETS
-
+    
     @IBOutlet weak var descriptionLabel: BaseLabel!
     @IBOutlet weak var saveIban: BaseButton!
     @IBOutlet weak var ibanList: BaseButton!
     @IBOutlet weak var readIBANClicked: BaseButton!
-
+    
     // MARK: - PROPERTIES
-
-    lazy var imagePicker: UIImagePickerController = {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        return picker
-    }()
-
+    
+    var imagePicker: UIImagePickerController?
+    
     // MARK: - LIFECYCLE
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupImagePicker()
         setupUI()
     }
-
+    
     // MARK: - PRIVATE FUNCTIONS
-
+    
+    private func setupImagePicker() {
+        imagePicker = UIImagePickerController()
+        imagePicker?.delegate = self
+    }
+    
     private func setupUI(){
         descriptionLabel.text = MainConstants.descriptionLabelText
         saveIban.setTitle(MainConstants.saveIbanButtonTitle, for: .normal)
         ibanList.setTitle(MainConstants.ibanListButtonTitle, for: .normal)
         readIBANClicked.setTitle(MainConstants.readIbanButtonTitle, for: .normal)
         setNavigationColor()
-        imagePicker.delegate = self
+        
         navigationItem.hidesBackButton = false
         navigationController?.setToolbarHidden(true, animated: true)
     }
@@ -68,22 +70,23 @@ final class MainVC: BaseVC, Navigable {
     }
     
     private func showImagePicker(sourceType: UIImagePickerController.SourceType) {
-        self.imagePicker.sourceType = sourceType
+        guard let imagePicker else { return }
+        imagePicker.sourceType = sourceType
         DispatchQueue.main.async {
-            self.present(self.imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
         }
     }
-
+    
     // MARK: - IBACTIONS
-
+    
     @IBAction private func ibanListTapped(_ sender: Any) {
         pushVC(key: .ibanList)
     }
-
+    
     @IBAction private func saveIbanTapped(_ sender: Any) {
         pushVC(key: .saveIban)
     }
-
+    
     @IBAction private func selectPhotoSource(_ sender: BaseButton) {
         DispatchQueue.main.async { [weak self]  in
             self?.showImagePickerAlert()
@@ -94,7 +97,7 @@ final class MainVC: BaseVC, Navigable {
 // MARK: - TABLEVIEW EXTENSIONS
 
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         let reader = IbanReaderManager()
@@ -122,5 +125,5 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         }
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
 }

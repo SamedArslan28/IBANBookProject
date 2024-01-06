@@ -37,7 +37,7 @@ extension UIViewController {
 //extension UIViewController {
 //    
 //    
-//    private static var myComputedProperty: [Int: Any] = [:]
+//    private static var myComputedProperty: [1Int: Any] = [:]
 //    
 //    var dataa: Any? {
 //        get {
