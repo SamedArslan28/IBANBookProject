@@ -76,6 +76,7 @@ final class IbanListTableViewVM {
         guard let foundItem = getItem(with: id) else { return }
         foundItem.isFavorite.toggle() // reference type
         updateIbanCache()
+        prepareIbanLists()
     }
     
     func deleteItemAtIndexPath(_ indexPath: IndexPath) {
@@ -90,7 +91,7 @@ final class IbanListTableViewVM {
             return
         }
         items.removeAll(where:{ $0.itemId == item?.itemId })
-        prepareIbanLists()
+        updateIbanCache()
     }
 
     // MARK: - PRIVATE FUNCTIONS
@@ -130,7 +131,13 @@ final class IbanListTableViewVM {
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(items) else { return }
         CacheManager.shared.setObject(data, key: Constant.ibanListCacheKey)
-        prepareIbanLists()
+        rowTypes.removeAll()
+        if !favoriteItemList.isEmpty {
+            rowTypes.append(.favorites)
+        }
+        if !nonFavoriteItemList.isEmpty {
+            rowTypes.append(.nonFavorites)
+        }
     }
 }
 

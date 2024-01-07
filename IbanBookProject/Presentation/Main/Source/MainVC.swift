@@ -36,6 +36,7 @@ final class MainVC: BaseVC, Navigable {
     private func setupImagePicker() {
         imagePicker = UIImagePickerController()
         imagePicker?.delegate = self
+        imagePicker?.allowsEditing = true
     }
     
     private func setupUI(){
@@ -44,7 +45,6 @@ final class MainVC: BaseVC, Navigable {
         ibanList.setTitle(MainConstants.ibanListButtonTitle, for: .normal)
         readIBANClicked.setTitle(MainConstants.readIbanButtonTitle, for: .normal)
         setNavigationColor()
-        
         navigationItem.hidesBackButton = false
         navigationController?.setToolbarHidden(true, animated: true)
     }
@@ -99,7 +99,7 @@ final class MainVC: BaseVC, Navigable {
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.originalImage] as? UIImage else { return }
+        guard let image = info[.editedImage] as? UIImage else { return }
         let reader = IbanReaderManager()
         reader.processImage(image: image){ [weak self] items in
             if items.isEmpty {
