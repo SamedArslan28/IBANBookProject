@@ -53,8 +53,11 @@ final class IbanCell: UITableViewCell {
     
     @IBAction private func shareButtonTapped(_ sender: Any) {
         guard let viewModel else { return }
-        delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
-    }
+        DispatchQueue.main.async {
+            self.delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
+        }
+        }
+        
     
     @IBAction private func copyButtonTapped(_ sender: Any) {
         guard let viewModel else { return }

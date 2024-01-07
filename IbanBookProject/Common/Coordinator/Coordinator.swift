@@ -34,23 +34,6 @@ extension UIViewController {
     }
 }
 
-//extension UIViewController {
-//    
-//    
-//    private static var myComputedProperty: [1Int: Any] = [:]
-//    
-//    var dataa: Any? {
-//        get {
-//            let key = ObjectIdentifier(self).hashValue
-//            return UIViewController.myComputedProperty[key]
-//        }
-//        set(newValue) {
-//            let key = ObjectIdentifier(self).hashValue
-//            UIViewController.myComputedProperty[key] = newValue
-//        }
-//    }
-//}
-
 protocol Navigable { }
 
 extension Navigable where Self: UIViewController {

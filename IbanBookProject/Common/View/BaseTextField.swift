@@ -25,12 +25,10 @@ class BaseTextField: UITextField{
     private func commonInit() {
         layer.cornerRadius = 20
         font = .appFont()
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         backgroundColor = .clear
         borderStyle = .none
         setBackground(color: .clear)
-        setBorderColor(color: UIColor.lightGray.cgColor)
-        setPlaceholderColor(.black , alpha: 0.6)
         setBorderStyle(.none)
         setFontSize(16)
         autocorrectionType = .no
@@ -71,20 +69,6 @@ class BaseTextField: UITextField{
         let myColor = UIColor(cgColor: color).withAlphaComponent(0.5)
         self.layer.borderColor = myColor.cgColor
     }
-    
-    func setPlaceholderColor(_ color: UIColor, alpha: CGFloat) {
-         guard let placeholderText = self.placeholder else {
-             return
-         }
-
-         let modifiedColor = color.withAlphaComponent(alpha)
-
-         let attributes: [NSAttributedString.Key: Any] = [
-             .foregroundColor: modifiedColor,
-             .font: self.font ?? UIFont.systemFont(ofSize: 15.0)
-         ]
-         self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: attributes)
-     }
     
     func setFontSize(_ size: CGFloat) {
            if let font = self.font {
