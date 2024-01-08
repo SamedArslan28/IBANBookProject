@@ -38,13 +38,13 @@ final class IbanListTableViewVM {
     
     private var items = [IbanModel]()
     private var rowTypes: [SectionTypes] = []
-
+    
     // MARK: - COMPUTED PROPERTIES
-
+    
     private var nonFavoriteItemList: [IbanModel] { items.filter { !$0.isFavorite } }
     private var favoriteItemList: [IbanModel] { items.filter { $0.isFavorite } }
     var numberOfSection: Int { rowTypes.count }
-
+    
     // MARK: - FUNCTIONS
     
     func numberOfRows(in section: Int) -> Int {
@@ -80,20 +80,18 @@ final class IbanListTableViewVM {
     }
     
     func deleteItemAtIndexPath(_ indexPath: IndexPath) {
-        let rowType = rowTypes.get(at: indexPath.section)
-        let item: IbanModel?
+        guard let rowType = rowTypes.get(at: indexPath.section) else { return }
         switch rowType {
         case .favorites:
-            item = favoriteItemList.get(at: indexPath.row)
+            let item = favoriteItemList.get(at: indexPath.row)
+            items.removeAll(where:{ $0.itemId == item?.itemId })
         case .nonFavorites:
-            item = nonFavoriteItemList.get(at: indexPath.row)
-        case .none:
-            return
+            let item = nonFavoriteItemList.get(at: indexPath.row)
+            items.removeAll(where:{ $0.itemId == item?.itemId })
         }
-        items.removeAll(where:{ $0.itemId == item?.itemId })
         updateIbanCache()
     }
-
+    
     // MARK: - PRIVATE FUNCTIONS
     
     private func getItem(with id: String) -> IbanModel? {
@@ -108,7 +106,7 @@ final class IbanListTableViewVM {
             return nonFavoriteItemList.get(at: indexPath.row)
         }
     }
-
+    
     private func getData() -> [IbanModel]?{
         let decoder = JSONDecoder()
         guard let ibans = CacheManager.shared.getObject(key: Constant.ibanListCacheKey) else { return nil }
@@ -126,18 +124,12 @@ final class IbanListTableViewVM {
             rowTypes.append(.nonFavorites)
         }
     }
-
+    
     private func updateIbanCache() {
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(items) else { return }
         CacheManager.shared.setObject(data, key: Constant.ibanListCacheKey)
-        rowTypes.removeAll()
-        if !favoriteItemList.isEmpty {
-            rowTypes.append(.favorites)
-        }
-        if !nonFavoriteItemList.isEmpty {
-            rowTypes.append(.nonFavorites)
-        }
+        prepareIbanLists()
     }
 }
 
