@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SaveIbanVC" customModule="IbanBookProject" customModuleProvider="target">
+            <connections>
+                <outlet property="IBANNumberLabel" destination="llY-jm-em6" id="g8n-Ar-Dtc"/>
+                <outlet property="bankNameLabel" destination="9Gd-hL-HpT" id="3ur-RI-pyH"/>
+                <outlet property="bankNameTextField" destination="QXh-9q-bbb" id="9uS-hb-duI"/>
+                <outlet property="ibanTextField" destination="Yj2-ho-Bk8" id="lJZ-QC-TTu"/>
+                <outlet property="nameLabel" destination="g0N-az-2do" id="f2m-tl-fP7"/>
+                <outlet property="nameTextField" destination="nXs-qj-iUJ" id="CVf-dd-eiR"/>
+                <outlet property="otherTextField" destination="QYk-SL-QeM" id="r4Q-BK-QUp"/>
+                <outlet property="saveButton" destination="hEu-4Z-TEv" id="1o2-NH-4AY"/>
+                <outlet property="view" destination="u14-f9-t6i" id="Dhe-t8-h1m"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="u14-f9-t6i">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLd-1P-gHk">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="New-5e-Ysa">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="501"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZLP-mr-FDo">
+                                    <rect key="frame" x="24" y="50" width="345" height="451"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="GMf-0e-jMd">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="451"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DOb-xj-Fqu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="341"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="D6N-OI-1QU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="82.333333333333329"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0N-az-2do">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-qj-iUJ" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="32.333333333333329" width="345" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="fTl-rl-MfT"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="nXs-qj-iUJ" firstAttribute="width" secondItem="D6N-OI-1QU" secondAttribute="width" id="0rL-lK-D2w"/>
+                                                                <constraint firstItem="g0N-az-2do" firstAttribute="width" secondItem="D6N-OI-1QU" secondAttribute="width" id="he5-gI-oIJ"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="63R-hD-Hct">
+                                                            <rect key="frame" x="0.0" y="98.333333333333343" width="345" height="82.333333333333343"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llY-jm-em6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yj2-ho-Bk8" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="32.333333333333314" width="345" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="gqO-su-TOc"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Yj2-ho-Bk8" firstAttribute="width" secondItem="63R-hD-Hct" secondAttribute="width" id="06t-oP-k2R"/>
+                                                                <constraint firstItem="llY-jm-em6" firstAttribute="width" secondItem="63R-hD-Hct" secondAttribute="width" id="vIc-eG-ard"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OXV-er-nqz">
+                                                            <rect key="frame" x="0.0" y="196.66666666666663" width="345" height="144.33333333333337"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gd-hL-HpT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-9q-bbb" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="32.333333333333343" width="345" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="Khr-eN-yTt"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-SL-QeM" customClass="BaseTextField" customModule="IbanBookProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="94.333333333333343" width="345" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="wpV-wR-U9B"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="QXh-9q-bbb" firstAttribute="width" secondItem="OXV-er-nqz" secondAttribute="width" id="mUy-Nf-fTg"/>
+                                                                <constraint firstItem="9Gd-hL-HpT" firstAttribute="width" secondItem="OXV-er-nqz" secondAttribute="width" id="waW-54-afc"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEu-4Z-TEv" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="401" width="345" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="N0R-aw-zjd"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="saveButtonClicked:" destination="-1" eventType="touchUpInside" id="jyE-Ec-VOI"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DOb-xj-Fqu" firstAttribute="width" secondItem="GMf-0e-jMd" secondAttribute="width" id="BSp-5o-0bR"/>
+                                                <constraint firstItem="hEu-4Z-TEv" firstAttribute="width" secondItem="GMf-0e-jMd" secondAttribute="width" id="jfQ-ga-Ki4"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GMf-0e-jMd" firstAttribute="width" secondItem="ZLP-mr-FDo" secondAttribute="width" id="LOU-mx-0dO"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ZLP-mr-FDo" secondAttribute="trailing" constant="24" id="2Zh-pb-ODc"/>
+                                <constraint firstItem="ZLP-mr-FDo" firstAttribute="top" secondItem="New-5e-Ysa" secondAttribute="top" constant="50" id="Pd1-3Q-bkq"/>
+                                <constraint firstItem="ZLP-mr-FDo" firstAttribute="leading" secondItem="New-5e-Ysa" secondAttribute="leading" constant="24" id="aTy-ta-6sg"/>
+                                <constraint firstAttribute="bottom" secondItem="ZLP-mr-FDo" secondAttribute="bottom" id="rgh-Sy-QEH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="New-5e-Ysa" secondAttribute="trailing" id="NaP-PH-Vtv"/>
+                        <constraint firstItem="New-5e-Ysa" firstAttribute="top" secondItem="oLd-1P-gHk" secondAttribute="top" id="YWR-Ex-qF8"/>
+                        <constraint firstAttribute="bottom" secondItem="New-5e-Ysa" secondAttribute="bottom" id="iV1-DP-z6l"/>
+                        <constraint firstItem="ZLP-mr-FDo" firstAttribute="width" secondItem="oLd-1P-gHk" secondAttribute="width" constant="-48" id="jCw-cK-MqR"/>
+                        <constraint firstItem="New-5e-Ysa" firstAttribute="leading" secondItem="oLd-1P-gHk" secondAttribute="leading" id="kx8-fg-n5q"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="77a-iK-nd0"/>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="oLd-1P-gHk" firstAttribute="leading" secondItem="77a-iK-nd0" secondAttribute="leading" id="3rl-Q2-hUD"/>
+                <constraint firstItem="oLd-1P-gHk" firstAttribute="top" secondItem="u14-f9-t6i" secondAttribute="top" id="4xn-eB-ofz"/>
+                <constraint firstItem="77a-iK-nd0" firstAttribute="bottom" secondItem="oLd-1P-gHk" secondAttribute="bottom" id="n3D-Rq-G8o"/>
+                <constraint firstItem="oLd-1P-gHk" firstAttribute="trailing" secondItem="77a-iK-nd0" secondAttribute="trailing" id="xn0-lI-fs1"/>
+            </constraints>
+            <point key="canvasLocation" x="-294" y="-321"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,1037 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0579FF0DDE15885CC457E7E6 /* Pods_IbanBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */; };
+		61222F752B2C575C00982F89 /* TableViewCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */; };
+		6124335C2B18E2040044BC70 /* IbanCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433512B18E2040044BC70 /* IbanCellVM.swift */; };
+		6124335D2B18E2040044BC70 /* IbanListTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433522B18E2040044BC70 /* IbanListTableViewVM.swift */; };
+		6124335E2B18E2040044BC70 /* IbanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433542B18E2040044BC70 /* IbanCell.swift */; };
+		6124335F2B18E2040044BC70 /* IbanListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433552B18E2040044BC70 /* IbanListVC.swift */; };
+		612433602B18E2040044BC70 /* IbanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612433572B18E2040044BC70 /* IbanCell.xib */; };
+		612433612B18E2040044BC70 /* SaveIbanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6124335A2B18E2040044BC70 /* SaveIbanVC.swift */; };
+		612433622B18E2040044BC70 /* IbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6124335B2B18E2040044BC70 /* IbanModel.swift */; };
+		6128392F2B23417B00F4B988 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128392E2B23417B00F4B988 /* CacheManager.swift */; };
+		612C59212AEBF34C00A6E997 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59202AEBF34C00A6E997 /* StringExtensions.swift */; };
+		612C59242AEBF36500A6E997 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59232AEBF36500A6E997 /* BaseButton.swift */; };
+		612C59262AEBF37600A6E997 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59252AEBF37600A6E997 /* BaseTextField.swift */; };
+		612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59272AEBF37F00A6E997 /* BaseLabel.swift */; };
+		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
+		61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */; };
+		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
+		615597FA2AF94032008351F7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615597F92AF94032008351F7 /* BaseVC.swift */; };
+		6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165D7062B1B71440097E4EB /* SaveIbanVM.swift */; };
+		6168B06F2B28B5DB00D33D46 /* CustomAlertsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6168B06E2B28B5DB00D33D46 /* CustomAlertsConstants.swift */; };
+		6168B0712B28B74F00D33D46 /* IbanReaderManangerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6168B0702B28B74F00D33D46 /* IbanReaderManangerConstants.swift */; };
+		61702F542B1F5F8E0022285C /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61702F532B1F5F8E0022285C /* MainVC.xib */; };
+		61702F5A2B1F69570022285C /* SaveIbanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61702F592B1F69570022285C /* SaveIbanVC.xib */; };
+		61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61702F5B2B1F6B690022285C /* IbanListVC.xib */; };
+		61702F602B1F6E560022285C /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61702F5F2B1F6E560022285C /* UIViewControllerExtensions.swift */; };
+		61702F632B1F78390022285C /* SaveIbanConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61702F622B1F78390022285C /* SaveIbanConstants.swift */; };
+		6177A29D2A8B9CF800B3F30A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A29C2A8B9CF800B3F30A /* AppDelegate.swift */; };
+		6177A29F2A8B9CF800B3F30A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A29E2A8B9CF800B3F30A /* SceneDelegate.swift */; };
+		6177A2A12A8B9CF800B3F30A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A2A02A8B9CF800B3F30A /* MainVC.swift */; };
+		6177A2A62A8B9CF900B3F30A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6177A2A52A8B9CF900B3F30A /* Assets.xcassets */; };
+		6177A2B42A8B9CF900B3F30A /* IbanBookProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A2B32A8B9CF900B3F30A /* IbanBookProjectTests.swift */; };
+		6177A2BE2A8B9CF900B3F30A /* IbanBookProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A2BD2A8B9CF900B3F30A /* IbanBookProjectUITests.swift */; };
+		6177A2C02A8B9CF900B3F30A /* IbanBookProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177A2BF2A8B9CF900B3F30A /* IbanBookProjectUITestsLaunchTests.swift */; };
+		6191883C2AFA92FE006A9E0D /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */; };
+		6193C01F2B21130700AF009D /* MainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193C01E2B21130700AF009D /* MainConstants.swift */; };
+		6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */; };
+		6199CAAF2B24AE510007978C /* IbanReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAE2B24AE510007978C /* IbanReaderManager.swift */; };
+		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
+		61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF96E02AF92F1F00083069 /* FontExtenstions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6177A2B02A8B9CF900B3F30A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6177A2912A8B9CF800B3F30A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6177A2982A8B9CF800B3F30A;
+			remoteInfo = AyBenAPP;
+		};
+		6177A2BA2A8B9CF900B3F30A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6177A2912A8B9CF800B3F30A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6177A2982A8B9CF800B3F30A;
+			remoteInfo = AyBenAPP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocols.swift; sourceTree = "<group>"; };
+		612433512B18E2040044BC70 /* IbanCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanCellVM.swift; sourceTree = "<group>"; };
+		612433522B18E2040044BC70 /* IbanListTableViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanListTableViewVM.swift; sourceTree = "<group>"; };
+		612433542B18E2040044BC70 /* IbanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanCell.swift; sourceTree = "<group>"; };
+		612433552B18E2040044BC70 /* IbanListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanListVC.swift; sourceTree = "<group>"; };
+		612433572B18E2040044BC70 /* IbanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IbanCell.xib; sourceTree = "<group>"; };
+		6124335A2B18E2040044BC70 /* SaveIbanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveIbanVC.swift; sourceTree = "<group>"; };
+		6124335B2B18E2040044BC70 /* IbanModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanModel.swift; sourceTree = "<group>"; };
+		6128392E2B23417B00F4B988 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		612C59202AEBF34C00A6E997 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		612C59232AEBF36500A6E997 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		612C59252AEBF37600A6E997 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		612C59272AEBF37F00A6E997 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		615597F92AF94032008351F7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		6165D7062B1B71440097E4EB /* SaveIbanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanVM.swift; sourceTree = "<group>"; };
+		6168B06E2B28B5DB00D33D46 /* CustomAlertsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertsConstants.swift; sourceTree = "<group>"; };
+		6168B0702B28B74F00D33D46 /* IbanReaderManangerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanReaderManangerConstants.swift; sourceTree = "<group>"; };
+		61702F532B1F5F8E0022285C /* MainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainVC.xib; sourceTree = "<group>"; };
+		61702F592B1F69570022285C /* SaveIbanVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveIbanVC.xib; sourceTree = "<group>"; };
+		61702F5B2B1F6B690022285C /* IbanListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IbanListVC.xib; sourceTree = "<group>"; };
+		61702F5F2B1F6E560022285C /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		61702F622B1F78390022285C /* SaveIbanConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanConstants.swift; sourceTree = "<group>"; };
+		6177A2992A8B9CF800B3F30A /* IbanBookProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbanBookProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6177A29C2A8B9CF800B3F30A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6177A29E2A8B9CF800B3F30A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6177A2A02A8B9CF800B3F30A /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		6177A2A52A8B9CF900B3F30A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6177A2AA2A8B9CF900B3F30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6177A2AF2A8B9CF900B3F30A /* IbanBookProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IbanBookProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6177A2B32A8B9CF900B3F30A /* IbanBookProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanBookProjectTests.swift; sourceTree = "<group>"; };
+		6177A2B92A8B9CF900B3F30A /* IbanBookProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IbanBookProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6177A2BD2A8B9CF900B3F30A /* IbanBookProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanBookProjectUITests.swift; sourceTree = "<group>"; };
+		6177A2BF2A8B9CF900B3F30A /* IbanBookProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanBookProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
+		6193C01E2B21130700AF009D /* MainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConstants.swift; sourceTree = "<group>"; };
+		6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
+		6199CAAE2B24AE510007978C /* IbanReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanReaderManager.swift; sourceTree = "<group>"; };
+		619CFB5D2B35E84E0081A368 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		61FF96E02AF92F1F00083069 /* FontExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtenstions.swift; sourceTree = "<group>"; };
+		756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IbanBookProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80E4863F1175882CB7E44031 /* Pods-IbanBookProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.release.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.release.xcconfig"; sourceTree = "<group>"; };
+		D20056CD6167BA62DB1BCBD5 /* Pods-IbanBookProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.debug.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6177A2962A8B9CF800B3F30A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0579FF0DDE15885CC457E7E6 /* Pods_IbanBookProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6177A2AC2A8B9CF900B3F30A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6177A2B62A8B9CF900B3F30A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00193C032657497519549AD8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D20056CD6167BA62DB1BCBD5 /* Pods-IbanBookProject.debug.xcconfig */,
+				80E4863F1175882CB7E44031 /* Pods-IbanBookProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3B56E5522729010C9AAEBD14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				619CFB5D2B35E84E0081A368 /* Foundation.framework */,
+				756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61222F732B2C574400982F89 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6124334F2B18E2040044BC70 /* IbanList */ = {
+			isa = PBXGroup;
+			children = (
+				61702F5D2B1F6D660022285C /* View */,
+				612433502B18E2040044BC70 /* ViewModel */,
+				612433532B18E2040044BC70 /* Source */,
+				612433562B18E2040044BC70 /* UserInterface */,
+			);
+			path = IbanList;
+			sourceTree = "<group>";
+		};
+		612433502B18E2040044BC70 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				612433512B18E2040044BC70 /* IbanCellVM.swift */,
+				612433522B18E2040044BC70 /* IbanListTableViewVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		612433532B18E2040044BC70 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				612433552B18E2040044BC70 /* IbanListVC.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		612433562B18E2040044BC70 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				61702F5B2B1F6B690022285C /* IbanListVC.xib */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		612433582B18E2040044BC70 /* Save */ = {
+			isa = PBXGroup;
+			children = (
+				61702F612B1F78270022285C /* Constants */,
+				61702F582B1F69130022285C /* UserInterface */,
+				6165D7082B1B72220097E4EB /* ViewModel */,
+				612433592B18E2040044BC70 /* Source */,
+			);
+			path = Save;
+			sourceTree = "<group>";
+		};
+		612433592B18E2040044BC70 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6124335A2B18E2040044BC70 /* SaveIbanVC.swift */,
+				6124335B2B18E2040044BC70 /* IbanModel.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		6128392D2B23413C00F4B988 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6128392E2B23417B00F4B988 /* CacheManager.swift */,
+				6199CAAE2B24AE510007978C /* IbanReaderManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		612C59132AEBF21400A6E997 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6177A29C2A8B9CF800B3F30A /* AppDelegate.swift */,
+				6177A29E2A8B9CF800B3F30A /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		612C59142AEBF21F00A6E997 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */,
+				6177A2A52A8B9CF900B3F30A /* Assets.xcassets */,
+				6177A2AA2A8B9CF900B3F30A /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		612C59152AEBF25D00A6E997 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6124334F2B18E2040044BC70 /* IbanList */,
+				612433582B18E2040044BC70 /* Save */,
+				612C59172AEBF27600A6E997 /* Launch */,
+				612C59162AEBF26E00A6E997 /* Main */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		612C59162AEBF26E00A6E997 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6193C01D2B2112ED00AF009D /* Constants */,
+				612C59192AEBF2A300A6E997 /* Source */,
+				612C591A2AEBF2B200A6E997 /* UserInterface */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		612C59172AEBF27600A6E997 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				6199CAA62B2484810007978C /* UserInterface */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		612C59192AEBF2A300A6E997 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6177A2A02A8B9CF800B3F30A /* MainVC.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		612C591A2AEBF2B200A6E997 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				61702F532B1F5F8E0022285C /* MainVC.xib */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		612C591E2AEBF33500A6E997 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				619CFB5C2B35E3280081A368 /* Coordinator */,
+				61222F732B2C574400982F89 /* Protocols */,
+				6168B06D2B28B5C600D33D46 /* Constants */,
+				6128392D2B23413C00F4B988 /* Managers */,
+				612C59222AEBF35300A6E997 /* View */,
+				612C591F2AEBF33C00A6E997 /* Extenstions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		612C591F2AEBF33C00A6E997 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+				612C59202AEBF34C00A6E997 /* StringExtensions.swift */,
+				61361AF52AF45573003A93D9 /* ColorExtension.swift */,
+				61FF96E02AF92F1F00083069 /* FontExtenstions.swift */,
+				6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */,
+				61702F5F2B1F6E560022285C /* UIViewControllerExtensions.swift */,
+				6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */,
+			);
+			path = Extenstions;
+			sourceTree = "<group>";
+		};
+		612C59222AEBF35300A6E997 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				612C59232AEBF36500A6E997 /* BaseButton.swift */,
+				612C59252AEBF37600A6E997 /* BaseTextField.swift */,
+				612C59272AEBF37F00A6E997 /* BaseLabel.swift */,
+				615597F92AF94032008351F7 /* BaseVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6165D7082B1B72220097E4EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6165D7062B1B71440097E4EB /* SaveIbanVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6168B06D2B28B5C600D33D46 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6168B06E2B28B5DB00D33D46 /* CustomAlertsConstants.swift */,
+				6168B0702B28B74F00D33D46 /* IbanReaderManangerConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		61702F582B1F69130022285C /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				61702F592B1F69570022285C /* SaveIbanVC.xib */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		61702F5D2B1F6D660022285C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61702F5E2B1F6D6D0022285C /* IbanCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61702F5E2B1F6D6D0022285C /* IbanCell */ = {
+			isa = PBXGroup;
+			children = (
+				612433542B18E2040044BC70 /* IbanCell.swift */,
+				612433572B18E2040044BC70 /* IbanCell.xib */,
+			);
+			path = IbanCell;
+			sourceTree = "<group>";
+		};
+		61702F612B1F78270022285C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				61702F622B1F78390022285C /* SaveIbanConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6177A2902A8B9CF800B3F30A = {
+			isa = PBXGroup;
+			children = (
+				6177A29B2A8B9CF800B3F30A /* IbanBookProject */,
+				6177A2B22A8B9CF900B3F30A /* IbanBookProjectTests */,
+				6177A2BC2A8B9CF900B3F30A /* IbanBookProjectUITests */,
+				6177A29A2A8B9CF800B3F30A /* Products */,
+				00193C032657497519549AD8 /* Pods */,
+				3B56E5522729010C9AAEBD14 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6177A29A2A8B9CF800B3F30A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6177A2992A8B9CF800B3F30A /* IbanBookProject.app */,
+				6177A2AF2A8B9CF900B3F30A /* IbanBookProjectTests.xctest */,
+				6177A2B92A8B9CF900B3F30A /* IbanBookProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6177A29B2A8B9CF800B3F30A /* IbanBookProject */ = {
+			isa = PBXGroup;
+			children = (
+				612C591E2AEBF33500A6E997 /* Common */,
+				612C59132AEBF21400A6E997 /* Application */,
+				612C59152AEBF25D00A6E997 /* Presentation */,
+				612C59142AEBF21F00A6E997 /* Resource */,
+			);
+			path = IbanBookProject;
+			sourceTree = "<group>";
+		};
+		6177A2B22A8B9CF900B3F30A /* IbanBookProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				6177A2B32A8B9CF900B3F30A /* IbanBookProjectTests.swift */,
+			);
+			path = IbanBookProjectTests;
+			sourceTree = "<group>";
+		};
+		6177A2BC2A8B9CF900B3F30A /* IbanBookProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6177A2BD2A8B9CF900B3F30A /* IbanBookProjectUITests.swift */,
+				6177A2BF2A8B9CF900B3F30A /* IbanBookProjectUITestsLaunchTests.swift */,
+			);
+			path = IbanBookProjectUITests;
+			sourceTree = "<group>";
+		};
+		6193C01D2B2112ED00AF009D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6193C01E2B21130700AF009D /* MainConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6199CAA62B2484810007978C /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				6152A54F2B272A86004459AD /* Launch Screen.storyboard */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		619CFB5C2B35E3280081A368 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				61FF4A082B34AF4A008DB4CE /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6177A2982A8B9CF800B3F30A /* IbanBookProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6177A2C32A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProject" */;
+			buildPhases = (
+				D2FF6B70957FF77B0C84B827 /* [CP] Check Pods Manifest.lock */,
+				6177A2952A8B9CF800B3F30A /* Sources */,
+				6177A2962A8B9CF800B3F30A /* Frameworks */,
+				6177A2972A8B9CF800B3F30A /* Resources */,
+				5DCE796EC611234F1B24FFD9 /* [CP] Embed Pods Frameworks */,
+				7C78EBF1A63A2DDCD739D8F4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IbanBookProject;
+			productName = AyBenAPP;
+			productReference = 6177A2992A8B9CF800B3F30A /* IbanBookProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6177A2AE2A8B9CF900B3F30A /* IbanBookProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6177A2C62A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProjectTests" */;
+			buildPhases = (
+				6177A2AB2A8B9CF900B3F30A /* Sources */,
+				6177A2AC2A8B9CF900B3F30A /* Frameworks */,
+				6177A2AD2A8B9CF900B3F30A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6177A2B12A8B9CF900B3F30A /* PBXTargetDependency */,
+			);
+			name = IbanBookProjectTests;
+			productName = AyBenAPPTests;
+			productReference = 6177A2AF2A8B9CF900B3F30A /* IbanBookProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6177A2B82A8B9CF900B3F30A /* IbanBookProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6177A2C92A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProjectUITests" */;
+			buildPhases = (
+				6177A2B52A8B9CF900B3F30A /* Sources */,
+				6177A2B62A8B9CF900B3F30A /* Frameworks */,
+				6177A2B72A8B9CF900B3F30A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6177A2BB2A8B9CF900B3F30A /* PBXTargetDependency */,
+			);
+			name = IbanBookProjectUITests;
+			productName = AyBenAPPUITests;
+			productReference = 6177A2B92A8B9CF900B3F30A /* IbanBookProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6177A2912A8B9CF800B3F30A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					6177A2982A8B9CF800B3F30A = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					6177A2AE2A8B9CF900B3F30A = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 6177A2982A8B9CF800B3F30A;
+					};
+					6177A2B82A8B9CF900B3F30A = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 6177A2982A8B9CF800B3F30A;
+					};
+				};
+			};
+			buildConfigurationList = 6177A2942A8B9CF800B3F30A /* Build configuration list for PBXProject "IbanBookProject" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6177A2902A8B9CF800B3F30A;
+			productRefGroup = 6177A29A2A8B9CF800B3F30A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6177A2982A8B9CF800B3F30A /* IbanBookProject */,
+				6177A2AE2A8B9CF900B3F30A /* IbanBookProjectTests */,
+				6177A2B82A8B9CF900B3F30A /* IbanBookProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6177A2972A8B9CF800B3F30A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61702F5A2B1F69570022285C /* SaveIbanVC.xib in Resources */,
+				6177A2A62A8B9CF900B3F30A /* Assets.xcassets in Resources */,
+				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
+				61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */,
+				612433602B18E2040044BC70 /* IbanCell.xib in Resources */,
+				61702F542B1F5F8E0022285C /* MainVC.xib in Resources */,
+				61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6177A2AD2A8B9CF900B3F30A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6177A2B72A8B9CF900B3F30A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DCE796EC611234F1B24FFD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C78EBF1A63A2DDCD739D8F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2FF6B70957FF77B0C84B827 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IbanBookProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6177A2952A8B9CF800B3F30A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6124335D2B18E2040044BC70 /* IbanListTableViewVM.swift in Sources */,
+				61222F752B2C575C00982F89 /* TableViewCellProtocols.swift in Sources */,
+				6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */,
+				612C59262AEBF37600A6E997 /* BaseTextField.swift in Sources */,
+				612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */,
+				612C59212AEBF34C00A6E997 /* StringExtensions.swift in Sources */,
+				612C59242AEBF36500A6E997 /* BaseButton.swift in Sources */,
+				6128392F2B23417B00F4B988 /* CacheManager.swift in Sources */,
+				6124335E2B18E2040044BC70 /* IbanCell.swift in Sources */,
+				6168B0712B28B74F00D33D46 /* IbanReaderManangerConstants.swift in Sources */,
+				61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */,
+				6177A2A12A8B9CF800B3F30A /* MainVC.swift in Sources */,
+				61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */,
+				6193C01F2B21130700AF009D /* MainConstants.swift in Sources */,
+				61702F632B1F78390022285C /* SaveIbanConstants.swift in Sources */,
+				6124335F2B18E2040044BC70 /* IbanListVC.swift in Sources */,
+				612433612B18E2040044BC70 /* SaveIbanVC.swift in Sources */,
+				615597FA2AF94032008351F7 /* BaseVC.swift in Sources */,
+				61702F602B1F6E560022285C /* UIViewControllerExtensions.swift in Sources */,
+				61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */,
+				6177A29D2A8B9CF800B3F30A /* AppDelegate.swift in Sources */,
+				6124335C2B18E2040044BC70 /* IbanCellVM.swift in Sources */,
+				6191883C2AFA92FE006A9E0D /* TableViewExtensions.swift in Sources */,
+				6199CAAF2B24AE510007978C /* IbanReaderManager.swift in Sources */,
+				6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */,
+				612433622B18E2040044BC70 /* IbanModel.swift in Sources */,
+				6177A29F2A8B9CF800B3F30A /* SceneDelegate.swift in Sources */,
+				6168B06F2B28B5DB00D33D46 /* CustomAlertsConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6177A2AB2A8B9CF900B3F30A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6177A2B42A8B9CF900B3F30A /* IbanBookProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6177A2B52A8B9CF900B3F30A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6177A2C02A8B9CF900B3F30A /* IbanBookProjectUITestsLaunchTests.swift in Sources */,
+				6177A2BE2A8B9CF900B3F30A /* IbanBookProjectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6177A2B12A8B9CF900B3F30A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6177A2982A8B9CF800B3F30A /* IbanBookProject */;
+			targetProxy = 6177A2B02A8B9CF900B3F30A /* PBXContainerItemProxy */;
+		};
+		6177A2BB2A8B9CF900B3F30A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6177A2982A8B9CF800B3F30A /* IbanBookProject */;
+			targetProxy = 6177A2BA2A8B9CF900B3F30A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6177A2C12A8B9CF900B3F30A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6177A2C22A8B9CF900B3F30A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6177A2C42A8B9CF900B3F30A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D20056CD6167BA62DB1BCBD5 /* Pods-IbanBookProject.debug.xcconfig */;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Kamera için izin ver";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Resimlere erişime izin ver";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6177A2C52A8B9CF900B3F30A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80E4863F1175882CB7E44031 /* Pods-IbanBookProject.release.xcconfig */;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Kamera için izin ver";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Resimlere erişime izin ver";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6177A2C72A8B9CF900B3F30A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IbanBookProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IbanBookProject";
+			};
+			name = Debug;
+		};
+		6177A2C82A8B9CF900B3F30A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IbanBookProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IbanBookProject";
+			};
+			name = Release;
+		};
+		6177A2CA2A8B9CF900B3F30A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IbanBookProject;
+			};
+			name = Debug;
+		};
+		6177A2CB2A8B9CF900B3F30A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IbanBookProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6177A2942A8B9CF800B3F30A /* Build configuration list for PBXProject "IbanBookProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6177A2C12A8B9CF900B3F30A /* Debug */,
+				6177A2C22A8B9CF900B3F30A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6177A2C32A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6177A2C42A8B9CF900B3F30A /* Debug */,
+				6177A2C52A8B9CF900B3F30A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6177A2C62A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6177A2C72A8B9CF900B3F30A /* Debug */,
+				6177A2C82A8B9CF900B3F30A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6177A2C92A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6177A2CA2A8B9CF900B3F30A /* Debug */,
+				6177A2CB2A8B9CF900B3F30A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6177A2912A8B9CF800B3F30A /* Project object */;
+}

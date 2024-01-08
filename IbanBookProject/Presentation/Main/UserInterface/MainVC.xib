@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainVC" customModule="IbanBookProject" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="4kd-AB-VhQ" id="G3S-xN-cTa"/>
+                <outlet property="ibanList" destination="yZx-M3-KZA" id="wVY-UR-VpN"/>
+                <outlet property="readIBANClicked" destination="3dq-JO-pbn" id="qqd-bB-gYh"/>
+                <outlet property="saveIban" destination="yi5-3C-vct" id="RQb-0j-FeL"/>
+                <outlet property="view" destination="ykz-qB-7oW" id="0j3-Lc-ggl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ykz-qB-7oW">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OD2-Z2-QRP">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYU-Hp-miT">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="538.33333333333337"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="yNn-YD-5Dq">
+                                    <rect key="frame" x="0.0" y="16" width="393" height="522.33333333333337"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-c5-2ND">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="250.33333333333334"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="SPj-uF-g0S">
+                                                    <rect key="frame" x="96.666666666666686" y="0.0" width="200" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="abC-PT-L3h"/>
+                                                        <constraint firstAttribute="width" constant="200" id="cFF-RL-oSc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QO5-ON-xIq">
+                                                    <rect key="frame" x="20" y="190" width="353" height="60.333333333333343"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kd-AB-VhQ" customClass="BaseLabel" customModule="IbanBookProject" customModuleProvider="target">
+                                                            <rect key="frame" x="156" y="0.0" width="41.333333333333343" height="60.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="4kd-AB-VhQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QO5-ON-xIq" secondAttribute="leading" constant="25" id="Lau-Cp-zb6"/>
+                                                        <constraint firstItem="4kd-AB-VhQ" firstAttribute="centerX" secondItem="QO5-ON-xIq" secondAttribute="centerX" id="LdG-MC-fVa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="4kd-AB-VhQ" secondAttribute="bottom" id="PST-K2-HGk"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4kd-AB-VhQ" secondAttribute="trailing" constant="25" id="b2R-fz-EfR"/>
+                                                        <constraint firstItem="4kd-AB-VhQ" firstAttribute="top" secondItem="QO5-ON-xIq" secondAttribute="top" id="zfY-6t-Kyw"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QO5-ON-xIq" firstAttribute="width" secondItem="NMX-c5-2ND" secondAttribute="width" constant="-40" id="HVY-as-glj"/>
+                                            </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7l3-Ww-YMi">
+                                            <rect key="frame" x="116.66666666666669" y="370.33333333333331" width="160" height="151.99999999999994"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dq-JO-pbn" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Mex-mP-Xl7"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="selectPhotoSource:" destination="-1" eventType="touchUpInside" id="yKy-xi-cos"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZx-M3-KZA" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="56" width="160" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="9N6-Sl-TKc"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="ibanListTapped:" destination="-1" eventType="touchUpInside" id="kTy-xT-TFz"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yi5-3C-vct" customClass="BaseButton" customModule="IbanBookProject" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="112.00000000000006" width="160" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="04x-8f-Xs2"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="saveIbanTapped:" destination="-1" eventType="touchUpInside" id="xJI-Vz-RFC"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="160" id="eEg-6S-ICT"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="yNn-YD-5Dq" secondAttribute="trailing" id="Ftw-2B-lal"/>
+                                <constraint firstItem="yNn-YD-5Dq" firstAttribute="top" secondItem="BYU-Hp-miT" secondAttribute="top" constant="16" id="p2b-UP-Dx6"/>
+                                <constraint firstItem="yNn-YD-5Dq" firstAttribute="leading" secondItem="BYU-Hp-miT" secondAttribute="leading" id="wYa-EY-yTq"/>
+                                <constraint firstAttribute="bottom" secondItem="yNn-YD-5Dq" secondAttribute="bottom" id="xFa-cN-DdD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="yNn-YD-5Dq" firstAttribute="width" secondItem="OD2-Z2-QRP" secondAttribute="width" id="bEL-nf-aYk"/>
+                        <constraint firstAttribute="bottom" secondItem="BYU-Hp-miT" secondAttribute="bottom" id="beh-yz-JYC"/>
+                        <constraint firstItem="BYU-Hp-miT" firstAttribute="leading" secondItem="OD2-Z2-QRP" secondAttribute="leading" id="dpc-Ti-K7s"/>
+                        <constraint firstItem="BYU-Hp-miT" firstAttribute="top" secondItem="OD2-Z2-QRP" secondAttribute="top" id="ru5-PF-gVM"/>
+                        <constraint firstAttribute="trailing" secondItem="BYU-Hp-miT" secondAttribute="trailing" id="v4A-LM-bq6"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="f1b-lB-JV4"/>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="OD2-Z2-QRP" firstAttribute="leading" secondItem="f1b-lB-JV4" secondAttribute="leading" id="JQD-kM-dBY"/>
+                <constraint firstItem="f1b-lB-JV4" firstAttribute="bottom" secondItem="OD2-Z2-QRP" secondAttribute="bottom" id="JZw-7S-PS5"/>
+                <constraint firstItem="OD2-Z2-QRP" firstAttribute="top" secondItem="f1b-lB-JV4" secondAttribute="top" id="OqB-0q-wk2"/>
+                <constraint firstItem="OD2-Z2-QRP" firstAttribute="trailing" secondItem="f1b-lB-JV4" secondAttribute="trailing" id="rls-nU-van"/>
+            </constraints>
+            <point key="canvasLocation" x="176.33587786259542" y="68.309859154929583"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="266" height="219"/>
+    </resources>
+</document>
