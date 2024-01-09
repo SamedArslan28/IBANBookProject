@@ -105,6 +105,7 @@ final class SaveIbanVC: BaseVC, Navigable {
             let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
             ibanList.append(newItem)
             viewModel.saveIban(ibanList: ibanList)
+            popVC()
             pushVC(key: .ibanList)
         }
     }

@@ -1,4 +1,3 @@
-
 "Iban Defteri uygulaması sayesinde Iban`larınızı telefon kameranızla ya da galerinizdeki resimden okuyabilirsiniz. \n\n Aynı zamanda Iban'ları kolayca kaydedebilir ve yakınlarınızla paylaşabilirsiniz." = "With the Iban Defteri application, you can easily read your IBANs by using your phone camera or selecting a photo from your gallery.
      Additionally, you can effortlessly save and share IBANs with your contacts.";
 "IBAN Kaydet" = "Save IBAN";
@@ -18,4 +17,5 @@
 "Banka Adı" = "Bank Name";
 "Kaydet" = "Save";
 "TR00 0000 0000 0000 0000 0000 00" = "GB33BUKB20201555555555";
-//asdsadsadas
+"IBAN'lar" = "IBAN List";
+"Kayıtlı IBAN bulunmamaktadır." = "There is no registered IBAN.";

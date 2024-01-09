@@ -15,9 +15,8 @@ extension UITableView {
      - Parameter type: UITableViewCell.Type
      - Parameter identifier: String?
      */
-    func register(type: UITableViewCell.Type, identifier: String? = nil) {
-        let cellId = String(describing: type)
-        register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: identifier ?? cellId)
+    func register(type: UITableViewCell.Type) {
+        register(UINib(nibName: String(describing: type), bundle: nil), forCellReuseIdentifier: type.identifier)
     }
     
     /**
@@ -40,11 +39,8 @@ extension UITableView {
 
 }
 
- extension UITableViewCell {
-    
+extension UITableViewCell {
     static var identifier: String {
         return String(describing: self)
     }
-    
 }
-

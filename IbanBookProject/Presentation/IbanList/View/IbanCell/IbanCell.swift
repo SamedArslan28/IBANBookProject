@@ -14,7 +14,6 @@ final class IbanCell: UITableViewCell {
     @IBOutlet private weak var favoriteButton: BaseButton!
     @IBOutlet private weak var bankLabel: BaseLabel!
     @IBOutlet private weak var shareButton: BaseButton!
-    @IBOutlet private weak var copyButton: BaseButton!
     @IBOutlet private weak var nameLabel: BaseLabel!
     @IBOutlet private weak var ibanLabel: BaseLabel!
     @IBOutlet private weak var itemContainerView: UIView!
@@ -57,14 +56,6 @@ final class IbanCell: UITableViewCell {
             self.delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
         }
         }
-        
-    
-    @IBAction private func copyButtonTapped(_ sender: Any) {
-        guard let viewModel else { return }
-        let data = "\(viewModel.iban)"
-        UIPasteboard.general.string = data
-        delegate?.isCopiedToClipboard()
-    }
     
     @IBAction private func favouriteButtonTapped(_ sender: Any) {
         guard let viewModel else { return }

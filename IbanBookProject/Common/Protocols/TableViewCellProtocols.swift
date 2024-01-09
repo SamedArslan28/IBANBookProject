@@ -8,7 +8,6 @@
 import Foundation
 
 protocol IbanCellDelegate: AnyObject {
-    func isCopiedToClipboard()
     func isFavChanged(id: String)
     func showShareOptions(ibanName: String, ibanNumber: String, bankName: String)
 }

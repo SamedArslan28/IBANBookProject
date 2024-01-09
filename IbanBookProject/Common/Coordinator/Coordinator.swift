@@ -58,6 +58,10 @@ extension Navigable where Self: UIViewController {
     func popVC(animated: Bool = true) {
         navigationController?.popViewController(animated: animated)
     }
+    
+    func dismissVC(animated: Bool = true, completion: (() -> Void)? = nil) {
+        navigationController?.dismiss(animated: animated, completion: completion)
+    }
 }
 
 final class ControllerFactory {

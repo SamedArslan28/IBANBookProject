@@ -10,13 +10,16 @@ import Foundation
 enum SectionTypes: String {
     case favorites
     case nonFavorites
+    case empty
     
     var header: String {
         switch self {
         case .favorites:
             return Constant.favoriteTitle
-        default:
+        case .nonFavorites:
             return Constant.nonFavoriteTitle
+        default:
+            return ""
         }
     }
     
@@ -28,22 +31,31 @@ enum SectionTypes: String {
 
 final class IbanListTableViewVM {
     
-    // MARK: - LIFECYCLE
-    
-    init() {
-        prepareIbanLists()
-    }
-    
     // MARK: - PRIVATE PROPERTIES
     
     private var items = [IbanModel]()
-    private var rowTypes: [SectionTypes] = []
+    private(set) var rowTypes: [SectionTypes] = []
     
     // MARK: - COMPUTED PROPERTIES
     
     private var nonFavoriteItemList: [IbanModel] { items.filter { !$0.isFavorite } }
     private var favoriteItemList: [IbanModel] { items.filter { $0.isFavorite } }
-    var numberOfSection: Int { rowTypes.count }
+    var numberOfSection: Int { 
+        items.removeAll()
+        rowTypes.removeAll()
+        items = getData()?.reversed() ?? []
+        if favoriteItemList.isEmpty && nonFavoriteItemList.isEmpty {
+            rowTypes.append(.empty)
+            return rowTypes.count
+        }
+        if !favoriteItemList.isEmpty {
+            rowTypes.append(.favorites)
+        }
+        if !nonFavoriteItemList.isEmpty {
+            rowTypes.append(.nonFavorites)
+        }
+        return rowTypes.count
+    }
     
     // MARK: - FUNCTIONS
     
@@ -54,6 +66,8 @@ final class IbanListTableViewVM {
             return favoriteItemList.count
         case .nonFavorites:
             return nonFavoriteItemList.count
+        case .empty:
+            return 1
         }
     }
     
@@ -76,7 +90,6 @@ final class IbanListTableViewVM {
         guard let foundItem = getItem(with: id) else { return }
         foundItem.isFavorite.toggle() // reference type
         updateIbanCache()
-        prepareIbanLists()
     }
     
     func deleteItemAtIndexPath(_ indexPath: IndexPath) {
@@ -88,6 +101,8 @@ final class IbanListTableViewVM {
         case .nonFavorites:
             let item = nonFavoriteItemList.get(at: indexPath.row)
             items.removeAll(where:{ $0.itemId == item?.itemId })
+        case .empty:
+            break
         }
         updateIbanCache()
     }
@@ -104,6 +119,8 @@ final class IbanListTableViewVM {
             return favoriteItemList.get(at: indexPath.row)
         case .nonFavorites:
             return nonFavoriteItemList.get(at: indexPath.row)
+        case .empty:
+            return nil
         }
     }
     
@@ -112,24 +129,11 @@ final class IbanListTableViewVM {
         guard let ibans = CacheManager.shared.getObject(key: Constant.ibanListCacheKey) else { return nil }
         return try? decoder.decode([IbanModel].self, from: ibans)
     }
-    
-    private func prepareIbanLists() {
-        items.removeAll()
-        rowTypes.removeAll()
-        items = getData()?.reversed() ?? []
-        if !favoriteItemList.isEmpty {
-            rowTypes.append(.favorites)
-        }
-        if !nonFavoriteItemList.isEmpty {
-            rowTypes.append(.nonFavorites)
-        }
-    }
-    
+
     private func updateIbanCache() {
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(items) else { return }
         CacheManager.shared.setObject(data, key: Constant.ibanListCacheKey)
-        prepareIbanLists()
     }
 }
 

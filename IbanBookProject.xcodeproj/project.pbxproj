@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0579FF0DDE15885CC457E7E6 /* Pods_IbanBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */; };
 		61222F752B2C575C00982F89 /* TableViewCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */; };
+		612366CE2B4D891900562376 /* EmptyIBANCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612366CC2B4D891900562376 /* EmptyIBANCellTableViewCell.swift */; };
+		612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612366CD2B4D891900562376 /* EmptyIBANCellTableViewCell.xib */; };
 		6124335C2B18E2040044BC70 /* IbanCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433512B18E2040044BC70 /* IbanCellVM.swift */; };
 		6124335D2B18E2040044BC70 /* IbanListTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433522B18E2040044BC70 /* IbanListTableViewVM.swift */; };
 		6124335E2B18E2040044BC70 /* IbanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433542B18E2040044BC70 /* IbanCell.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocols.swift; sourceTree = "<group>"; };
+		612366CC2B4D891900562376 /* EmptyIBANCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyIBANCellTableViewCell.swift; path = IbanBookProject/Presentation/IbanList/UserInterface/EmptyIBANCellTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		612366CD2B4D891900562376 /* EmptyIBANCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EmptyIBANCellTableViewCell.xib; path = IbanBookProject/Presentation/IbanList/UserInterface/EmptyIBANCellTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		612433512B18E2040044BC70 /* IbanCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanCellVM.swift; sourceTree = "<group>"; };
 		612433522B18E2040044BC70 /* IbanListTableViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanListTableViewVM.swift; sourceTree = "<group>"; };
 		612433542B18E2040044BC70 /* IbanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanCell.swift; sourceTree = "<group>"; };
@@ -302,7 +306,6 @@
 		612C591E2AEBF33500A6E997 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				61DABFB02B4D5029008CF079 /* Localization */,
 				619CFB5C2B35E3280081A368 /* Coordinator */,
 				61222F732B2C574400982F89 /* Protocols */,
 				6168B06D2B28B5C600D33D46 /* Constants */,
@@ -383,6 +386,8 @@
 			children = (
 				612433542B18E2040044BC70 /* IbanCell.swift */,
 				612433572B18E2040044BC70 /* IbanCell.xib */,
+				612366CC2B4D891900562376 /* EmptyIBANCellTableViewCell.swift */,
+				612366CD2B4D891900562376 /* EmptyIBANCellTableViewCell.xib */,
 			);
 			path = IbanCell;
 			sourceTree = "<group>";
@@ -467,13 +472,6 @@
 				61FF4A082B34AF4A008DB4CE /* Coordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		61DABFB02B4D5029008CF079 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,6 +587,7 @@
 				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
 				61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */,
 				612433602B18E2040044BC70 /* IbanCell.xib in Resources */,
+				612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */,
 				6145EC9E2B4D6F08000045AA /* Localizable.strings in Resources */,
 				61702F542B1F5F8E0022285C /* MainVC.xib in Resources */,
 				61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */,
@@ -690,6 +689,7 @@
 				61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */,
 				6193C01F2B21130700AF009D /* MainConstants.swift in Sources */,
 				61702F632B1F78390022285C /* SaveIbanConstants.swift in Sources */,
+				612366CE2B4D891900562376 /* EmptyIBANCellTableViewCell.swift in Sources */,
 				6124335F2B18E2040044BC70 /* IbanListVC.swift in Sources */,
 				612433612B18E2040044BC70 /* SaveIbanVC.swift in Sources */,
 				615597FA2AF94032008351F7 /* BaseVC.swift in Sources */,
