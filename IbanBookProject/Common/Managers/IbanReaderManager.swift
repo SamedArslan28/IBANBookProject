@@ -73,7 +73,6 @@ final class IbanReaderManager  {
             if !ibanFound {
                 return
             }
-
             // Dispatch completion block to the main thread
             DispatchQueue.main.async {
                 completion(foundItems)

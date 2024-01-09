@@ -103,9 +103,9 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         let reader = IbanReaderManager()
         reader.processImage(image: image){ [weak self] items in
             if items.isEmpty {
-                self?.showActionAlertCancel(errorTitle: "Iban Bulunamadı.", errorMessage: "Lutfen baska bir fotograf seciniz.")
+                self?.showActionAlertCancel(errorTitle: CustomAlertsConstants.errorTitle, errorMessage: CustomAlertsConstants.errorMessage)
             } else if items.count > 1 {
-                let actionSheet = UIAlertController(title: "Choose an item", message: nil, preferredStyle: .actionSheet)
+                let actionSheet = UIAlertController(title: CustomAlertsConstants.selectItem, message: nil, preferredStyle: .actionSheet)
                 for item in items {
                     let action = UIAlertAction(title: "\(item)", style: .default) { _ in
                         // Push the view controller with the selected item's data
@@ -114,7 +114,7 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                     actionSheet.addAction(action)
                 }
                 // Add a cancel action
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                let cancelAction = UIAlertAction(title: CustomAlertsConstants.cancel, style: .cancel, handler: nil)
                 actionSheet.addAction(cancelAction)
                 // Present the action sheet
                 self?.present(actionSheet, animated: true, completion: nil)

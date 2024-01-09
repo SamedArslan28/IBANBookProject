@@ -8,11 +8,12 @@
 import Foundation
 
 struct SaveIbanConstants {
-    static let ibanNumberLabelText = "IBAN"
-    static let fullNameLabelText = "Ad Soyad"
-    static let bankNameLabelText = "Banka Adı"
-    static let saveButtonTitle = "Kaydet"
-    static let nameTextFieldPlaceholder = "Ad Soyad"
-    static let ibanTextFieldPlaceholder = "TR00 0000 0000 0000 0000 0000 00"
-    static let bankNameTextFieldPlaceholder = "Banka Adı"
+    static let ibanNumberLabelText = "IBAN".localized()
+    static let fullNameLabelText = "Ad Soyad".localized()
+    static let bankNameLabelText = "Banka Adı".localized()
+    static let saveButtonTitle = "Kaydet".localized()
+    static let nameTextFieldPlaceholder = "Ad Soyad".localized()
+    static let ibanTextFieldPlaceholder = "TR00 0000 0000 0000 0000 0000 00".localized()
+    static let bankNameTextFieldPlaceholder = "Banka Adı".localized()
+    static let saveNavigationTitle = "IBAN Kaydet".localized()
 }

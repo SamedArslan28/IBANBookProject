@@ -62,8 +62,8 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     private func setupUI() {
         
-        saveButton.setTitle("Kaydet", for: .normal)
-        setNavigationTitle(title: "IBAN Kaydet")
+        saveButton.setTitle(SaveIbanConstants.saveButtonTitle, for: .normal)
+        setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle)
         if let data = data {
             ibanTextField.text = data as? String
         }
