@@ -107,6 +107,11 @@ final class IbanListTableViewVM {
         updateIbanCache()
     }
     
+    func savedIbans() -> [IbanModel] {
+        return items
+    }
+
+    
     // MARK: - PRIVATE FUNCTIONS
     
     private func getItem(with id: String) -> IbanModel? {

@@ -77,7 +77,20 @@ class BaseTextField: UITextField{
                self.font = UIFont.systemFont(ofSize: size)
            }
         }
+    func setPlaceholderColor( color: UIColor, alpha: CGFloat) {
+        guard let placeholderText = self.placeholder else {
+            return
+        }
+        
+        let modifiedColor = color.withAlphaComponent(alpha)
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: modifiedColor,
+            .font: self.font ?? UIFont.systemFont(ofSize: 15.0)
+        ]
+        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: attributes)
     }
+}
 
 
 

@@ -29,14 +29,14 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
     
     private func setupUI() {
         navigationController?.hidesBarsOnSwipe = false
-        view.backgroundColor = .appBackgroundColor
+        view.setGradientBackground()
         navigationController?.navigationBar.barTintColor = UIColor.appBackgroundColor
         navigationController?.isToolbarHidden = true
         setNavigationTitle(title: "IBAN'lar".localized())
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .appBackgroundColor
+        tableView.backgroundColor = .none
         tableView.register(type: IbanCell.self)
         tableView.register(type: EmptyIBANCellTableViewCell.self)
     }
@@ -71,7 +71,7 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 32))
         let label = BaseLabel(frame: CGRect(x: 32, y: 0, width: headerView.frame.width - 12, height: headerView.frame.height))
         label.text = viewModel.titleHeader(in: section)
-        headerView.backgroundColor = .appBackgroundColor
+        headerView.backgroundColor = .none
         headerView.addSubview(label)
         return headerView
     }
@@ -100,7 +100,7 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
         let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
         swipeConfig.performsFirstActionWithFullSwipe = false
         return swipeConfig
-    }
+    }    
 }
 
 // MARK: - IBAN CELL DELEGATE
