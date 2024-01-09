@@ -23,6 +23,7 @@
 		612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59272AEBF37F00A6E997 /* BaseLabel.swift */; };
 		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
 		61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */; };
+		6145EC9E2B4D6F08000045AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6145EC9B2B4D6F08000045AA /* Localizable.strings */; };
 		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
 		615597FA2AF94032008351F7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615597F92AF94032008351F7 /* BaseVC.swift */; };
 		6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165D7062B1B71440097E4EB /* SaveIbanVM.swift */; };
@@ -44,7 +45,6 @@
 		6193C01F2B21130700AF009D /* MainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193C01E2B21130700AF009D /* MainConstants.swift */; };
 		6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */; };
 		6199CAAF2B24AE510007978C /* IbanReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAE2B24AE510007978C /* IbanReaderManager.swift */; };
-		61DABFB32B4D5078008CF079 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61DABFB52B4D5078008CF079 /* Localizable.strings */; };
 		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
 		61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF96E02AF92F1F00083069 /* FontExtenstions.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +82,8 @@
 		612C59272AEBF37F00A6E997 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		6145EC9C2B4D6F08000045AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6145EC9D2B4D6F08000045AA /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615597F92AF94032008351F7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		6165D7062B1B71440097E4EB /* SaveIbanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanVM.swift; sourceTree = "<group>"; };
@@ -108,8 +110,6 @@
 		6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
 		6199CAAE2B24AE510007978C /* IbanReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanReaderManager.swift; sourceTree = "<group>"; };
 		619CFB5D2B35E84E0081A368 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		61DABFB42B4D5078008CF079 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		61DABFB62B4D507D008CF079 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		61FF96E02AF92F1F00083069 /* FontExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtenstions.swift; sourceTree = "<group>"; };
 		756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IbanBookProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +246,7 @@
 		612C59142AEBF21F00A6E997 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6145EC9A2B4D6F08000045AA /* Localization */,
 				61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */,
 				6177A2A52A8B9CF900B3F30A /* Assets.xcassets */,
 				6177A2AA2A8B9CF900B3F30A /* Info.plist */,
@@ -334,6 +335,14 @@
 				615597F92AF94032008351F7 /* BaseVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6145EC9A2B4D6F08000045AA /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				6145EC9B2B4D6F08000045AA /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		6165D7082B1B72220097E4EB /* ViewModel */ = {
@@ -463,7 +472,6 @@
 		61DABFB02B4D5029008CF079 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				61DABFB52B4D5078008CF079 /* Localizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -581,7 +589,7 @@
 				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
 				61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */,
 				612433602B18E2040044BC70 /* IbanCell.xib in Resources */,
-				61DABFB32B4D5078008CF079 /* Localizable.strings in Resources */,
+				6145EC9E2B4D6F08000045AA /* Localizable.strings in Resources */,
 				61702F542B1F5F8E0022285C /* MainVC.xib in Resources */,
 				61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */,
 			);
@@ -731,14 +739,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		61DABFB52B4D5078008CF079 /* Localizable.strings */ = {
+		6145EC9B2B4D6F08000045AA /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				61DABFB42B4D5078008CF079 /* tr */,
-				61DABFB62B4D507D008CF079 /* en */,
+				6145EC9C2B4D6F08000045AA /* en */,
+				6145EC9D2B4D6F08000045AA /* tr */,
 			);
 			name = Localizable.strings;
-			path = ../../../../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
