@@ -118,7 +118,6 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="yNn-YD-5Dq" firstAttribute="width" secondItem="OD2-Z2-QRP" secondAttribute="width" id="bEL-nf-aYk"/>
                         <constraint firstAttribute="bottom" secondItem="BYU-Hp-miT" secondAttribute="bottom" id="beh-yz-JYC"/>

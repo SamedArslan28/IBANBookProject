@@ -61,7 +61,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     // MARK: - FUNCTIONS
     
     private func setupUI() {
-        
+        view.setGradientBackground()
         saveButton.setTitle(SaveIbanConstants.saveButtonTitle, for: .normal)
         setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle)
         if let data = data {

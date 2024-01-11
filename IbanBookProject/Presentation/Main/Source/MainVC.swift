@@ -27,6 +27,7 @@ final class MainVC: BaseVC, Navigable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.setGradientBackground()
         setupImagePicker()
         setupUI()
     }
@@ -45,6 +46,7 @@ final class MainVC: BaseVC, Navigable {
         ibanList.setTitle(MainConstants.ibanListButtonTitle, for: .normal)
         readIBANClicked.setTitle(MainConstants.readIbanButtonTitle, for: .normal)
         setNavigationColor()
+        setNavigationTitleColor()
         navigationItem.hidesBackButton = false
         navigationController?.setToolbarHidden(true, animated: true)
     }

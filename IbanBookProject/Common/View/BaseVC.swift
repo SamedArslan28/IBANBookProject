@@ -15,6 +15,9 @@ class BaseVC: UIViewController {
     }
 
     func setNavigationColor (){
-        navigationItem.titleView?.tintColor = .appBackgroundColor
+        navigationController?.navigationBar.tintColor = .themeColor
+    } 
+    func setNavigationTitleColor (){
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.themeColor] 
     }
 }
