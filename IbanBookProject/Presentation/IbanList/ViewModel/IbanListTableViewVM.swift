@@ -24,8 +24,8 @@ enum SectionTypes: String {
     }
     
     private enum Constant {
-        static let favoriteTitle = "Favoriler"
-        static let nonFavoriteTitle = "Kayıtlı IBAN`larim"
+        static let favoriteTitle = "Favoriler".localized()
+        static let nonFavoriteTitle = "Kayıtlı IBAN`larim".localized()
     }
 }
 

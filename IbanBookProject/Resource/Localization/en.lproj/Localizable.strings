@@ -19,3 +19,5 @@
 "TR00 0000 0000 0000 0000 0000 00" = "GB33BUKB20201555555555";
 "IBAN'lar" = "IBAN List";
 "Kayıtlı IBAN bulunmamaktadır." = "There is no registered IBAN.";
+"Favoriler" = "Favorites";
+"Kayıtlı IBAN`larim" = "Saved IBANs";
