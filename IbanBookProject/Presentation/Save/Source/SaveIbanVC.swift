@@ -12,8 +12,6 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - PROPERTIES
     
-    var viewModel = SaveIbanVM()
-    var ibanList = [IbanModel]()
     let banks = [
         "Halkbank",
         "Vakıfbank",
@@ -32,7 +30,10 @@ final class SaveIbanVC: BaseVC, Navigable {
         "Rabobank",
         "TEB",
         "JPMorgan Chase Bank",
-        "Diğer"]
+        "Diğer".localized()]
+    let lastOption = "Diğer".localized()
+    var viewModel = SaveIbanVM()
+    var ibanList = [IbanModel]()
     lazy var pickerView: UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -42,7 +43,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var otherTextField: BaseTextField!
+    @IBOutlet private weak var otherTextField: BaseTextField!
     @IBOutlet private weak var IBANNumberLabel: BaseLabel!
     @IBOutlet private weak var nameLabel: BaseLabel!
     @IBOutlet private weak var bankNameLabel: BaseLabel!
@@ -58,15 +59,13 @@ final class SaveIbanVC: BaseVC, Navigable {
         setupUI()
     }
     
-    // MARK: - FUNCTIONS
+    // MARK: - PRIVATE FUNCTIONS
     
     private func setupUI() {
         view.setGradientBackground()
         saveButton.setTitle(SaveIbanConstants.saveButtonTitle, for: .normal)
         setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle)
-        if let data = data {
-            ibanTextField.text = data as? String
-        }
+        if let data = data { ibanTextField.text = data as? String }
         IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
         nameLabel.text = SaveIbanConstants.fullNameLabelText
         bankNameLabel.text = SaveIbanConstants.bankNameLabelText
@@ -82,25 +81,24 @@ final class SaveIbanVC: BaseVC, Navigable {
         bankNameTextField.inputView = pickerView
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
-//        bankNameTextField.text = banks.first
     }
     
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Butun alanlar doldurulmalidir.")
+            showActionAlertCancel(errorTitle: "Eksik bilgi".localized(), errorMessage: "IBAN bulunamadı.".localized())
             return
         }
         let selectedBankName: String
         let ibanWithoutSpaces = ibanText.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
         let formattedIban = ibanWithoutSpaces.replacingOccurrences(of: "(\\d{2})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{2})", with: "$1 $2 $3 $4 $5 $6 $7", options: .regularExpression)
-        if let selectedOption = bankNameTextField.text, selectedOption == "Diğer" {
+        if let selectedOption = bankNameTextField.text, selectedOption == lastOption {
             selectedBankName = otherTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         } else {
             selectedBankName = bankNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         }
         let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if selectedBankName.isEmpty || name.isEmpty {
-            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Banka adı ve isim alanları doldurulmalıdır.")
+            showActionAlertCancel(errorTitle: "Eksik bilgi".localized(), errorMessage: "Banka adı ve isim alanları doldurulmalıdır.".localized())
         } else {
             let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
             ibanList.append(newItem)
@@ -113,7 +111,6 @@ final class SaveIbanVC: BaseVC, Navigable {
     // MARK: - UITextFieldDelegate
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Dismiss the keyboard when Return is tapped
         textField.resignFirstResponder()
         return true
     }
@@ -142,27 +139,21 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
         let selectedOption = banks[row]
         bankNameTextField.text = selectedOption
         UIView.animate(withDuration: 0.5) {
-            self.otherTextField?.alpha = (selectedOption == "Diğer") ? 1.0 : 0.0
-            self.otherTextField?.transform = (selectedOption == "Diğer") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.otherTextField?.alpha = (selectedOption == self.lastOption) ? 1.0 : 0.0
+            self.otherTextField?.transform = (selectedOption == self.lastOption) ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
         }
-        otherTextField?.isHidden = (selectedOption != "Diğer")
+        otherTextField?.isHidden = (selectedOption != lastOption)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == bankNameTextField {
-            let selectedRow = 0 // Select the first row
+            let selectedRow = 0
             pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
             let selectedOption = banks[selectedRow]
             UIView.transition(with: bankNameTextField, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 textField.text = selectedOption
             }, completion: nil)
-            UIView.animate(withDuration: 0.5) {
-                self.otherTextField?.alpha = (selectedOption == "Diğer") ? 1.0 : 0.0
-                self.otherTextField?.transform = (selectedOption == "Diğer") ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
-            }
-            otherTextField?.isHidden = (selectedOption != "Diğer")
+            otherTextField?.isHidden = (selectedOption != lastOption)
         }
     }
-    
-    
 }

@@ -21,3 +21,8 @@
 "Kayıtlı IBAN bulunmamaktadır." = "There is no registered IBAN.";
 "Favoriler" = "Favorites";
 "Kayıtlı IBAN`larim" = "Saved IBANs";
+"Diğer" = "Other";
+"Eksik bilgi" = "Missing Information";
+"Bütün alanlar doldurulmalıdır." = "All fields must be filled";
+"IBAN bulunamadı." = "IBAN not found";
+"Banka adı ve isim alanları doldurulmalıdır." = "Bank name and name fields must be filled";
