@@ -8,7 +8,21 @@
 import UIKit
 
 final class IbanCell: UITableViewCell {
-  
+    
+    
+    private enum FavButtonIcon: String {
+        case favorite
+        case nonFavorite
+        var systemImage: UIImage {
+               switch self {
+               case .nonFavorite:
+                   return UIImage(systemName: "star")!
+               case .favorite:
+                   return UIImage(systemName: "star.fill")!
+               }
+           }
+    }
+    
     // MARK: - OUTLET
     
     @IBOutlet private weak var favoriteButton: BaseButton!
@@ -26,13 +40,11 @@ final class IbanCell: UITableViewCell {
         }
     }
     var delegate: IbanCellDelegate?
-        
+    
     // MARK: - LIFE CYCLE
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        nameLabel.font = .appFont(16)
-        ibanLabel.font = .appFont(16)
         itemContainerView.layer.cornerRadius = 12
         itemContainerView.layer.borderColor = UIColor.black.cgColor
         itemContainerView.layer.borderWidth = 1
@@ -47,15 +59,13 @@ final class IbanCell: UITableViewCell {
         nameLabel.text = viewModel.ibanName
         ibanLabel.text = viewModel.iban
         bankLabel.text = viewModel.bankName
-        favoriteButton.setImage(UIImage(systemName: viewModel.rowType == .favorites ? "star.fill" : "star"), for: .normal)
+        favoriteButton.setImage(viewModel.rowType == .favorites ? FavButtonIcon.favorite.systemImage : FavButtonIcon.nonFavorite.systemImage , for: .normal)
     }
     
     @IBAction private func shareButtonTapped(_ sender: Any) {
         guard let viewModel else { return }
-        DispatchQueue.main.async {
-            self.delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
-        }
-        }
+        delegate?.showShareOptions(ibanName: viewModel.ibanName, ibanNumber: viewModel.iban, bankName: viewModel.bankName)
+    }
     
     @IBAction private func favouriteButtonTapped(_ sender: Any) {
         guard let viewModel else { return }

@@ -12,7 +12,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - PROPERTIES
     
-    let banks = [
+    private let banks = [
         "Halkbank",
         "Vakıfbank",
         "Ziraat Bankası",
@@ -31,9 +31,9 @@ final class SaveIbanVC: BaseVC, Navigable {
         "TEB",
         "JPMorgan Chase Bank",
         "Diğer".localized()]
-    let lastOption = "Diğer".localized()
-    var viewModel = SaveIbanVM()
-    var ibanList = [IbanModel]()
+    private let lastOption = "Diğer".localized()
+    private var viewModel = SaveIbanVM()
+    private var ibanList = [IbanModel]()
     lazy var pickerView: UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -83,9 +83,11 @@ final class SaveIbanVC: BaseVC, Navigable {
         view.addGestureRecognizer(tapGesture)
     }
     
+    // MARK: - IBACTIONS
+    
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            showActionAlertCancel(errorTitle: "Eksik bilgi".localized(), errorMessage: "IBAN bulunamadı.".localized())
+            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "IBAN bulunamadı.")
             return
         }
         let selectedBankName: String
@@ -98,7 +100,7 @@ final class SaveIbanVC: BaseVC, Navigable {
         }
         let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if selectedBankName.isEmpty || name.isEmpty {
-            showActionAlertCancel(errorTitle: "Eksik bilgi".localized(), errorMessage: "Banka adı ve isim alanları doldurulmalıdır.".localized())
+            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Banka adı ve isim alanları doldurulmalıdır.")
         } else {
             let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
             ibanList.append(newItem)

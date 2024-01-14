@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+public typealias CompletionBlock = () -> Void
+
 enum ControllerKey: String {
     case main
     case ibanList
@@ -42,7 +44,7 @@ extension Navigable where Self: UIViewController {
 //        let viewController = Self.init(nibName: nibName, bundle: .main)
 //        return viewController
 //    }
-    
+     
     func pushVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
         viewController.data = data
@@ -59,7 +61,7 @@ extension Navigable where Self: UIViewController {
         navigationController?.popViewController(animated: animated)
     }
     
-    func dismissVC(animated: Bool = true, completion: (() -> Void)? = nil) {
+    func dismissVC(animated: Bool = true, completion: CompletionBlock? = nil) {
         navigationController?.dismiss(animated: animated, completion: completion)
     }
 }

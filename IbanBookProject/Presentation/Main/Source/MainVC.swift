@@ -26,7 +26,6 @@ final class MainVC: BaseVC, Navigable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.setGradientBackground()
         setupImagePicker()
         setupUI()
@@ -99,7 +98,6 @@ final class MainVC: BaseVC, Navigable {
 // MARK: - TABLEVIEW EXTENSIONS
 
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         let reader = IbanReaderManager()
@@ -110,15 +108,12 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                 let actionSheet = UIAlertController(title: CustomAlertsConstants.selectItem, message: nil, preferredStyle: .actionSheet)
                 for item in items {
                     let action = UIAlertAction(title: "\(item)", style: .default) { _ in
-                        // Push the view controller with the selected item's data
                         self?.pushVC(key: .saveIban, data: item)
                     }
                     actionSheet.addAction(action)
                 }
-                // Add a cancel action
                 let cancelAction = UIAlertAction(title: CustomAlertsConstants.cancel, style: .cancel, handler: nil)
                 actionSheet.addAction(cancelAction)
-                // Present the action sheet
                 self?.present(actionSheet, animated: true, completion: nil)
             }
             else{

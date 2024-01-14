@@ -23,7 +23,6 @@ class IbanCellVM {
     var id: String { ibanModel.itemId }
     var isFav: Bool { ibanModel.isFavorite }
     
-   
     // MARK: - LIFECYCLE
     
     init(ibanModel: IbanModel, rowType: SectionTypes) {

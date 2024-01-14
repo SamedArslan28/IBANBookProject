@@ -10,6 +10,8 @@ import UIKit
 
 class BaseVC: UIViewController {
 
+    // MARK: - FUNCTIONS
+    
     func setNavigationTitle(title: String) {
         navigationItem.title = title
     }

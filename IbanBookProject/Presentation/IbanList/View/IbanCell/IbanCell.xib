@@ -25,13 +25,13 @@
                                 <rect key="frame" x="18" y="12" width="274" height="84"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7j-Ym-7ao">
-                                        <rect key="frame" x="0.0" y="0.0" width="262" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="84"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sgo-3P-C8N">
-                                                <rect key="frame" x="0.0" y="2" width="262" height="80"/>
+                                                <rect key="frame" x="0.0" y="2" width="250" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkv-af-Cu0" customClass="BaseLabel" customModule="IbanBookProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="PnF-0w-Z9D"/>
                                                         </constraints>
@@ -40,7 +40,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQS-43-msX" customClass="BaseLabel" customModule="IbanBookProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="30" width="262" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30" width="250" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="WnH-eJ-MQC"/>
                                                         </constraints>
@@ -49,7 +49,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Banka adi" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-in-9Hg" userLabel="Bank Label" customClass="BaseLabel" customModule="IbanBookProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="60" width="262" height="20"/>
+                                                        <rect key="frame" x="0.0" y="60" width="250" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -72,16 +72,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyP-ba-Kj3">
-                                        <rect key="frame" x="262" y="0.0" width="12" height="84"/>
+                                        <rect key="frame" x="250" y="0.0" width="24" height="84"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-wV-Xxn">
-                                                <rect key="frame" x="0.0" y="16" width="12" height="52"/>
+                                                <rect key="frame" x="0.0" y="12" width="24" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsF-7T-LSn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="12" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
+                                                        </accessibility>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="12" id="Daf-a0-lyL"/>
-                                                            <constraint firstAttribute="height" constant="20" id="wHb-jS-f3w"/>
+                                                            <constraint firstAttribute="width" constant="24" id="Daf-a0-lyL"/>
+                                                            <constraint firstAttribute="height" constant="24" id="wHb-jS-f3w"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -90,16 +93,20 @@
                                                         </state>
                                                         <buttonConfiguration key="configuration" style="plain">
                                                             <imageReference key="image" image="star" catalog="system" symbolScale="medium"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="favouriteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oX4-9w-a45"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-tb-S3O">
-                                                        <rect key="frame" x="0.0" y="32" width="12" height="20"/>
+                                                        <rect key="frame" x="0.0" y="36" width="24" height="24"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
+                                                        </accessibility>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="12" id="1TX-Zs-rrE"/>
-                                                            <constraint firstAttribute="height" constant="20" id="dQk-W2-flS"/>
+                                                            <constraint firstAttribute="width" constant="24" id="1TX-Zs-rrE"/>
+                                                            <constraint firstAttribute="height" constant="24" id="dQk-W2-flS"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -118,11 +125,13 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="4MP-Cy-knl"/>
+                                            <constraint firstItem="r0T-wV-Xxn" firstAttribute="centerY" secondItem="GyP-ba-Kj3" secondAttribute="centerY" id="75g-pz-Ckm"/>
                                             <constraint firstAttribute="trailing" secondItem="r0T-wV-Xxn" secondAttribute="trailing" id="BRr-mc-jxE"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="r0T-wV-Xxn" secondAttribute="bottom" id="Sab-7h-gEJ"/>
                                             <constraint firstItem="r0T-wV-Xxn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GyP-ba-Kj3" secondAttribute="top" id="Twd-EM-q67"/>
+                                            <constraint firstItem="r0T-wV-Xxn" firstAttribute="centerX" secondItem="GyP-ba-Kj3" secondAttribute="centerX" id="X4N-vG-Frl"/>
                                             <constraint firstItem="r0T-wV-Xxn" firstAttribute="leading" secondItem="GyP-ba-Kj3" secondAttribute="leading" id="hG0-Rk-gcD"/>
-                                            <constraint firstItem="r0T-wV-Xxn" firstAttribute="centerY" secondItem="GyP-ba-Kj3" secondAttribute="centerY" id="juN-Nx-QKI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -157,7 +166,7 @@
                 <outlet property="nameLabel" destination="Fkv-af-Cu0" id="vbj-O6-52F"/>
                 <outlet property="shareButton" destination="AGI-tb-S3O" id="ix6-wP-1iS"/>
             </connections>
-            <point key="canvasLocation" x="168" y="35"/>
+            <point key="canvasLocation" x="167.93893129770993" y="34.507042253521128"/>
         </tableViewCell>
     </objects>
     <resources>

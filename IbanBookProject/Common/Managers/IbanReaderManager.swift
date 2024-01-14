@@ -13,14 +13,13 @@ import MLKitTextRecognition
 final class IbanReaderManager  {
     func processImage(image: UIImage, completion: @escaping ([String]) -> Void) {
         var foundItems = [String]()
-        let pickedImage = image
-        let visionImage = VisionImage(image: pickedImage)
-        let latinOptions = TextRecognizerOptions()
-        let latinTextRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
-        var ibanFound = false
-
-        latinTextRecognizer.process(visionImage) { result, error in
-            guard error == nil, let result = result else { completion([]) ;return  }
+        let visionImage = VisionImage(image: image)
+        let textRecognizer = TextRecognizer.textRecognizer(options: TextRecognizerOptions())
+        textRecognizer.process(visionImage) { result, error in
+            guard error == nil, let result = result else {
+                completion([])
+                return
+            }
             guard !result.blocks.isEmpty else {
                 completion([])
                 return
@@ -29,15 +28,11 @@ final class IbanReaderManager  {
                 for line in block.lines {
                     let lineText = line.text
                     if lineText.isIban() {
-                        if let foundIban = lineText.extractIban(){
+                        if let foundIban = lineText.extractIban() {
                             foundItems.append(foundIban)
-                            ibanFound = true
                         }
                     }
                 }
-            }
-            if !ibanFound {
-                return
             }
             DispatchQueue.main.async {
                 completion(foundItems)

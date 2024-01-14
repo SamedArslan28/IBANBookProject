@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
+final class IbanListVC: BaseVC, Navigable {
     
     // MARK: - OUTLETS
     
@@ -28,11 +28,14 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
     // MARK: - FUNCTIONS
     
     private func setupUI() {
-        navigationController?.hidesBarsOnSwipe = false
         view.setGradientBackground()
-        navigationController?.navigationBar.barTintColor = UIColor.appBackgroundColor
-        navigationController?.isToolbarHidden = true
         setNavigationTitle(title: "IBAN'lar".localized())
+        navigationController?.isToolbarHidden = true
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -44,7 +47,7 @@ final class IbanListVC: BaseVC, UINavigationControllerDelegate, Navigable {
 
 // MARK: - TABLEVIEW EXTENSIONS
 
-extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
+extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.numberOfSection
@@ -106,7 +109,6 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - IBAN CELL DELEGATE
-
 extension IbanListVC: IbanCellDelegate {
     func showShareOptions(ibanName: String, ibanNumber: String, bankName: String) {
         let data = "\(ibanName)\n\(ibanNumber)\n\(bankName)"
