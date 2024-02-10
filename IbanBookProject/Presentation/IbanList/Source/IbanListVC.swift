@@ -42,6 +42,18 @@ final class IbanListVC: BaseVC, Navigable {
         tableView.backgroundColor = .none
         tableView.register(type: IbanCell.self)
         tableView.register(type: EmptyIBANCellTableViewCell.self)
+        let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), 
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(popToMainVC))
+        customBackButton.customView?.isUserInteractionEnabled = true
+        navigationItem.leftBarButtonItem = customBackButton
+        let copyAllButton = UIBarButtonItem(image: UIImage(systemName: "doc.on.doc"),
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(copyAllIbans))
+        customBackButton.customView?.isUserInteractionEnabled = true
+        navigationItem.rightBarButtonItem = copyAllButton
     }
 }
 
@@ -105,7 +117,26 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
         let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
         swipeConfig.performsFirstActionWithFullSwipe = false
         return swipeConfig
-    }    
+    }
+    
+    @objc func popToMainVC() {
+        if (navigationController?.viewControllers.count)! > 2 {
+            popToMain()
+        }else {
+            popVC(animated: true)
+        }
+    }
+    
+    @objc func copyAllIbans() {
+        let decoder = JSONDecoder()
+        guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return }
+        let savedIbans = try? decoder.decode([IbanModel].self, from: ibans)
+        var allIbansString = ""
+        savedIbans?.forEach({ item in
+             allIbansString = "\(allIbansString) \(item.ibanName)\n\(item.ibanNumber)\n\(item.bankName)\n"
+        })
+        UIPasteboard.general.string = allIbansString
+    }
 }
 
 // MARK: - IBAN CELL DELEGATE

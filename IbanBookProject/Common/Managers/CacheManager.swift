@@ -25,7 +25,7 @@ final class CacheManager {
     
     func setObject(_ value: Any?, key: String) {
         userDefaults.set(value, forKey: key)
-        userDefaults.synchronize()
+        synchronizeData()
     }
     
     func getObject(key: String) -> Data? {

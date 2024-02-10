@@ -14,6 +14,7 @@ final class BaseButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {

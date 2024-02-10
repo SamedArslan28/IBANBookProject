@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let navController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navController
+        navController.navigationItem.backBarButtonItem?.title = "Geri".localized()
         window.makeKeyAndVisible()
         self.window = window
     }

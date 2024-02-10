@@ -26,3 +26,6 @@
 "Bütün alanlar doldurulmalıdır." = "All fields must be filled";
 "IBAN bulunamadı." = "IBAN not found";
 "Banka adı ve isim alanları doldurulmalıdır." = "Bank name and name fields must be filled";
+"Geri" = "Back";
+"Kopyala" = "Copy All";
+"Değişiklikleri kaydedin." = "Save all changes.";

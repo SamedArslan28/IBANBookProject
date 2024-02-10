@@ -48,6 +48,9 @@ final class MainVC: BaseVC, Navigable {
         setNavigationTitleColor()
         navigationItem.hidesBackButton = false
         navigationController?.setToolbarHidden(true, animated: true)
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(pushSettingsVC))
+        settingsButton.tintColor = .themeColor
+        navigationItem.rightBarButtonItem = settingsButton
     }
     
     private func showImagePickerAlert() {
@@ -78,6 +81,9 @@ final class MainVC: BaseVC, Navigable {
         }
     }
     
+    @objc func pushSettingsVC() {
+        pushVC(key: .settings)
+    }
     // MARK: - IBACTIONS
     
     @IBAction private func ibanListTapped(_ sender: Any) {
@@ -115,9 +121,8 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                 let cancelAction = UIAlertAction(title: CustomAlertsConstants.cancel, style: .cancel, handler: nil)
                 actionSheet.addAction(cancelAction)
                 self?.present(actionSheet, animated: true, completion: nil)
-            }
-            else{
-                self?.pushVC(key: .saveIban, data:items.first)
+            } else {
+                self?.pushVC(key: .saveIban, data: items.first)
             }
         }
         picker.dismiss(animated: true, completion: nil)

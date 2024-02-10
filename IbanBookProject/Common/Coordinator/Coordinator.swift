@@ -13,7 +13,8 @@ public typealias CompletionBlock = () -> Void
 enum ControllerKey: String {
     case main
     case ibanList
-    case saveIban 
+    case saveIban
+    case settings
     
     var controllerType: AnyClass {
         switch self {
@@ -23,6 +24,8 @@ enum ControllerKey: String {
             return IbanListVC.self
         case .saveIban:
             return SaveIbanVC.self
+        case .settings:
+            return SettingsVC.self
         }
     }
 }
@@ -39,12 +42,12 @@ extension UIViewController {
 protocol Navigable { }
 
 extension Navigable where Self: UIViewController {
-//    static func create() -> Self {
-//        let nibName = String(describing: self)
-//        let viewController = Self.init(nibName: nibName, bundle: .main)
-//        return viewController
-//    }
-     
+    //    static func create() -> Self {
+    //        let nibName = String(describing: self)
+    //        let viewController = Self.init(nibName: nibName, bundle: .main)
+    //        return viewController
+    //    }
+    
     func pushVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
         viewController.data = data
@@ -63,6 +66,13 @@ extension Navigable where Self: UIViewController {
     
     func dismissVC(animated: Bool = true, completion: CompletionBlock? = nil) {
         navigationController?.dismiss(animated: animated, completion: completion)
+    }
+    
+    func popToMain() {
+        guard let navigationController else { return }
+        for item in navigationController.viewControllers.reversed() where type(of: item) != MainVC.self {
+            item.navigationController?.popViewController(animated: false)
+        }
     }
 }
 

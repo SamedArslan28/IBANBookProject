@@ -12,25 +12,6 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - PROPERTIES
     
-    private let banks = [
-        "Halkbank",
-        "Vakıfbank",
-        "Ziraat Bankası",
-        "Akbank",
-        "Türkiye İş Bankası",
-        "Yapı Kredi",
-        "Alternatif Bank",
-        "DenizBank",
-        "Deutsche Bank",
-        "Garanti BBVA",
-        "HSBC",
-        "ING",
-        "Odeabank",
-        "QNB Finansbank",
-        "Rabobank",
-        "TEB",
-        "JPMorgan Chase Bank",
-        "Diğer".localized()]
     private let lastOption = "Diğer".localized()
     private var viewModel = SaveIbanVM()
     private var ibanList = [IbanModel]()
@@ -81,6 +62,27 @@ final class SaveIbanVC: BaseVC, Navigable {
         bankNameTextField.inputView = pickerView
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+        ibanTextField.autocapitalizationType = .allCharacters
+        let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(popToMainVC))
+        customBackButton.customView?.isUserInteractionEnabled = true
+        navigationItem.leftBarButtonItem = customBackButton
+    }
+    
+    // MARK: - PRIVATEFUNCTIONS
+    
+    @objc private func popToMainVC() {
+        if (navigationController?.viewControllers.count)! > 2 {
+            popToMain()
+        } else {
+            popVC(animated: true)
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // MARK: - IBACTIONS
@@ -105,8 +107,8 @@ final class SaveIbanVC: BaseVC, Navigable {
             let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
             ibanList.append(newItem)
             viewModel.saveIban(ibanList: ibanList)
-            popVC()
             pushVC(key: .ibanList)
+        
         }
     }
     
@@ -115,9 +117,6 @@ final class SaveIbanVC: BaseVC, Navigable {
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
 
@@ -130,15 +129,15 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return banks.count
+        return viewModel.banks.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return banks.get(at: row)
+        return viewModel.banks.get(at: row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedOption = banks[row]
+        let selectedOption = viewModel.banks[row]
         bankNameTextField.text = selectedOption
         UIView.animate(withDuration: 0.5) {
             self.otherTextField?.alpha = (selectedOption == self.lastOption) ? 1.0 : 0.0
@@ -151,7 +150,7 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
         if textField == bankNameTextField {
             let selectedRow = 0
             pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
-            let selectedOption = banks[selectedRow]
+            let selectedOption = viewModel.banks[selectedRow]
             UIView.transition(with: bankNameTextField, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 textField.text = selectedOption
             }, completion: nil)

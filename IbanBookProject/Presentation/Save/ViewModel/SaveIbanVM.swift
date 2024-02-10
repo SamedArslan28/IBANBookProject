@@ -9,6 +9,28 @@ import Foundation
 
 final class SaveIbanVM {
     
+    // MARK: - PROPERTIES
+    
+    let banks = [
+        "Halkbank",
+        "Vakıfbank",
+        "Ziraat Bankası",
+        "Akbank",
+        "Türkiye İş Bankası",
+        "Yapı Kredi",
+        "Alternatif Bank",
+        "DenizBank",
+        "Deutsche Bank",
+        "Garanti BBVA",
+        "HSBC",
+        "ING",
+        "Odeabank",
+        "QNB Finansbank",
+        "Rabobank",
+        "TEB",
+        "JPMorgan Chase Bank",
+        "Diğer".localized()]
+    
     // MARK: - PRIVATE PROPERTIES
     
     private var ibanList = [IbanModel]()

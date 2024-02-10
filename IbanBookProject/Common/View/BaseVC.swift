@@ -14,11 +14,13 @@ class BaseVC: UIViewController {
     
     func setNavigationTitle(title: String) {
         navigationItem.title = title
+       
     }
 
     func setNavigationColor (){
         navigationController?.navigationBar.tintColor = .themeColor
     } 
+    
     func setNavigationTitleColor (){
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.themeColor] 
     }
