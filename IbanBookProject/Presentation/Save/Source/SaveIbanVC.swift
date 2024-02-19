@@ -12,7 +12,8 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     // MARK: - PROPERTIES
     
-    private let lastOption = "Diğer".localized()
+    private let lastOption = "othersKey".localized()
+    private let saveConstants = SaveIbanConstants()
     private var viewModel = SaveIbanVM()
     private var ibanList = [IbanModel]()
     lazy var pickerView: UIPickerView = {
@@ -44,15 +45,15 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     private func setupUI() {
         view.setGradientBackground()
-        saveButton.setTitle(SaveIbanConstants.saveButtonTitle, for: .normal)
-        setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle)
+        saveButton.setTitle(saveConstants.saveButtonTitle.localized(), for: .normal)
+        setNavigationTitle(title: saveConstants.saveNavigationTitle.localized())
         if let data = data { ibanTextField.text = data as? String }
-        IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText
-        nameLabel.text = SaveIbanConstants.fullNameLabelText
-        bankNameLabel.text = SaveIbanConstants.bankNameLabelText
-        nameTextField.placeholder = SaveIbanConstants.nameTextFieldPlaceholder
-        ibanTextField.placeholder = SaveIbanConstants.ibanTextFieldPlaceholder
-        bankNameTextField.placeholder = SaveIbanConstants.bankNameTextFieldPlaceholder
+        IBANNumberLabel.text = saveConstants.ibanNumberLabelText.localized()
+        nameLabel.text = saveConstants.fullNameLabelText.localized()
+        bankNameLabel.text = saveConstants.bankNameLabelText.localized()
+        nameTextField.placeholder = saveConstants.nameTextFieldPlaceholder.localized()
+        ibanTextField.placeholder = saveConstants.ibanTextFieldPlaceholder.localized()
+        bankNameTextField.placeholder = saveConstants.bankNameTextFieldPlaceholder.localized()
         ibanList = viewModel.getIbanList() ?? []
         pickerView.selectRow(0, inComponent: 0, animated: true)
         otherTextField.isHidden = true
@@ -60,6 +61,7 @@ final class SaveIbanVC: BaseVC, Navigable {
         pickerView.delegate = self
         pickerView.dataSource = self
         bankNameTextField.inputView = pickerView
+        ibanTextField.text = "TR330006100519786457841326".localized()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
         ibanTextField.autocapitalizationType = .allCharacters
@@ -89,12 +91,14 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "IBAN bulunamadı.")
+            showActionAlertCancel(errorTitle: "missingInfoKey".localized(), errorMessage: "notFoundKey".localized())
             return
         }
         let selectedBankName: String
         let ibanWithoutSpaces = ibanText.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
-        let formattedIban = ibanWithoutSpaces.replacingOccurrences(of: "(\\d{2})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{2})", with: "$1 $2 $3 $4 $5 $6 $7", options: .regularExpression)
+        let formattedIban = ibanWithoutSpaces.replacingOccurrences(of: "(\\d{2})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{2})",
+                                                                   with: "$1 $2 $3 $4 $5 $6 $7",
+                                                                   options: .regularExpression)
         if let selectedOption = bankNameTextField.text, selectedOption == lastOption {
             selectedBankName = otherTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         } else {
@@ -102,13 +106,13 @@ final class SaveIbanVC: BaseVC, Navigable {
         }
         let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if selectedBankName.isEmpty || name.isEmpty {
-            showActionAlertCancel(errorTitle: "Eksik bilgi", errorMessage: "Banka adı ve isim alanları doldurulmalıdır.")
+            showActionAlertCancel(errorTitle: "missingInfoKey".localized(),
+                                  errorMessage: "bankNameInfoKey".localized())
         } else {
             let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
             ibanList.append(newItem)
             viewModel.saveIban(ibanList: ibanList)
             pushVC(key: .ibanList)
-        
         }
     }
     

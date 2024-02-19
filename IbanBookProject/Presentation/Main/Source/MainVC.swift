@@ -21,6 +21,7 @@ final class MainVC: BaseVC, Navigable {
     // MARK: - PROPERTIES
     
     var imagePicker: UIImagePickerController?
+    let alertConstants = CustomAlertsConstants()
     
     // MARK: - LIFECYCLE
     
@@ -40,10 +41,11 @@ final class MainVC: BaseVC, Navigable {
     }
     
     private func setupUI(){
-        descriptionLabel.text = MainConstants.descriptionLabelText
-        saveIban.setTitle(MainConstants.saveIbanButtonTitle, for: .normal)
-        ibanList.setTitle(MainConstants.ibanListButtonTitle, for: .normal)
-        readIBANClicked.setTitle(MainConstants.readIbanButtonTitle, for: .normal)
+        let mainconstant = MainConstants()
+        descriptionLabel.text = mainconstant.descriptionLabelText.localized()
+        saveIban.setTitle(mainconstant.saveIbanButtonTitle.localized(), for: .normal)
+        ibanList.setTitle(mainconstant.ibanListButtonTitle.localized(), for: .normal)
+        readIBANClicked.setTitle(mainconstant.readIbanButtonTitle.localized(), for: .normal)
         setNavigationColor()
         setNavigationTitleColor()
         navigationItem.hidesBackButton = false
@@ -54,20 +56,20 @@ final class MainVC: BaseVC, Navigable {
     }
     
     private func showImagePickerAlert() {
-        let alert = UIAlertController(title: CustomAlertsConstants.imagePickerTitle,
-                                      message: CustomAlertsConstants.imagePickerMessage,
+        let alert = UIAlertController(title: alertConstants.imagePickerTitle.localized(),
+                                      message: alertConstants.imagePickerMessage.localized(),
                                       preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker,
+        alert.addAction(UIAlertAction(title: alertConstants.cameraPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
             self?.showImagePicker(sourceType: .camera)
         }))
-        alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker,
+        alert.addAction(UIAlertAction(title: alertConstants.photoLibraryPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
             self?.showImagePicker(sourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel, style: .cancel))
+        alert.addAction(UIAlertAction(title: alertConstants.cancel.localized(), style: .cancel))
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
@@ -109,16 +111,16 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         let reader = IbanReaderManager()
         reader.processImage(image: image){ [weak self] items in
             if items.isEmpty {
-                self?.showActionAlertCancel(errorTitle: CustomAlertsConstants.errorTitle, errorMessage: CustomAlertsConstants.errorMessage)
+                self?.showActionAlertCancel(errorTitle: (self?.alertConstants.errorTitle.localized())!, errorMessage: (self?.alertConstants.errorMessage.localized())!)
             } else if items.count > 1 {
-                let actionSheet = UIAlertController(title: CustomAlertsConstants.selectItem, message: nil, preferredStyle: .actionSheet)
+                let actionSheet = UIAlertController(title: self!.alertConstants.selectItem.localized(), message: nil, preferredStyle: .actionSheet)
                 for item in items {
                     let action = UIAlertAction(title: "\(item)", style: .default) { _ in
                         self?.pushVC(key: .saveIban, data: item)
                     }
                     actionSheet.addAction(action)
                 }
-                let cancelAction = UIAlertAction(title: CustomAlertsConstants.cancel, style: .cancel, handler: nil)
+                let cancelAction = UIAlertAction(title: self!.alertConstants.cancel.localized(), style: .cancel, handler: nil)
                 actionSheet.addAction(cancelAction)
                 self?.present(actionSheet, animated: true, completion: nil)
             } else {

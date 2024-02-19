@@ -9,6 +9,7 @@ target 'IbanBookProject' do
 pod 'FirebaseAnalytics'
 pod 'GoogleMLKit/TextRecognition', '3.2.0'
 
+
   
 
 end

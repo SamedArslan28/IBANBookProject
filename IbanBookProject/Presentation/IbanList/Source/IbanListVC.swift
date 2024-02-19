@@ -29,11 +29,12 @@ final class IbanListVC: BaseVC, Navigable {
     
     private func setupUI() {
         view.setGradientBackground()
-        setNavigationTitle(title: "IBAN'lar".localized())
+        setNavigationTitle(title: "ibanListKey".localized())
         navigationController?.isToolbarHidden = true
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.backgroundColor = .clear
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
         tableView.delegate = self

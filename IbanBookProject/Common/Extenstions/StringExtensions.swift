@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 extension String {
     func isIban() -> Bool {
         let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
@@ -38,10 +37,10 @@ extension String {
     }
     
     func localized() -> String {
-        return NSLocalizedString(self,
-                                 tableName: "Localizable",
-                                 bundle: .main,
-                                 value: self,
-                                 comment: self)
-    }
+        let lang = CacheManager.shared.getString(key: "languageCode")
+        let path = Bundle.main.path(forResource: lang, ofType: ".lproj")
+        let bundle = Bundle(path: path!)
+        return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
+    } 
+    
 }

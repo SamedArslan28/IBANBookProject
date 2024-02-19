@@ -23,34 +23,66 @@ final class SettingsVC: BaseVC, Navigable {
     }
     
     // MARK: - PRIVATE FUCNTIONS
-    private func setupUI(){
+    
+    private func setupUI() {
         view.setGradientBackground()
-        copyAllButton.setTitle("Kaydet".localized(), for: .normal)
-        englishSwitch.isOn = false
+        englishSwitch.setOn(CacheManager.shared.getString(key: "languageCode") == "en", animated: false) 
+        copyAllButton.setTitle("saveKey".localized(), for: .normal)
         englishLabel.text = "English"
+        messageLabel.text = "saveChangesKey".localized()
+        messageLabel.isEnabled = false
         let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
                                                style: .plain,
                                                target: self,
                                                action: #selector(popToMainVC))
         customBackButton.customView?.isUserInteractionEnabled = true
         navigationItem.leftBarButtonItem = customBackButton
-        messageLabel.text = "Değişiklikleri kaydedin.".localized()
-        messageLabel.layer.opacity = 0.8
-        messageLabel.isEnabled = false
-        
     }
     
     @objc private func popToMainVC() {
-        if (navigationController?.viewControllers.count)! > 2 {
+        guard let navigationControllers =  navigationController?.viewControllers else { return }
+        if navigationControllers.count > 2 {
             popToMain()
-        }else {
+        } else {
             popVC(animated: true)
         }
-        
     }
     
     @IBAction private func saveButtonTapeed(_ sender: BaseButton) {
-        
-        
+        restartApplication()
+    }
+    
+    private func reloadRootViewController() {
+        let isEnglish = englishSwitch.isOn
+        let languageCode = isEnglish ? "en" : "tr"
+        CacheManager.shared.setObject(languageCode, key: "languageCode")
+//        CacheManager.shared.setObject([languageCode], key: "AppleLanguages")
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let window = windowScene.windows.first {
+                guard let snapshotView = window.snapshotView(afterScreenUpdates: true) else { return }
+                guard let viewController = ControllerFactory.createVC(with: .main) else { return }
+                let newViewController = viewController
+                let newNavController = UINavigationController(rootViewController: newViewController)
+                window.rootViewController = newNavController
+                window.addSubview(snapshotView)
+                UIView.transition(with: snapshotView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                    snapshotView.alpha = 0
+                }, completion: { _ in
+                    snapshotView.removeFromSuperview()
+                })
+            }
+        }
+    }
+    
+    func restartApplication() {
+        let isEnglish = englishSwitch.isOn
+        let languageCode = isEnglish ? "en" : "tr"
+        CacheManager.shared.setObject(languageCode, key: "languageCode")
+        guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first else { return }
+        guard let viewController = ControllerFactory.createVC(with: .main) else { return }
+        let navCtrl = UINavigationController(rootViewController: viewController)
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = navCtrl
+        })
     }
 }

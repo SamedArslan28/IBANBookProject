@@ -31,6 +31,19 @@ final class CacheManager {
     func getObject(key: String) -> Data? {
         return userDefaults.data(forKey: key)
     }
+    
+    func getString(key: String) -> String? {
+        return userDefaults.string(forKey: key)
+    }
+    
+    func getBoolObject(key: String) -> Bool {
+        return userDefaults.bool(forKey: key)
+    }
+    
+    func getArrayObject(key: String) -> [Any]? {
+        return userDefaults.array(forKey: key)
+    }
+    
     func synchronizeData() {
         userDefaults.synchronize()
     }
