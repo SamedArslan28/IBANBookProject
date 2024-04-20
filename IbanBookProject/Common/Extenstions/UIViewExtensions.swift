@@ -7,10 +7,11 @@
 import Foundation
 import UIKit
 
-extension UIView{
+extension UIView {
     func setGradientBackground() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
+        let screenBounds = UIScreen.main.bounds
+        gradientLayer.frame = screenBounds
         gradientLayer.colors = [UIColor.colorOne.cgColor,UIColor.colorTwo.cgColor]
         gradientLayer.locations = [0.0, 0.5]
         layer.insertSublayer(gradientLayer, at: 0)

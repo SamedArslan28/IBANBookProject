@@ -82,8 +82,8 @@ final class IbanListTableViewVM {
         return IbanCellVM(ibanModel: ibanItem , rowType: rowType)
     }
     
-    func getItemsCount() -> Bool {
-        return items.isEmpty ? true : false
+    func getItemsIsEmpty() -> Bool {
+        return items.isEmpty
     }
     
     func changeFavoriteStatus(at id: String) {

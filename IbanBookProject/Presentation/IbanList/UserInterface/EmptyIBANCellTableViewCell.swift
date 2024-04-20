@@ -13,6 +13,6 @@ final class EmptyIBANCellTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        messageLabel.text = "Kayıtlı IBAN bulunmamaktadır.".localized()
+        messageLabel.text = "emptyCellKey".localized()
     }
 }

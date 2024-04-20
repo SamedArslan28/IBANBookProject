@@ -25,9 +25,15 @@ final class IbanListVC: BaseVC, Navigable {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCopyAllButton()
+    }
+    
     // MARK: - FUNCTIONS
     
     private func setupUI() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         view.setGradientBackground()
         setNavigationTitle(title: "ibanListKey".localized())
         navigationController?.isToolbarHidden = true
@@ -38,23 +44,31 @@ final class IbanListVC: BaseVC, Navigable {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
         tableView.delegate = self
+        tableView.addGestureRecognizer(longPressGesture)
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .none
         tableView.register(type: IbanCell.self)
         tableView.register(type: EmptyIBANCellTableViewCell.self)
-        let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), 
+        setupCustomBackButton()
+    }
+    
+    private func setupCopyAllButton() {
+        let copyAllButton = UIBarButtonItem(image: UIImage(systemName: "doc.on.doc")?.withTintColor(.themeColor),
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(copyAllIbans))
+        copyAllButton.customView?.isUserInteractionEnabled = true
+        navigationItem.rightBarButtonItem = copyAllButton
+    }
+    
+    private func setupCustomBackButton() {
+        let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
                                                style: .plain,
                                                target: self,
                                                action: #selector(popToMainVC))
         customBackButton.customView?.isUserInteractionEnabled = true
         navigationItem.leftBarButtonItem = customBackButton
-        let copyAllButton = UIBarButtonItem(image: UIImage(systemName: "doc.on.doc"),
-                                               style: .plain,
-                                               target: self,
-                                               action: #selector(copyAllIbans))
-        customBackButton.customView?.isUserInteractionEnabled = true
-        navigationItem.rightBarButtonItem = copyAllButton
     }
 }
 
@@ -137,6 +151,22 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
              allIbansString = "\(allIbansString) \(item.ibanName)\n\(item.ibanNumber)\n\(item.bankName)\n"
         })
         UIPasteboard.general.string = allIbansString
+
+    }
+    
+    @objc func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let location = sender.location(in: self.tableView)
+            if let indexPath = self.tableView.indexPathForRow(at: location) {
+                if let cell = self.tableView.cellForRow(at: indexPath) as? IbanCell {
+                    let propertyToCopy = cell.viewModel?.iban
+                    UIPasteboard.general.string = propertyToCopy
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.success)
+                    showToast(message: "copyIbanKey".localized(), font: .systemFont(ofSize: 12))
+                }
+            }
+        }
     }
 }
 
