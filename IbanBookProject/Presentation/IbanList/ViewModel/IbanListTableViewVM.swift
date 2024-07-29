@@ -111,6 +111,17 @@ final class IbanListTableViewVM {
         return items
     }
 
+    func getAllIbans() -> String {
+        guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return "" }
+        let decoder = JSONDecoder()
+        let savedIbans = try? decoder.decode([IbanModel].self, from: ibans)
+        var allIbansString = ""
+        savedIbans?.forEach({ item in
+            allIbansString = "\(allIbansString) \(item.ibanName)\n\(item.ibanNumber)\n\(item.bankName)\n"
+        })
+        return allIbansString
+    }
+
     
     // MARK: - PRIVATE FUNCTIONS
     

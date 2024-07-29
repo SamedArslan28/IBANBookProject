@@ -63,16 +63,16 @@ extension Navigable where Self: UIViewController {
         navigationController?.dismiss(animated: animated, completion: completion)
     }
     
-    func popToMain2() {
+    func popToMain() {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func popToMain() {
-        guard let navigationController else { return }
-        for item in navigationController.viewControllers.reversed() where type(of: item) != MainVC.self {
-            item.navigationController?.popViewController(animated: false)
-        }
-    }
+//    func popToMain() {
+//        guard let navigationController else { return }
+//        for item in navigationController.viewControllers.reversed() where type(of: item) != MainVC.self {
+//            item.navigationController?.popViewController(animated: true)
+//        }
+//    }
 }
 
 final class ControllerFactory {

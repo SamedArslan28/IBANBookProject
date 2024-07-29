@@ -8,8 +8,7 @@
 import UIKit
 
 final class IbanCell: UITableViewCell {
-    
-    
+
     private enum FavButtonIcon: String {
         case favorite
         case nonFavorite
@@ -39,6 +38,7 @@ final class IbanCell: UITableViewCell {
             prepareUI()
         }
     }
+
     var delegate: IbanCellDelegate?
     
     // MARK: - LIFE CYCLE

@@ -25,26 +25,26 @@ final class IbanListVC: BaseVC, Navigable {
         setupUI()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupCopyAllButton()
-    }
-
     // MARK: - FUNCTIONS
 
     private func setupUI() {
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
-        view.setGradientBackground()
+        setBackground()
+        prepareTableView()
+        setupCustomBackButton()
+        prepareNavBar()
+        setupCopyAllButton()
+    }
+
+    private func prepareTableView() {
         setNavigationTitle(title: "ibanListKey".localized())
-        tableView.delegate = self
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longPressGesture)
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .none
         tableView.register(type: IbanCell.self)
         tableView.register(type: EmptyIBANCellTableViewCell.self)
-        setupCustomBackButton()
-        prepareNavBar()
     }
 
     private func prepareNavBar() {
@@ -52,7 +52,6 @@ final class IbanListVC: BaseVC, Navigable {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         navigationController.navigationBar.tintColor = .themeColor
-
         navigationController.navigationBar.standardAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = appearance
     }
@@ -139,21 +138,13 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     }
 
     @objc func popToMainVC() {
-        if (navigationController?.viewControllers.count)! > 2 {
-            popToMain2()
-        }else {
-            popVC(animated: true)
-        }
+        guard let navigationController else { return }
+        if (navigationController.viewControllers.count) > 2 { popToMain() }
+        popVC()
     }
 
     @objc func copyAllIbans() {
-        let decoder = JSONDecoder()
-        guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return }
-        let savedIbans = try? decoder.decode([IbanModel].self, from: ibans)
-        var allIbansString = ""
-        savedIbans?.forEach({ item in
-            allIbansString = "\(allIbansString) \(item.ibanName)\n\(item.ibanNumber)\n\(item.bankName)\n"
-        })
+        let allIbansString = viewModel.getAllIbans()
         UIPasteboard.general.string = allIbansString
         showToast(message: "copyIbanKey".localized(), font: .systemFont(ofSize: 12))
     }
@@ -161,8 +152,8 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     @objc func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             let location = sender.location(in: self.tableView)
-            if let indexPath = self.tableView.indexPathForRow(at: location) {
-                if let cell = self.tableView.cellForRow(at: indexPath) as? IbanCell {
+            if let indexPath = tableView.indexPathForRow(at: location) {
+                if let cell = tableView.cellForRow(at: indexPath) as? IbanCell {
                     let propertyToCopy = cell.viewModel?.iban
                     UIPasteboard.general.string = propertyToCopy
                     let generator = UINotificationFeedbackGenerator()

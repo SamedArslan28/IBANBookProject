@@ -26,7 +26,7 @@ final class MainVC: BaseVC, Navigable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.setGradientBackground()
+        setBackground()
         setupUI()
     }
     
@@ -46,7 +46,7 @@ final class MainVC: BaseVC, Navigable {
         imagePicker?.allowsEditing = true
     }
     
-    fileprivate func prepareNavBar() {
+    private func prepareNavBar() {
         guard let navigationController else { return }
         navigationItem.hidesBackButton = false
         navigationController.setToolbarHidden(true, animated: true)

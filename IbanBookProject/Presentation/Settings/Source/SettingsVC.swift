@@ -25,7 +25,7 @@ final class SettingsVC: BaseVC, Navigable {
     // MARK: - PRIVATE FUCNTIONS
     
     private func setupUI() {
-        view.setGradientBackground()
+        setBackground()
         prepareComponents()
         prepareCustomBackButton()
     }
