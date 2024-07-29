@@ -7,8 +7,8 @@
 "sourceKey" = "Select Source";
 "sourceMessageKey" = "Where will the IBAN be read from?";
 "cancelKey" = "Cancel";
-"okKey" = "Ok";
-"ibanNotFoundKey" = "Cannot find IBAN";
+"okKey" = "OK";
+"ibanNotFoundKey" = "Can't find IBAN";
 "differentPhotoKey" = "Please select another photo";
 "ibanSelectKey" = "Select a IBAN";
 "ibanKey" = "IBAN";

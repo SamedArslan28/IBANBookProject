@@ -10,9 +10,8 @@ import UIKit
 
 extension UIViewController {
     func showActionAlertCancel(errorTitle: String, errorMessage: String) {
-        let alertConstants = CustomAlertsConstants()
         let alertController = UIAlertController(title: errorTitle.localized(), message: errorMessage.localized(), preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: alertConstants.approval.localized(), style: .cancel)
+        let dismissAction = UIAlertAction(title: CustomAlertsConstants.approval.localized(), style: .cancel)
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
     }

@@ -21,7 +21,6 @@ final class MainVC: BaseVC, Navigable {
     // MARK: - PROPERTIES
     
     var imagePicker: UIImagePickerController?
-    let alertConstants = CustomAlertsConstants()
     
     // MARK: - LIFECYCLE
     
@@ -56,20 +55,20 @@ final class MainVC: BaseVC, Navigable {
     }
     
     private func showImagePickerAlert() {
-        let alert = UIAlertController(title: alertConstants.imagePickerTitle.localized(),
-                                      message: alertConstants.imagePickerMessage.localized(),
+        let alert = UIAlertController(title: CustomAlertsConstants.imagePickerTitle.localized(),
+                                      message: CustomAlertsConstants.imagePickerMessage.localized(),
                                       preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: alertConstants.cameraPicker.localized(),
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
             self?.showImagePicker(sourceType: .camera)
         }))
-        alert.addAction(UIAlertAction(title: alertConstants.photoLibraryPicker.localized(),
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
             self?.showImagePicker(sourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: alertConstants.cancel.localized(), style: .cancel))
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel))
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
@@ -108,19 +107,19 @@ final class MainVC: BaseVC, Navigable {
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
-        let reader = IbanReaderManager()
-        reader.processImage(image: image){ [weak self] items in
+        let reader: OCRManager = IbanReaderManager()
+        reader.proccessImage(image: image){ [weak self] items in
             if items.isEmpty {
-                self?.showActionAlertCancel(errorTitle: (self?.alertConstants.errorTitle.localized())!, errorMessage: (self?.alertConstants.errorMessage.localized())!)
+                self?.showActionAlertCancel(errorTitle: (CustomAlertsConstants.errorTitle.localized()), errorMessage: (CustomAlertsConstants.errorMessage.localized()))
             } else if items.count > 1 {
-                let actionSheet = UIAlertController(title: self!.alertConstants.selectItem.localized(), message: nil, preferredStyle: .actionSheet)
+                let actionSheet = UIAlertController(title: CustomAlertsConstants.selectItem.localized(), message: nil, preferredStyle: .actionSheet)
                 for item in items {
                     let action = UIAlertAction(title: "\(item)", style: .default) { _ in
                         self?.pushVC(key: .saveIban, data: item)
                     }
                     actionSheet.addAction(action)
                 }
-                let cancelAction = UIAlertAction(title: self!.alertConstants.cancel.localized(), style: .cancel, handler: nil)
+                let cancelAction = UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel, handler: nil)
                 actionSheet.addAction(cancelAction)
                 self?.present(actionSheet, animated: true, completion: nil)
             } else {
@@ -129,5 +128,4 @@ extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }

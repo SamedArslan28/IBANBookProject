@@ -8,6 +8,6 @@
 import Foundation
 
 struct IbanReaderManangerConstants {
-    static let alertTitle = "IBAN bulunamdı"
-    static let alertMessage = "Tekrar deneyin yada farklı bir fotoğraf seçin"
+    static let alertTitle = "ibanNotFoundKey"
+    static let alertMessage = "differentPhotoKey"
 }

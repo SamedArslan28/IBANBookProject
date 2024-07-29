@@ -8,9 +8,13 @@
 import UIKit
 
 final class EmptyIBANCellTableViewCell: UITableViewCell {
-    
+
+    // MARK: - PROPERTIES
+
     @IBOutlet private weak var messageLabel: BaseLabel!
-    
+
+    // MARK: - LIFECYCLE
+
     override func awakeFromNib() {
         super.awakeFromNib()
         messageLabel.text = "emptyCellKey".localized()

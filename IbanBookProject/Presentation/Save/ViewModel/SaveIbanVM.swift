@@ -48,4 +48,19 @@ final class SaveIbanVM {
         guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return nil }
         return try? decoder.decode([IbanModel].self, from: ibans)
     }
+
+     func formatIban(_ iban: String) -> String {
+        return iban.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
+    }
+
+     func formatIbanWithSpaces(_ iban: String) -> String {
+        return iban.replacingOccurrences(of: "(\\d{2})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{2})",
+                                         with: "$1 $2 $3 $4 $5 $6 $7",
+                                         options: .regularExpression)
+    }
+     func saveIban(_ newItem: IbanModel) {
+        ibanList.append(newItem)
+        saveIban(ibanList: ibanList)
+    }
+
 }

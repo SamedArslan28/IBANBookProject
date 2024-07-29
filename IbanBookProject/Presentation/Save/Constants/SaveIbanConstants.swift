@@ -8,12 +8,12 @@
 import Foundation
 
 struct SaveIbanConstants {
-     let ibanNumberLabelText = "ibanKey"
-     let fullNameLabelText = "nameKey"
-     let bankNameLabelText = "bankKey"
-     let saveButtonTitle = "saveKey"
-     let nameTextFieldPlaceholder = "nameKey"
-     let ibanTextFieldPlaceholder = "TR00 0000 0000 0000 0000 0000 00"
-     let bankNameTextFieldPlaceholder = "bankKey"
-     let saveNavigationTitle = "saveKey"
+    static let ibanNumberLabelText = "ibanKey"
+    static let fullNameLabelText = "nameKey"
+    static let bankNameLabelText = "bankKey"
+    static let saveButtonTitle = "saveKey"
+    static let nameTextFieldPlaceholder = "nameKey"
+    static let ibanTextFieldPlaceholder = "TR00 0000 0000 0000 0000 0000 00"
+    static let bankNameTextFieldPlaceholder = "bankKey"
+    static let saveNavigationTitle = "saveKey"
 }

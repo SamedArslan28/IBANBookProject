@@ -10,8 +10,12 @@ import UIKit
 import MLKitVision
 import MLKitTextRecognition
 
-final class IbanReaderManager  {
-    func processImage(image: UIImage, completion: @escaping ([String]) -> Void) {
+protocol OCRManager {
+    func proccessImage(image: UIImage, completion: @escaping ([String]) -> Void)
+}
+
+final class IbanReaderManager: OCRManager {
+    func proccessImage(image: UIImage, completion: @escaping ([String]) -> Void) {
         var foundItems = [String]()
         let visionImage = VisionImage(image: image)
         let textRecognizer = TextRecognizer.textRecognizer(options: TextRecognizerOptions())

@@ -45,15 +45,19 @@ final class IbanCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        prepareContainerView()
+    }
+    
+    // MARK: - PRIVATE FUNCTIONS
+
+    private func prepareContainerView() {
         itemContainerView.layer.cornerRadius = 12
         itemContainerView.layer.borderColor = UIColor.black.cgColor
         itemContainerView.layer.borderWidth = 1
         itemContainerView.layer.backgroundColor = UIColor.appBackgroundColor.cgColor
         itemContainerView.clipsToBounds = true
     }
-    
-    // MARK: - PRIVATE FUNCTIONS
-    
+
     private func prepareUI() {
         guard let viewModel else { return }
         nameLabel.text = viewModel.ibanName

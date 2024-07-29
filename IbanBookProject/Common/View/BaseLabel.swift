@@ -10,6 +10,8 @@ import UIKit
 
 final class BaseLabel: UILabel {
 
+    // MARK: - LIFECYCLE
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

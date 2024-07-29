@@ -42,11 +42,6 @@ extension UIViewController {
 protocol Navigable { }
 
 extension Navigable where Self: UIViewController {
-    //    static func create() -> Self {
-    //        let nibName = String(describing: self)
-    //        let viewController = Self.init(nibName: nibName, bundle: .main)
-    //        return viewController
-    //    }
     
     func pushVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
@@ -66,6 +61,10 @@ extension Navigable where Self: UIViewController {
     
     func dismissVC(animated: Bool = true, completion: CompletionBlock? = nil) {
         navigationController?.dismiss(animated: animated, completion: completion)
+    }
+    
+    func popToMain2() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func popToMain() {

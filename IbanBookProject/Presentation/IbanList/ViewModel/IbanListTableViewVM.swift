@@ -15,17 +15,17 @@ enum SectionTypes: String {
     var header: String {
         switch self {
         case .favorites:
-            return Constant().favoriteTitle
+            return Constant.favoriteTitle
         case .nonFavorites:
-            return Constant().nonFavoriteTitle
+            return Constant.nonFavoriteTitle
         default:
             return ""
         }
     }
     
     private struct Constant {
-        let favoriteTitle = "favouritesKey".localized()
-        let nonFavoriteTitle = "savedIbansKey".localized()
+        static let favoriteTitle = "favouritesKey".localized()
+        static let nonFavoriteTitle = "savedIbansKey".localized()
     }
 }
 

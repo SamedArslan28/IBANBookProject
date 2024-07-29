@@ -15,7 +15,7 @@ final class SettingsVC: BaseVC, Navigable {
     @IBOutlet weak var englishSwitch: UISwitch!
     @IBOutlet weak var messageLabel: BaseLabel!
     @IBOutlet weak var englishLabel: BaseLabel!
-    
+
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,38 +40,11 @@ final class SettingsVC: BaseVC, Navigable {
     }
     
     @objc private func popToMainVC() {
-        guard let navigationControllers =  navigationController?.viewControllers else { return }
-        if navigationControllers.count > 2 {
-            popToMain()
-        } else {
-            popVC(animated: true)
-        }
+        popVC(animated: true)
     }
     
     @IBAction private func saveButtonTapeed(_ sender: BaseButton) {
         restartApplication()
-    }
-    
-    private func reloadRootViewController() {
-        let isEnglish = englishSwitch.isOn
-        let languageCode = isEnglish ? "en" : "tr"
-        CacheManager.shared.setObject(languageCode, key: "languageCode")
-//        CacheManager.shared.setObject([languageCode], key: "AppleLanguages")
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            if let window = windowScene.windows.first {
-                guard let snapshotView = window.snapshotView(afterScreenUpdates: true) else { return }
-                guard let viewController = ControllerFactory.createVC(with: .main) else { return }
-                let newViewController = viewController
-                let newNavController = UINavigationController(rootViewController: newViewController)
-                window.rootViewController = newNavController
-                window.addSubview(snapshotView)
-                UIView.transition(with: snapshotView, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                    snapshotView.alpha = 0
-                }, completion: { _ in
-                    snapshotView.removeFromSuperview()
-                })
-            }
-        }
     }
     
     func restartApplication() {

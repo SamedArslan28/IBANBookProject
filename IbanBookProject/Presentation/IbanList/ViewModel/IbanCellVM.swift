@@ -7,11 +7,10 @@
 
 import Foundation
 
-
-
 class IbanCellVM {
     
     // MARK: - PRIVATE PROPERTIES
+    
     private var ibanModel: IbanModel
     var rowType: SectionTypes
     
