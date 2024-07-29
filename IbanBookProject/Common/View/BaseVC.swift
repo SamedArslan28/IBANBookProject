@@ -14,7 +14,6 @@ class BaseVC: UIViewController {
     
     func setNavigationTitle(title: String) {
         navigationItem.title = title
-       
     }
 
     func setNavigationColor (){
@@ -23,5 +22,9 @@ class BaseVC: UIViewController {
     
     func setNavigationTitleColor (){
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.themeColor] 
+    }
+
+    func setBackground() {
+        view.setGradientBackground()
     }
 }

@@ -26,11 +26,11 @@ final class SettingsVC: BaseVC, Navigable {
     
     private func setupUI() {
         view.setGradientBackground()
-        englishSwitch.setOn(CacheManager.shared.getString(key: "languageCode") == "en", animated: false) 
-        copyAllButton.setTitle("saveKey".localized(), for: .normal)
-        englishLabel.text = "English"
-        messageLabel.text = "saveChangesKey".localized()
-        messageLabel.isEnabled = false
+        prepareComponents()
+        prepareCustomBackButton()
+    }
+
+    private func prepareCustomBackButton() {
         let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
                                                style: .plain,
                                                target: self,
@@ -38,7 +38,15 @@ final class SettingsVC: BaseVC, Navigable {
         customBackButton.customView?.isUserInteractionEnabled = true
         navigationItem.leftBarButtonItem = customBackButton
     }
-    
+
+    private func prepareComponents() {
+        englishSwitch.setOn(CacheManager.shared.getString(key: "languageCode") == "en", animated: false)
+        copyAllButton.setTitle("saveKey".localized(), for: .normal)
+        englishLabel.text = "English"
+        messageLabel.text = "saveChangesKey".localized()
+        messageLabel.isEnabled = false
+    }
+
     @objc private func popToMainVC() {
         popVC(animated: true)
     }

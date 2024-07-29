@@ -45,7 +45,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     
     private func setupUI() {
         if let data = data { ibanTextField.text = data as? String }
-        view.setGradientBackground()
+        setBackground()
         saveButton.setTitle(SaveIbanConstants.saveButtonTitle.localized(), for: .normal)
         setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle.localized())
         preparePickerView()
