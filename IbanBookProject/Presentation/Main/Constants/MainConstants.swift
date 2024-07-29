@@ -8,8 +8,8 @@
 import Foundation
 
 struct MainConstants {
-    let descriptionLabelText = "mainMessageKey"
-    let saveIbanButtonTitle = "ibanSaveKey"
-    let ibanListButtonTitle = "ibanBookKey"
-    let readIbanButtonTitle = "ibanReadKey"
+   static let descriptionLabelText = "mainMessageKey"
+   static let saveIbanButtonTitle = "ibanSaveKey"
+   static let ibanListButtonTitle = "ibanBookKey"
+   static let readIbanButtonTitle = "ibanReadKey"
 }

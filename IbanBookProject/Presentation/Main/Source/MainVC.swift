@@ -27,33 +27,43 @@ final class MainVC: BaseVC, Navigable {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setGradientBackground()
-        setupImagePicker()
         setupUI()
     }
     
     // MARK: - PRIVATE FUNCTIONS
-    
+
+    private func setupUI(){
+        preapreComponents()
+        setNavigationColor()
+        setNavigationTitleColor()
+        prepareNavBar()
+        setupImagePicker()
+    }
+
     private func setupImagePicker() {
         imagePicker = UIImagePickerController()
         imagePicker?.delegate = self
         imagePicker?.allowsEditing = true
     }
     
-    private func setupUI(){
-        let mainconstant = MainConstants()
-        descriptionLabel.text = mainconstant.descriptionLabelText.localized()
-        saveIban.setTitle(mainconstant.saveIbanButtonTitle.localized(), for: .normal)
-        ibanList.setTitle(mainconstant.ibanListButtonTitle.localized(), for: .normal)
-        readIBANClicked.setTitle(mainconstant.readIbanButtonTitle.localized(), for: .normal)
-        setNavigationColor()
-        setNavigationTitleColor()
+    fileprivate func prepareNavBar() {
+        guard let navigationController else { return }
         navigationItem.hidesBackButton = false
-        navigationController?.setToolbarHidden(true, animated: true)
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(pushSettingsVC))
+        navigationController.setToolbarHidden(true, animated: true)
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"),
+                                             style: .plain, target: self,
+                                             action: #selector(pushSettingsVC))
         settingsButton.tintColor = .themeColor
         navigationItem.rightBarButtonItem = settingsButton
     }
-    
+
+    private func preapreComponents() {
+        descriptionLabel.text = MainConstants.descriptionLabelText.localized()
+        saveIban.setTitle(MainConstants.saveIbanButtonTitle.localized(), for: .normal)
+        ibanList.setTitle(MainConstants.ibanListButtonTitle.localized(), for: .normal)
+        readIBANClicked.setTitle(MainConstants.readIbanButtonTitle.localized(), for: .normal)
+    }
+
     private func showImagePickerAlert() {
         let alert = UIAlertController(title: CustomAlertsConstants.imagePickerTitle.localized(),
                                       message: CustomAlertsConstants.imagePickerMessage.localized(),
@@ -105,27 +115,63 @@ final class MainVC: BaseVC, Navigable {
 // MARK: - TABLEVIEW EXTENSIONS
 
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-        let reader: OCRManager = IbanReaderManager()
-        reader.proccessImage(image: image){ [weak self] items in
-            if items.isEmpty {
-                self?.showActionAlertCancel(errorTitle: (CustomAlertsConstants.errorTitle.localized()), errorMessage: (CustomAlertsConstants.errorMessage.localized()))
-            } else if items.count > 1 {
-                let actionSheet = UIAlertController(title: CustomAlertsConstants.selectItem.localized(), message: nil, preferredStyle: .actionSheet)
-                for item in items {
-                    let action = UIAlertAction(title: "\(item)", style: .default) { _ in
-                        self?.pushVC(key: .saveIban, data: item)
-                    }
-                    actionSheet.addAction(action)
-                }
-                let cancelAction = UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel, handler: nil)
-                actionSheet.addAction(cancelAction)
-                self?.present(actionSheet, animated: true, completion: nil)
-            } else {
-                self?.pushVC(key: .saveIban, data: items.first)
-            }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            picker.dismiss(animated: true, completion: nil)
+            return
         }
+
+        processPickedImage(image)
         picker.dismiss(animated: true, completion: nil)
     }
+
+    private func processPickedImage(_ image: UIImage) {
+        let reader: OCRManager = IbanReaderManager()
+        reader.proccessImage(image: image) { [weak self] items in
+            guard let self = self else { return }
+            self.handleOCRResult(items)
+        }
+    }
+
+    private func handleOCRResult(_ items: [String]) {
+        if items.isEmpty {
+            showErrorAlert()
+        } else if items.count > 1 {
+            presentActionSheet(for: items)
+        } else {
+            pushVC(key: .saveIban, data: items.first)
+        }
+    }
+
+    private func showErrorAlert() {
+        showActionAlertCancel(
+            errorTitle: CustomAlertsConstants.errorTitle.localized(),
+            errorMessage: CustomAlertsConstants.errorMessage.localized()
+        )
+    }
+
+    private func presentActionSheet(for items: [String]) {
+        let actionSheet = UIAlertController(
+            title: CustomAlertsConstants.selectItem.localized(),
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+
+        for item in items {
+            let action = UIAlertAction(title: "\(item)", style: .default) { _ in
+                self.pushVC(key: .saveIban, data: item)
+            }
+            actionSheet.addAction(action)
+        }
+
+        let cancelAction = UIAlertAction(
+            title: CustomAlertsConstants.cancel.localized(),
+            style: .cancel,
+            handler: nil
+        )
+        actionSheet.addAction(cancelAction)
+
+        present(actionSheet, animated: true, completion: nil)
+    }
 }
+

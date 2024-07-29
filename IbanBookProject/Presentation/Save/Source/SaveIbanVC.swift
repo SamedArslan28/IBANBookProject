@@ -15,6 +15,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     private let lastOption = "othersKey".localized()
     private var viewModel = SaveIbanVM()
     private var ibanList = [IbanModel]()
+    private var selectedBankIndex: Int = 0
     lazy var pickerView: UIPickerView = {
         pickerView = UIPickerView()
         pickerView.delegate = self
@@ -103,7 +104,6 @@ final class SaveIbanVC: BaseVC, Navigable {
     }
 
     // MARK: - IBACTIONS
-    // TODO: - DoRefactor
 
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
         guard validateIbanText() else { return }
@@ -169,6 +169,7 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedBankIndex = row
         let selectedOption = viewModel.banks[row]
         bankNameTextField.text = selectedOption
         UIView.animate(withDuration: 0.5) {
@@ -180,9 +181,8 @@ extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldD
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == bankNameTextField {
-            let selectedRow = 0
-            pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
-            let selectedOption = viewModel.banks[selectedRow]
+            pickerView.selectRow(selectedBankIndex, inComponent: 0, animated: false) // Set the picker to the previously selected index
+            let selectedOption = viewModel.banks[selectedBankIndex]
             UIView.transition(with: bankNameTextField, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 textField.text = selectedOption
             }, completion: nil)
