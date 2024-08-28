@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0579FF0DDE15885CC457E7E6 /* Pods_IbanBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */; };
 		61222F752B2C575C00982F89 /* TableViewCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */; };
 		612366CE2B4D891900562376 /* EmptyIBANCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612366CC2B4D891900562376 /* EmptyIBANCellTableViewCell.swift */; };
 		612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612366CD2B4D891900562376 /* EmptyIBANCellTableViewCell.xib */; };
@@ -47,6 +46,7 @@
 		6193C01F2B21130700AF009D /* MainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193C01E2B21130700AF009D /* MainConstants.swift */; };
 		6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */; };
 		6199CAAF2B24AE510007978C /* IbanReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAE2B24AE510007978C /* IbanReaderManager.swift */; };
+		61AAD8232C794701006604BD /* Pods_IbanBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FB62C862A8CCAD1D0EB191 /* Pods_IbanBookProject.framework */; };
 		61CFC6742B73CBC300FF9E37 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */; };
 		61CFC6762B73CBE200FF9E37 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */; };
 		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
@@ -72,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		201903236357F284B94AE1C2 /* Pods-IbanBookProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.release.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.release.xcconfig"; sourceTree = "<group>"; };
 		61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocols.swift; sourceTree = "<group>"; };
 		612366CC2B4D891900562376 /* EmptyIBANCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyIBANCellTableViewCell.swift; path = IbanBookProject/Presentation/IbanList/UserInterface/EmptyIBANCellTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		612366CD2B4D891900562376 /* EmptyIBANCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EmptyIBANCellTableViewCell.xib; path = IbanBookProject/Presentation/IbanList/UserInterface/EmptyIBANCellTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -121,10 +122,9 @@
 		61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		61FF96E02AF92F1F00083069 /* FontExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtenstions.swift; sourceTree = "<group>"; };
-		756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IbanBookProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		80E4863F1175882CB7E44031 /* Pods-IbanBookProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.release.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.release.xcconfig"; sourceTree = "<group>"; };
+		A6FB62C862A8CCAD1D0EB191 /* Pods_IbanBookProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IbanBookProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A780C88C2B4DA9D400414A0D /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		D20056CD6167BA62DB1BCBD5 /* Pods-IbanBookProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.debug.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.debug.xcconfig"; sourceTree = "<group>"; };
+		F3B1CA78705ADA3B5BBD0C17 /* Pods-IbanBookProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IbanBookProject.debug.xcconfig"; path = "Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0579FF0DDE15885CC457E7E6 /* Pods_IbanBookProject.framework in Frameworks */,
+				61AAD8232C794701006604BD /* Pods_IbanBookProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,8 +156,8 @@
 		00193C032657497519549AD8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D20056CD6167BA62DB1BCBD5 /* Pods-IbanBookProject.debug.xcconfig */,
-				80E4863F1175882CB7E44031 /* Pods-IbanBookProject.release.xcconfig */,
+				F3B1CA78705ADA3B5BBD0C17 /* Pods-IbanBookProject.debug.xcconfig */,
+				201903236357F284B94AE1C2 /* Pods-IbanBookProject.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				619CFB5D2B35E84E0081A368 /* Foundation.framework */,
-				756C11E63003E9B10BAC4A05 /* Pods_IbanBookProject.framework */,
+				A6FB62C862A8CCAD1D0EB191 /* Pods_IbanBookProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -514,12 +514,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6177A2C32A8B9CF900B3F30A /* Build configuration list for PBXNativeTarget "IbanBookProject" */;
 			buildPhases = (
-				D2FF6B70957FF77B0C84B827 /* [CP] Check Pods Manifest.lock */,
+				AF397352B14D066145BB4D99 /* [CP] Check Pods Manifest.lock */,
 				6177A2952A8B9CF800B3F30A /* Sources */,
 				6177A2962A8B9CF800B3F30A /* Frameworks */,
 				6177A2972A8B9CF800B3F30A /* Resources */,
-				5DCE796EC611234F1B24FFD9 /* [CP] Embed Pods Frameworks */,
-				7C78EBF1A63A2DDCD739D8F4 /* [CP] Copy Pods Resources */,
+				EC6F4632C7AC5DBD5256B117 /* [CP] Embed Pods Frameworks */,
+				BC0A81F52543D94EDE284C61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -645,41 +645,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5DCE796EC611234F1B24FFD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7C78EBF1A63A2DDCD739D8F4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2FF6B70957FF77B0C84B827 /* [CP] Check Pods Manifest.lock */ = {
+		AF397352B14D066145BB4D99 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -699,6 +665,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC0A81F52543D94EDE284C61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC6F4632C7AC5DBD5256B117 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IbanBookProject/Pods-IbanBookProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -816,7 +816,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -882,7 +882,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -916,7 +916,7 @@
 		};
 		6177A2C42A8B9CF900B3F30A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D20056CD6167BA62DB1BCBD5 /* Pods-IbanBookProject.debug.xcconfig */;
+			baseConfigurationReference = F3B1CA78705ADA3B5BBD0C17 /* Pods-IbanBookProject.debug.xcconfig */;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -955,7 +955,7 @@
 		};
 		6177A2C52A8B9CF900B3F30A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80E4863F1175882CB7E44031 /* Pods-IbanBookProject.release.xcconfig */;
+			baseConfigurationReference = 201903236357F284B94AE1C2 /* Pods-IbanBookProject.release.xcconfig */;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

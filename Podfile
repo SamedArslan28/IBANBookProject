@@ -6,11 +6,8 @@ target 'IbanBookProject' do
   use_frameworks! 
 
   # Pods for IbanBookProject
-pod 'FirebaseAnalytics'
 pod 'GoogleMLKit/TextRecognition', '3.2.0'
 
-
-  
 
 end
 

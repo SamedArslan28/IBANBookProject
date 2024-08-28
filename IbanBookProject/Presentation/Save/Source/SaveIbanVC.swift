@@ -13,11 +13,12 @@ final class SaveIbanVC: BaseVC, Navigable {
     // MARK: - PROPERTIES
 
     private let lastOption = "othersKey".localized()
+    private let saveConstants = SaveIbanConstants()
     private var viewModel = SaveIbanVM()
     private var ibanList = [IbanModel]()
-    private var selectedBankIndex: Int = 0
+
     lazy var pickerView: UIPickerView = {
-        pickerView = UIPickerView()
+        let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
         return pickerView
@@ -39,52 +40,26 @@ final class SaveIbanVC: BaseVC, Navigable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-    }
-
-    // MARK: - PRIVATE FUNCTIONS
-    
-    private func setupUI() {
-        if let data = data { ibanTextField.text = data as? String }
-        setBackground()
-        saveButton.setTitle(SaveIbanConstants.saveButtonTitle.localized(), for: .normal)
-        setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle.localized())
-        preparePickerView()
-        prepareCustomBackButton()
-        setupTextFields()
-        prepareLabels()
-        prepareLabels()
+        setupGestures()
         ibanList = viewModel.getIbanList() ?? []
     }
 
-    private func preparePickerView() {
-        pickerView.selectRow(0, inComponent: 0, animated: true)
-        pickerView.delegate = self
-        pickerView.dataSource = self
+    // MARK: - SETUP FUNCTIONS
+
+    private func setupUI() {
+        super.setBackground()
+        setupNavigation()
+        setupTextFields()
+        setupLabels()
+        setupSaveButton()
     }
 
-    private func prepareTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
+    private func setupNavigation() {
+        setNavigationTitle(title: SaveIbanConstants.saveNavigationTitle.localized())
+        setupCustomBackButton()
     }
 
-    private func prepareLabels() {
-        IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText.localized()
-        nameLabel.text = SaveIbanConstants.fullNameLabelText.localized()
-        bankNameLabel.text = SaveIbanConstants.bankNameLabelText.localized()
-    }
-
-    private func setupTextFields() {
-        ibanTextField.autocapitalizationType = .allCharacters
-        ibanTextField.text = "TR330006100519786457841326".localized()
-        bankNameTextField.inputView = pickerView
-        otherTextField.isHidden = true
-        bankNameTextField.delegate = self
-        nameTextField.placeholder = SaveIbanConstants.nameTextFieldPlaceholder.localized()
-        ibanTextField.placeholder = SaveIbanConstants.ibanTextFieldPlaceholder.localized()
-        bankNameTextField.placeholder = SaveIbanConstants.bankNameTextFieldPlaceholder.localized()
-    }
-
-    private func prepareCustomBackButton() {
+    private func setupCustomBackButton() {
         let customBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
                                                style: .plain,
                                                target: self,
@@ -93,100 +68,116 @@ final class SaveIbanVC: BaseVC, Navigable {
         navigationItem.leftBarButtonItem = customBackButton
     }
 
-    // MARK: - PRIVATEFUNCTIONS
-
-    @objc private func popToMainVC() {
-        popVC(animated: true)
+    private func setupTextFields() {
+        nameTextField.placeholder = SaveIbanConstants.nameTextFieldPlaceholder.localized()
+        ibanTextField.placeholder = SaveIbanConstants.ibanTextFieldPlaceholder.localized()
+        bankNameTextField.placeholder = SaveIbanConstants.bankNameTextFieldPlaceholder.localized()
+        ibanTextField.autocapitalizationType = .allCharacters
+        bankNameTextField.delegate = self
+        bankNameTextField.inputView = pickerView
+        otherTextField.isHidden = true
     }
 
-    @objc func dismissKeyboard() {
+    private func setupLabels() {
+        IBANNumberLabel.text = SaveIbanConstants.ibanNumberLabelText.localized()
+        nameLabel.text = SaveIbanConstants.fullNameLabelText.localized()
+        bankNameLabel.text = SaveIbanConstants.bankNameLabelText.localized()
+    }
+
+    private func setupSaveButton() {
+        saveButton.setTitle(SaveIbanConstants.saveButtonTitle.localized(), for: .normal)
+    }
+
+    private func setupGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    // MARK: - ACTIONS
+
+    @objc private func popToMainVC() {
+        if (navigationController?.viewControllers.count ?? 0) > 2 {
+            popToMain()
+        } else {
+            popVC(animated: true)
+        }
+    }
+
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
 
-    // MARK: - IBACTIONS
-
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
-        guard validateIbanText() else { return }
-
-        let ibanWithoutSpaces = viewModel.formatIban(ibanTextField.text!)
-        let formattedIban = viewModel.formatIbanWithSpaces(ibanWithoutSpaces)
-        let selectedBankName = determineBankName()
-        let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-
-        guard validateBankNameAndName(selectedBankName, name) else { return }
-
-        let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
-        viewModel.saveIban(newItem)
+        guard validateInput() else {
+            showMissingInfoAlert()
+            return
+        }
+        saveIban()
         pushVC(key: .ibanList)
     }
 
-    private func validateIbanText() -> Bool {
-        guard let ibanText = ibanTextField.text, ibanText.isIban() else {
-            showActionAlertCancel(errorTitle: "missingInfoKey".localized(), errorMessage: "notFoundKey".localized())
+    // MARK: - PRIVATE FUNCTIONS
+
+    private func validateInput() -> Bool {
+        guard let ibanText = ibanTextField.text, ibanText.isIban(),
+              let selectedBankName = bankNameTextField.text, !selectedBankName.isEmpty,
+              let name = nameTextField.text, !name.isEmpty else {
             return false
         }
         return true
     }
 
-    private func determineBankName() -> String {
-        let selectedOption = bankNameTextField.text ?? ""
-        if selectedOption == lastOption {
-            return otherTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        }
-        return selectedOption.trimmingCharacters(in: .whitespacesAndNewlines)
+    private func saveIban() {
+        let formattedIban = viewModel.formatIban(ibanTextField.text ?? "")
+        let selectedBankName = bankNameTextField.text == lastOption ? otherTextField.text ?? "" : bankNameTextField.text ?? ""
+        let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+        let newItem = IbanModel(ibanNumber: formattedIban, bankName: selectedBankName, ibanName: name)
+        ibanList.append(newItem)
+        viewModel.saveIban(ibanList: ibanList)
     }
-
-    private func validateBankNameAndName(_ bankName: String, _ name: String) -> Bool {
-        if bankName.isEmpty || name.isEmpty {
-            showActionAlertCancel(errorTitle: "missingInfoKey".localized(), errorMessage: "bankNameInfoKey".localized())
-            return false
-        }
-        return true
-    }
-
-    // MARK: - UITextFieldDelegate
-
-    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+   
+    private func showMissingInfoAlert() {
+        showActionAlertCancel(errorTitle: "missingInfoKey".localized(),
+                              errorMessage: "notFoundKey".localized())
     }
 }
 
-// MARK: - PICKERVIEW EXTENSIONS
+   // MARK: - PICKERVIEW EXTENSIONS
 
-extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+   extension SaveIbanVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+       func numberOfComponents(in pickerView: UIPickerView) -> Int {
+           return 1
+       }
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.banks.count
-    }
+       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+           return viewModel.banks.count
+       }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.banks.get(at: row)
-    }
+       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+           return viewModel.banks.get(at: row)
+       }
 
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedBankIndex = row
-        let selectedOption = viewModel.banks[row]
-        bankNameTextField.text = selectedOption
-        UIView.animate(withDuration: 0.5) {
-            self.otherTextField?.alpha = (selectedOption == self.lastOption) ? 1.0 : 0.0
-            self.otherTextField?.transform = (selectedOption == self.lastOption) ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
-        }
-        otherTextField?.isHidden = (selectedOption != lastOption)
-    }
+       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+           let selectedOption = viewModel.banks[row]
+           bankNameTextField.text = selectedOption
+           UIView.animate(withDuration: 0.5) {
+               self.otherTextField?.alpha = (selectedOption == self.lastOption) ? 1.0 : 0.0
+               self.otherTextField?.transform = (selectedOption == self.lastOption) ? .identity : CGAffineTransform(scaleX: 0.1, y: 0.1)
+           }
+           otherTextField?.isHidden = (selectedOption != lastOption)
+       }
 
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == bankNameTextField {
-            pickerView.selectRow(selectedBankIndex, inComponent: 0, animated: false) // Set the picker to the previously selected index
-            let selectedOption = viewModel.banks[selectedBankIndex]
-            UIView.transition(with: bankNameTextField, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                textField.text = selectedOption
-            }, completion: nil)
-            otherTextField?.isHidden = (selectedOption != lastOption)
-        }
-    }
-}
+       func textFieldDidBeginEditing(_ textField: UITextField) {
+           if textField == bankNameTextField {
+               let selectedRow = 0
+               pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+               let selectedOption = viewModel.banks[selectedRow]
+               UIView.transition(with: bankNameTextField, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                   textField.text = selectedOption
+               }, completion: nil)
+               otherTextField?.isHidden = (selectedOption != lastOption)
+           }
+       }
+   }
