@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IbanListVC" customModule="IbanBookProject" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="6Gz-ab-PgF" id="BNt-Do-0b5"/>
+                <outlet property="tableView" destination="sAc-kH-j0V" id="28H-7V-NGH"/>
                 <outlet property="view" destination="pTy-KS-zQa" id="f3P-hQ-LOF"/>
             </connections>
         </placeholder>
@@ -20,22 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Gz-ab-PgF">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sAc-kH-j0V">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="hkE-7A-udQ"/>
-                        <outlet property="delegate" destination="-1" id="rQM-ba-Afm"/>
-                    </connections>
                 </tableView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="drv-wh-sa4"/>
+            <viewLayoutGuide key="safeArea" id="F1k-ZN-3hf"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="drv-wh-sa4" firstAttribute="bottom" secondItem="6Gz-ab-PgF" secondAttribute="bottom" id="5ci-I2-WY8"/>
-                <constraint firstItem="6Gz-ab-PgF" firstAttribute="trailing" secondItem="drv-wh-sa4" secondAttribute="trailing" id="IfH-qP-Qmp"/>
-                <constraint firstItem="6Gz-ab-PgF" firstAttribute="top" secondItem="drv-wh-sa4" secondAttribute="top" id="Jiw-Zz-b9E"/>
-                <constraint firstItem="6Gz-ab-PgF" firstAttribute="leading" secondItem="drv-wh-sa4" secondAttribute="leading" id="h3j-mm-kwc"/>
+                <constraint firstItem="sAc-kH-j0V" firstAttribute="top" secondItem="F1k-ZN-3hf" secondAttribute="top" id="6th-l7-dQi"/>
+                <constraint firstAttribute="bottom" secondItem="sAc-kH-j0V" secondAttribute="bottom" id="FSH-DM-VAX"/>
+                <constraint firstItem="F1k-ZN-3hf" firstAttribute="trailing" secondItem="sAc-kH-j0V" secondAttribute="trailing" id="aug-7Z-8UH"/>
+                <constraint firstItem="sAc-kH-j0V" firstAttribute="leading" secondItem="F1k-ZN-3hf" secondAttribute="leading" id="noQ-9i-pKs"/>
             </constraints>
             <point key="canvasLocation" x="-715.26717557251902" y="109.85915492957747"/>
         </view>

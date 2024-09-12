@@ -15,17 +15,17 @@ enum SectionTypes: String {
     var header: String {
         switch self {
         case .favorites:
-            return Constant.favoriteTitle
+            return Constant.favoriteTitle.localized()
         case .nonFavorites:
-            return Constant.nonFavoriteTitle
+            return Constant.nonFavoriteTitle.localized()
         default:
             return ""
         }
     }
     
     private struct Constant {
-        static let favoriteTitle = "favouritesKey".localized()
-        static let nonFavoriteTitle = "savedIbansKey".localized()
+        static let favoriteTitle = "favouritesKey"
+        static let nonFavoriteTitle = "savedIbansKey"
     }
 }
 
@@ -88,7 +88,7 @@ final class IbanListTableViewVM {
     
     func changeFavoriteStatus(at id: String) {
         guard let foundItem = getItem(with: id) else { return }
-        foundItem.isFavorite.toggle() // reference type
+        foundItem.isFavorite.toggle()
         updateIbanCache()
     }
     
@@ -112,11 +112,8 @@ final class IbanListTableViewVM {
     }
 
     func getAllIbans() -> String {
-        guard let ibans = CacheManager.shared.getObject(key: "ibans") else { return "" }
-        let decoder = JSONDecoder()
-        let savedIbans = try? decoder.decode([IbanModel].self, from: ibans)
         var allIbansString = ""
-        savedIbans?.forEach({ item in
+        items.forEach({ item in
             allIbansString = "\(allIbansString) \(item.ibanName)\n\(item.ibanNumber)\n\(item.bankName)\n"
         })
         return allIbansString

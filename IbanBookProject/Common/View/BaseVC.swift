@@ -17,7 +17,8 @@ class BaseVC: UIViewController {
     }
 
     func setNavigationColor (){
-        navigationController?.navigationBar.tintColor = .themeColor
+        guard let navigationController else { return }
+        navigationController.navigationBar.tintColor = .themeColor
     } 
     
     func setNavigationTitleColor (){

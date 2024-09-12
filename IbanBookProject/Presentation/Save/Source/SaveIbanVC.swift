@@ -47,7 +47,10 @@ final class SaveIbanVC: BaseVC, Navigable {
     // MARK: - SETUP FUNCTIONS
 
     private func setupUI() {
+        // super yazmaya gerek var mi?
         super.setBackground()
+        setNavigationColor()
+        setNavigationTitleColor()
         setupNavigation()
         setupTextFields()
         setupLabels()
@@ -76,6 +79,9 @@ final class SaveIbanVC: BaseVC, Navigable {
         bankNameTextField.delegate = self
         bankNameTextField.inputView = pickerView
         otherTextField.isHidden = true
+        if data != nil {
+            ibanTextField.text = data as? String
+        }
     }
 
     private func setupLabels() {

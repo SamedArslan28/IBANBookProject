@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    
     func showActionAlertCancel(errorTitle: String, errorMessage: String) {
         let alertController = UIAlertController(title: errorTitle.localized(), message: errorMessage.localized(), preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: CustomAlertsConstants.approval.localized(), style: .cancel)
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
     }
+
     func showToast(message : String, font: UIFont) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)

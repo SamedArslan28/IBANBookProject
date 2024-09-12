@@ -20,6 +20,8 @@ final class SettingsVC: BaseVC, Navigable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setNavigationColor()
+        setNavigationTitleColor()
     }
     
     // MARK: - PRIVATE FUCNTIONS

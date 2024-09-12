@@ -24,7 +24,6 @@
 		612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59272AEBF37F00A6E997 /* BaseLabel.swift */; };
 		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
 		61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */; };
-		6145EC9E2B4D6F08000045AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6145EC9B2B4D6F08000045AA /* Localizable.strings */; };
 		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
 		615597FA2AF94032008351F7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615597F92AF94032008351F7 /* BaseVC.swift */; };
 		6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165D7062B1B71440097E4EB /* SaveIbanVM.swift */; };
@@ -47,6 +46,7 @@
 		6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */; };
 		6199CAAF2B24AE510007978C /* IbanReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAE2B24AE510007978C /* IbanReaderManager.swift */; };
 		61AAD8232C794701006604BD /* Pods_IbanBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FB62C862A8CCAD1D0EB191 /* Pods_IbanBookProject.framework */; };
+		61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */; };
 		61CFC6742B73CBC300FF9E37 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */; };
 		61CFC6762B73CBE200FF9E37 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */; };
 		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
@@ -90,8 +90,6 @@
 		612C59272AEBF37F00A6E997 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		6145EC9C2B4D6F08000045AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		6145EC9D2B4D6F08000045AA /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615597F92AF94032008351F7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		6165D7062B1B71440097E4EB /* SaveIbanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanVM.swift; sourceTree = "<group>"; };
@@ -118,6 +116,7 @@
 		6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
 		6199CAAE2B24AE510007978C /* IbanReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanReaderManager.swift; sourceTree = "<group>"; };
 		619CFB5D2B35E84E0081A368 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
 		61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -267,11 +266,11 @@
 		612C59152AEBF25D00A6E997 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				61CFC66E2B73CB7600FF9E37 /* Settings */,
 				6124334F2B18E2040044BC70 /* IbanList */,
-				612433582B18E2040044BC70 /* Save */,
 				612C59172AEBF27600A6E997 /* Launch */,
 				612C59162AEBF26E00A6E997 /* Main */,
+				612433582B18E2040044BC70 /* Save */,
+				61CFC66E2B73CB7600FF9E37 /* Settings */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -351,7 +350,7 @@
 		6145EC9A2B4D6F08000045AA /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				6145EC9B2B4D6F08000045AA /* Localizable.strings */,
+				61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -596,7 +595,6 @@
 			knownRegions = (
 				en,
 				tr,
-				Base,
 			);
 			mainGroup = 6177A2902A8B9CF800B3F30A;
 			productRefGroup = 6177A29A2A8B9CF800B3F30A /* Products */;
@@ -620,9 +618,9 @@
 				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
 				61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */,
 				61CFC6742B73CBC300FF9E37 /* SettingsVC.xib in Resources */,
+				61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */,
 				612433602B18E2040044BC70 /* IbanCell.xib in Resources */,
 				612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */,
-				6145EC9E2B4D6F08000045AA /* Localizable.strings in Resources */,
 				61702F542B1F5F8E0022285C /* MainVC.xib in Resources */,
 				61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */,
 			);
@@ -774,18 +772,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		6145EC9B2B4D6F08000045AA /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6145EC9C2B4D6F08000045AA /* en */,
-				6145EC9D2B4D6F08000045AA /* tr */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		6177A2C12A8B9CF900B3F30A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -843,6 +829,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -903,6 +890,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

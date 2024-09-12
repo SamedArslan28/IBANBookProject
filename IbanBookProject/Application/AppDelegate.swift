@@ -8,8 +8,13 @@
 import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let isFirstLaunch = CacheManager.shared.getBoolObject(key: "hasLaunchedBefore")
+        if !isFirstLaunch {
+            CacheManager.shared.setObject("tr", key: "languageCode")
+            CacheManager.shared.setObject(true, key: "hasLaunchedBefore")
+        }
         return true
     }
 

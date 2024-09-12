@@ -31,8 +31,9 @@ final class IbanListVC: BaseVC, Navigable {
         setBackground()
         prepareTableView()
         setupCustomBackButton()
-        prepareNavBar()
         setupCopyAllButton()
+        setNavigationColor()
+        setNavigationTitleColor()
     }
 
     private func prepareTableView() {
@@ -45,15 +46,6 @@ final class IbanListVC: BaseVC, Navigable {
         tableView.backgroundColor = .none
         tableView.register(type: IbanCell.self)
         tableView.register(type: EmptyIBANCellTableViewCell.self)
-    }
-
-    private func prepareNavBar() {
-        guard let navigationController = navigationController else { return }
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        navigationController.navigationBar.tintColor = .themeColor
-        navigationController.navigationBar.standardAppearance = appearance
-        navigationController.navigationBar.scrollEdgeAppearance = appearance
     }
 
     private func setupCopyAllButton() {
@@ -170,13 +162,20 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
 extension IbanListVC: IbanCellDelegate {
     func showShareOptions(ibanName: String, ibanNumber: String, bankName: String) {
         let data = "\(ibanName)\n\(ibanNumber)\n\(bankName)"
-        let shareVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        let shareVC = UIActivityViewController(
+            activityItems: [data],
+            applicationActivities: nil
+        )
         present(shareVC, animated: true)
     }
 
     func isFavChanged(id: String) {
         viewModel.changeFavoriteStatus(at: id)
-        UIView.transition(with: tableView, duration: 0.1, options: .transitionCrossDissolve) {
+        UIView.transition(
+            with: tableView,
+            duration: 0.1,
+            options: .transitionCrossDissolve
+        ) {
             self.tableView.reloadData()
         }
     }
