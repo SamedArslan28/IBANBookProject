@@ -52,6 +52,40 @@
         }
       }
     },
+    "cameraAccessDeniedTitleKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera Access Denied"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamera erişimi engellendi"
+          }
+        }
+      }
+    },
+    "cameraDeniedMessageKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enable camera access in settings to use this feature."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamera erişimi engellendi izin vermek için ayarlara gidin"
+          }
+        }
+      }
+    },
     "cameraKey" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -235,6 +269,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Iban Bulunamadı."
+          }
+        }
+      }
+    },
+    "ibanPlaceholderKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TR00 0000 0000 0000 0000 0000 00"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TR00 0000 0000 0000 0000 0000 00"
           }
         }
       }
@@ -477,6 +528,23 @@
         }
       }
     },
+    "settingsKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
     "sourceKey" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -507,23 +575,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Iban nereden okunacak ?"
-          }
-        }
-      }
-    },
-    "TR00 0000 0000 0000 0000 0000 00" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GB33BUKB20201555555555"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GB33BUKB20201555555555"
           }
         }
       }

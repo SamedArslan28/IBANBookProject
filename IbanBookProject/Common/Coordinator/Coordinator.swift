@@ -9,30 +9,6 @@ import Foundation
 import UIKit
 
 public typealias CompletionBlock = () -> Void
-
-enum ControllerKey: String {
-    case main
-    case ibanList
-    case saveIban
-    case settings
-    case camera
-
-    var controllerType: AnyClass {
-        switch self {
-        case .main:
-            return MainVC.self
-        case .ibanList:
-            return IbanListVC.self
-        case .saveIban:
-            return SaveIbanVC.self
-        case .settings:
-            return SettingsVC.self
-        case .camera:
-            return CameraSessionVC.self
-        }
-    }
-}
-
 private var dataAssociationKey: UInt8 = 0
 
 extension UIViewController {

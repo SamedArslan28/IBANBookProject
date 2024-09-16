@@ -7,6 +7,7 @@
 
 import UIKit
 import Vision
+import AVFoundation
 
 final class MainVC: BaseVC, Navigable {
 
@@ -39,7 +40,7 @@ final class MainVC: BaseVC, Navigable {
 
     // MARK: - PRIVATE FUNCTIONS
 
-    private func setupUI(){
+    private func setupUI() {
         preapreComponents()
         prepareNavBar()
         setupImagePicker()
@@ -55,7 +56,8 @@ final class MainVC: BaseVC, Navigable {
 
     private func prepareSettingsButton() {
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"),
-                                             style: .plain, target: self,
+                                             style: .plain,
+                                             target: self,
                                              action: #selector(pushSettingsVC))
         settingsButton.tintColor = .themeColor
         navigationItem.rightBarButtonItem = settingsButton
@@ -85,8 +87,7 @@ final class MainVC: BaseVC, Navigable {
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
-            self?.pushVC(key: .camera)
-
+            self?.checkCameraAccessAndProceed()
         }))
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(),
                                       style: .default ,
@@ -125,4 +126,47 @@ final class MainVC: BaseVC, Navigable {
             self?.showImagePickerAlert()
         }
     }
+
+    private func checkCameraAccessAndProceed() {
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        switch cameraAuthorizationStatus {
+        case .authorized:
+            self.pushVC(key: .camera)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    DispatchQueue.main.async {
+                        self.pushVC(key: .camera)
+                    }
+                } else {
+                    self.showCameraAccessDeniedAlert()
+                }
+            }
+        case .denied, .restricted:
+            showCameraAccessDeniedAlert()
+        @unknown default:
+            break
+        }
+    }
+
+    private func showCameraAccessDeniedAlert() {
+        let alertController = UIAlertController(
+            title: "cameraAccessDeniedTitleKey".localized(),
+            message: "cameraDeniedMessageKey".localized(),
+            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(
+            title: "settingsKey".localized(),
+            style: .default) { _ in
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        present(alertController, animated: true, completion: nil)
+    }
+
 }
