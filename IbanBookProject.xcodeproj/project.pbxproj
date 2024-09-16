@@ -22,7 +22,6 @@
 		612C59242AEBF36500A6E997 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59232AEBF36500A6E997 /* BaseButton.swift */; };
 		612C59262AEBF37600A6E997 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59252AEBF37600A6E997 /* BaseTextField.swift */; };
 		612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59272AEBF37F00A6E997 /* BaseLabel.swift */; };
-		6130CCFA2C97700F00E744F2 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6130CCF92C97700F00E744F2 /* Documentation.docc */; };
 		6130CCFC2C98373700E744F2 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130CCFB2C98373700E744F2 /* ControllerType.swift */; };
 		6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */; };
 		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
@@ -72,7 +71,6 @@
 		612C59232AEBF36500A6E997 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		612C59252AEBF37600A6E997 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		612C59272AEBF37F00A6E997 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
-		6130CCF92C97700F00E744F2 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		6130CCFB2C98373700E744F2 /* ControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 			children = (
 				612C59132AEBF21400A6E997 /* Application */,
 				612C591E2AEBF33500A6E997 /* Common */,
-				6130CCF92C97700F00E744F2 /* Documentation.docc */,
 				612C59152AEBF25D00A6E997 /* Presentation */,
 				612C59142AEBF21F00A6E997 /* Resource */,
 			);
@@ -566,7 +563,6 @@
 				6124335E2B18E2040044BC70 /* IbanCell.swift in Sources */,
 				6168B0712B28B74F00D33D46 /* IbanReaderManangerConstants.swift in Sources */,
 				61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */,
-				6130CCFA2C97700F00E744F2 /* Documentation.docc in Sources */,
 				6177A2A12A8B9CF800B3F30A /* MainVC.swift in Sources */,
 				616C32272C93526900BA4B7A /* CameraSessionVC.swift in Sources */,
 				61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */,

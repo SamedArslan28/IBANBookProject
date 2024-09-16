@@ -136,7 +136,6 @@ final class MainVC: BaseVC, Navigable {
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 self.showImagePicker(sourceType: .camera)
             }
-            
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
@@ -147,7 +146,6 @@ final class MainVC: BaseVC, Navigable {
                     }
                 }
             }
-
         case .denied, .restricted:
             showCameraAccessDeniedAlert()
         @unknown default:
