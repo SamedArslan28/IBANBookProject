@@ -54,7 +54,7 @@ final class IbanCell: UITableViewCell {
         itemContainerView.layer.cornerRadius = 12
         itemContainerView.layer.borderColor = UIColor.black.cgColor
         itemContainerView.layer.borderWidth = 1
-        itemContainerView.layer.backgroundColor = UIColor.appBackgroundColor.cgColor
+        itemContainerView.layer.backgroundColor = UIColor.cellBackgroundColor.cgColor
         itemContainerView.clipsToBounds = true
     }
 

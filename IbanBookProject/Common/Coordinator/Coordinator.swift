@@ -15,7 +15,8 @@ enum ControllerKey: String {
     case ibanList
     case saveIban
     case settings
-    
+    case camera
+
     var controllerType: AnyClass {
         switch self {
         case .main:
@@ -26,6 +27,8 @@ enum ControllerKey: String {
             return SaveIbanVC.self
         case .settings:
             return SettingsVC.self
+        case .camera:
+            return CameraSessionVC.self
         }
     }
 }
@@ -64,7 +67,8 @@ extension Navigable where Self: UIViewController {
     }
     
     func popToMain() {
-        navigationController?.popToRootViewController(animated: true)
+        guard let navigationController else { return }
+        navigationController.popToRootViewController(animated: true)
     }
     
 //    func popToMain() {

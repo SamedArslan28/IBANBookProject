@@ -21,11 +21,20 @@ class BaseVC: UIViewController {
         navigationController.navigationBar.tintColor = .themeColor
     } 
     
-    func setNavigationTitleColor (){
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.themeColor] 
+    func setNavigationTitleColor (color: UIColor = .themeColor){
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: color] 
     }
 
     func setBackground() {
-        view.setGradientBackground()
+        setGradientBackground()
+    }
+
+    private func setGradientBackground() {
+        let gradientLayer = CAGradientLayer()
+        let screenBounds = UIScreen.main.bounds
+        gradientLayer.frame = screenBounds
+        gradientLayer.colors = [UIColor.gradientTopColor.cgColor, UIColor.gradientBottomColor.cgColor]
+        gradientLayer.locations = [0.0, 0.5]
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

@@ -62,7 +62,6 @@ final class IbanListVC: BaseVC, Navigable {
                                                style: .plain,
                                                target: self,
                                                action: #selector(popToMainVC))
-        customBackButton.customView?.isUserInteractionEnabled = true
         navigationItem.leftBarButtonItem = customBackButton
     }
 }

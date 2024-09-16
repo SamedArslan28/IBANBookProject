@@ -5,9 +5,6 @@
 //  Created by Abdulsamed Arslan on 15.08.2023.
 //
 
-import AVFoundation
-import MLKitVision
-import MLKitTextRecognition
 import UIKit
 import Vision
 
@@ -22,10 +19,15 @@ final class MainVC: BaseVC, Navigable {
 
     // MARK: - PROPERTIES
 
-    private var imagePicker: UIImagePickerController = UIImagePickerController()
-    private var captureSession: AVCaptureSession?
-    private var previewLayer: AVCaptureVideoPreviewLayer?
-    private let textRecognitionRequest = VNRecognizeTextRequest()
+    private lazy var imagePicker: UIImagePickerController = UIImagePickerController()
+
+    lazy var textRecognitionRequest: VNRecognizeTextRequest = {
+        let request = VNRecognizeTextRequest()
+        request.recognitionLevel = .accurate
+        request.usesLanguageCorrection = true
+        request.recognitionLanguages = ["en"]
+        return request
+    }()
 
     // MARK: - LIFECYCLE
 
@@ -58,7 +60,7 @@ final class MainVC: BaseVC, Navigable {
         settingsButton.tintColor = .themeColor
         navigationItem.rightBarButtonItem = settingsButton
     }
-    
+
     private func prepareNavBar() {
         guard let navigationController else { return }
         let appearance = UINavigationBarAppearance()
@@ -76,12 +78,6 @@ final class MainVC: BaseVC, Navigable {
         readIBANClicked.setTitle(MainConstants.readIbanButtonTitle.localized(), for: .normal)
     }
 
-    private func configureTextRecognition() {
-        textRecognitionRequest.recognitionLevel = .accurate
-        textRecognitionRequest.usesLanguageCorrection = true
-        textRecognitionRequest.recognitionLanguages = ["en"]
-    }
-
     private func showImagePickerAlert() {
         let alert = UIAlertController(title: CustomAlertsConstants.imagePickerTitle.localized(),
                                       message: CustomAlertsConstants.imagePickerMessage.localized(),
@@ -89,7 +85,7 @@ final class MainVC: BaseVC, Navigable {
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
-            self?.setupCamera()
+            self?.pushVC(key: .camera)
 
         }))
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(),
@@ -110,57 +106,10 @@ final class MainVC: BaseVC, Navigable {
         }
     }
 
-    private func stopCameraSession() {
-        captureSession?.stopRunning()
-        previewLayer?.removeFromSuperlayer()
-        captureSession = nil
-        previewLayer = nil
-    }
-
-    private func setupCamera() {
-        captureSession = AVCaptureSession()
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
-              let captureSession else { return }
-        let videoInput: AVCaptureDeviceInput
-
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        } catch {
-            print("Unable to obtain video input: \(error)")
-            return
-        }
-
-        if captureSession.canAddInput(videoInput) {
-            captureSession.addInput(videoInput)
-        } else {
-            print("Unable to add video input")
-            return
-        }
-
-        let videoOutput = AVCaptureVideoDataOutput()
-        videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-
-        if captureSession.canAddOutput(videoOutput) {
-            captureSession.addOutput(videoOutput)
-        } else {
-            print("Unable to add video output")
-            return
-        }
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        guard let previewLayer = previewLayer else { return }
-        previewLayer.frame = view.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
-
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.captureSession?.startRunning()
-        }
-    }
-
-
     @objc func pushSettingsVC() {
         pushVC(key: .settings)
     }
+
     // MARK: - IBACTIONS
 
     @IBAction private func ibanListTapped(_ sender: Any) {
@@ -176,115 +125,4 @@ final class MainVC: BaseVC, Navigable {
             self?.showImagePickerAlert()
         }
     }
-}
-
-extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
-            picker.dismiss(animated: true, completion: nil)
-            return
-        }
-        picker.dismiss(animated: true, completion: nil)
-        processPickedImage(image)
-    }
-
-    private func handleOCRResult(_ items: [String]) {
-        if items.isEmpty {
-            showErrorAlert()
-        } else if items.count > 1 {
-            presentActionSheet(for: items)
-        } else {
-            pushVC(key: .saveIban, data: items.first)
-        }
-    }
-
-    private func showErrorAlert() {
-        showActionAlertCancel(
-            errorTitle: CustomAlertsConstants.errorTitle.localized(),
-            errorMessage: CustomAlertsConstants.errorMessage.localized()
-        )
-    }
-
-    private func presentActionSheet(for items: [String]) {
-        let actionSheet = UIAlertController(
-            title: CustomAlertsConstants.selectItem.localized(),
-            message: nil,
-            preferredStyle: .actionSheet
-        )
-        for item in items {
-            let action = UIAlertAction(title: "\(item)", style: .default) { _ in
-                self.pushVC(key: .saveIban, data: item)
-            }
-            actionSheet.addAction(action)
-        }
-        let cancelAction = UIAlertAction(
-            title: CustomAlertsConstants.cancel.localized(),
-            style: .cancel,
-            handler: nil
-        )
-        actionSheet.addAction(cancelAction)
-        self.present(actionSheet, animated: true, completion: nil)
-    }
-}
-
-// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-
-extension MainVC: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        var detectedArray = [String]()
-        let requestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .right, options: [:])
-
-        do {
-            try requestHandler.perform([textRecognitionRequest])
-            if let results = textRecognitionRequest.results {
-                for observation in results {
-                    if let topCandidate = observation.topCandidates(1).first {
-                        let detectedText = topCandidate.string
-                        if detectedText.isIban() {
-                            detectedArray.append(detectedText)
-                            print("IBAN found: \(detectedText)")
-                            self.stopCameraSession()
-                            DispatchQueue.main.sync {
-                                self.pushVC(key: .saveIban, data: detectedText.extractIban())
-                            }
-                            return
-                        }
-                    }
-                }
-            }
-        } catch {
-            print("Error performing text recognition: \(error)")
-        }
-    }
-
-    private func processPickedImage(_ image: UIImage) {
-        guard let cgImage = image.cgImage else {
-            print("Unable to convert UIImage to CGImage")
-            return
-        }
-        let requestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: .up, options: [:])
-        do {
-            try requestHandler.perform([textRecognitionRequest])
-            if let results = textRecognitionRequest.results {
-                var detectedArray = [String]()
-                for observation in results {
-                    if let topCandidate = observation.topCandidates(1).first {
-                        let detectedText = topCandidate.string
-                        if detectedText.isIban() {
-                            guard let iban = detectedText.extractIban() else { return }
-                            detectedArray.append(iban)
-                        }
-                    }
-                }
-                handleOCRResult(detectedArray)
-            } else {
-                print("No text recognized")
-            }
-        } catch {
-            print("Error performing text recognition on image: \(error)")
-        }
-    }
-
-
 }
