@@ -5,11 +5,10 @@
 //  Created by Abdulsamed Arslan on 27.10.2023.
 //
 
-import Foundation
 import UIKit
 
-class BaseTextField: UITextField{
-    
+final class BaseTextField: UITextField{
+
     //MARK: - LIFECYCLE
     
     override class func awakeFromNib() {
@@ -21,30 +20,36 @@ class BaseTextField: UITextField{
         commonInit()
     }
     
-    //MARK: - PRIVATE FUNCS
-    
+    // MARK: - INIT
+
     private func commonInit() {
+        setBackground(color: .clear)
+        setBorderStyle(.none)
+        setFontSize(16)
+        prepareUI()
+    }
+
+    //MARK: - PRIVATE FUNCS
+
+    private func prepareUI() {
         layer.cornerRadius = 20
         font = .appFont()
         layer.borderWidth = 1
         backgroundColor = .clear
         borderStyle = .none
-        setBackground(color: .clear)
-        setBorderStyle(.none)
-        setFontSize(16)
         autocorrectionType = .no
         autocapitalizationType = .words
     }
-    
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 20 , dy: 0)
     }
     
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    override public func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 20, dy: 10)
     }
     
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 20 , dy: 0)
     }
     

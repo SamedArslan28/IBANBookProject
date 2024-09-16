@@ -8,6 +8,7 @@
 import UIKit
 import Vision
 import AVFoundation
+import Photos
 
 final class MainVC: BaseVC, Navigable {
 
@@ -26,7 +27,7 @@ final class MainVC: BaseVC, Navigable {
         let request = VNRecognizeTextRequest()
         request.recognitionLevel = .accurate
         request.usesLanguageCorrection = true
-        request.recognitionLanguages = ["en"]
+        request.recognitionLanguages = [MainConstants.recognitionLanguage]
         return request
     }()
 
@@ -55,7 +56,7 @@ final class MainVC: BaseVC, Navigable {
     }
 
     private func prepareSettingsButton() {
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"),
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: MainConstants.settingButtonIcon),
                                              style: .plain,
                                              target: self,
                                              action: #selector(pushSettingsVC))
@@ -129,19 +130,24 @@ final class MainVC: BaseVC, Navigable {
 
     private func checkCameraAccessAndProceed() {
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+
         switch cameraAuthorizationStatus {
         case .authorized:
-            self.pushVC(key: .camera)
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.showImagePicker(sourceType: .camera)
+            }
+            
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
-                        self.pushVC(key: .camera)
+                        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                            self.showImagePicker(sourceType: .camera)
+                        }
                     }
-                } else {
-                    self.showCameraAccessDeniedAlert()
                 }
             }
+
         case .denied, .restricted:
             showCameraAccessDeniedAlert()
         @unknown default:
@@ -151,11 +157,11 @@ final class MainVC: BaseVC, Navigable {
 
     private func showCameraAccessDeniedAlert() {
         let alertController = UIAlertController(
-            title: "cameraAccessDeniedTitleKey".localized(),
-            message: "cameraDeniedMessageKey".localized(),
+            title: MainConstants.accessDeniedTitle.localized(),
+            message: MainConstants.accessDeniedMessage.localized(),
             preferredStyle: .alert)
         alertController.addAction(UIAlertAction(
-            title: "settingsKey".localized(),
+            title: MainConstants.settings.localized(),
             style: .default) { _ in
             guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -164,7 +170,7 @@ final class MainVC: BaseVC, Navigable {
                 UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
             }
         })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel, handler: nil))
 
         present(alertController, animated: true, completion: nil)
     }

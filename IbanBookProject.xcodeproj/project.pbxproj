@@ -24,6 +24,7 @@
 		612C59282AEBF37F00A6E997 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59272AEBF37F00A6E997 /* BaseLabel.swift */; };
 		6130CCFA2C97700F00E744F2 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6130CCF92C97700F00E744F2 /* Documentation.docc */; };
 		6130CCFC2C98373700E744F2 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130CCFB2C98373700E744F2 /* ControllerType.swift */; };
+		6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */; };
 		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
 		61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */; };
 		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
@@ -73,6 +74,7 @@
 		612C59272AEBF37F00A6E997 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		6130CCF92C97700F00E744F2 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		6130CCFB2C98373700E744F2 /* ControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
+		6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */,
+				6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */,
 				61702F5A2B1F69570022285C /* SaveIbanVC.xib in Resources */,
 				6177A2A62A8B9CF900B3F30A /* Assets.xcassets in Resources */,
 				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
@@ -730,8 +734,8 @@
 				DEVELOPMENT_TEAM = VF8279THZK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Kamera için izin ver";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Resimlere erişime izin ver";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Bu uygulama IBAN numaralarını taramak için kamera erişimi gerektirir.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Bu uygulama, IBAN taraması için fotoğraf seçmek amacıyla fotoğraf galerisine erişim gerektirir.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -768,8 +772,8 @@
 				DEVELOPMENT_TEAM = VF8279THZK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Kamera için izin ver";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Resimlere erişime izin ver";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Bu uygulama IBAN numaralarını taramak için kamera erişimi gerektirir.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Bu uygulama, IBAN taraması için fotoğraf seçmek amacıyla fotoğraf galerisine erişim gerektirir.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
