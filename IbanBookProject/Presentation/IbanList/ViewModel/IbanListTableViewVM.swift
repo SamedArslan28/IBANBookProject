@@ -7,28 +7,6 @@
 
 import Foundation
 
-enum SectionTypes: String {
-    case favorites
-    case nonFavorites
-    case empty
-    
-    var header: String {
-        switch self {
-        case .favorites:
-            return Constant.favoriteTitle.localized()
-        case .nonFavorites:
-            return Constant.nonFavoriteTitle.localized()
-        default:
-            return ""
-        }
-    }
-    
-    private struct Constant {
-        static let favoriteTitle = "favouritesKey"
-        static let nonFavoriteTitle = "savedIbansKey"
-    }
-}
-
 final class IbanListTableViewVM {
     
     // MARK: - PRIVATE PROPERTIES
@@ -153,5 +131,27 @@ final class IbanListTableViewVM {
 private extension IbanListTableViewVM {
     private enum Constant {
         static let ibanListCacheKey = "ibans"
+    }
+}
+
+enum SectionTypes: String {
+    case favorites
+    case nonFavorites
+    case empty
+
+    var header: String {
+        switch self {
+        case .favorites:
+            return Constant.favoriteTitle.localized()
+        case .nonFavorites:
+            return Constant.nonFavoriteTitle.localized()
+        default:
+            return ""
+        }
+    }
+
+    private struct Constant {
+        static let favoriteTitle = "favouritesKey"
+        static let nonFavoriteTitle = "savedIbansKey"
     }
 }
