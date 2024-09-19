@@ -88,7 +88,12 @@ final class MainVC: BaseVC, Navigable {
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker.localized(),
                                       style: .default ,
                                       handler: { [weak self] _ in
-            self?.checkCameraAccessAndProceed()
+            self?.checkCameraAccessAndProceed(detectionType: .textRecognition)
+        }))
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.qrPicker.localized(),
+                                      style: .default ,
+                                      handler: { [weak self] _ in
+            self?.checkCameraAccessAndProceed(detectionType: .qrCode)
         }))
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(),
                                       style: .default ,
@@ -128,20 +133,20 @@ final class MainVC: BaseVC, Navigable {
         }
     }
 
-    private func checkCameraAccessAndProceed() {
+    private func checkCameraAccessAndProceed(detectionType: DetectionType) {
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
 
         switch cameraAuthorizationStatus {
         case .authorized:
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                self.showImagePicker(sourceType: .camera)
+                self.pushVC(key: .camera, data: detectionType)
             }
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
                         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                            self.showImagePicker(sourceType: .camera)
+                            self.pushVC(key: .camera, data: detectionType)
                         }
                     }
                 }

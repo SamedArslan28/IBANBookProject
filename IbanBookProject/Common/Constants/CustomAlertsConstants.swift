@@ -17,4 +17,5 @@ struct CustomAlertsConstants {
    static let errorTitle = "ibanNotFoundKey"
    static let errorMessage = "differentPhotoKey"
    static let selectItem = "ibanSelectKey"
+   static let qrPicker = "qrKey"
 }

@@ -61,4 +61,14 @@ extension String {
         let bundle = Bundle(path: path)
         return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
     }
+
+    func removeIban() -> String {
+        let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
+        guard let regex = try? NSRegularExpression(pattern: pattern) else {
+            return self
+        }
+        let range = NSRange(location: 0, length: self.utf16.count)
+        let result = regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: "")
+        return result.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }

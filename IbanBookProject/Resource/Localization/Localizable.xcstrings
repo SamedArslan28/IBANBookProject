@@ -460,6 +460,23 @@
         }
       }
     },
+    "qrKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qr Code"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qr Kod"
+          }
+        }
+      }
+    },
     "requiredFieldKey" : {
       "extractionState" : "manual",
       "localizations" : {
