@@ -9,11 +9,8 @@ IBAN Reader is a project designed to simplify the process of extracting Internat
 
 1. Make sure you have the Xcode version 15.0 or above installed on your computer.
 2. Download the Iban Book project files from the repository.
-3. Install CocoaPods.
-4. Run pod install so you can install the dependencies in your project.
-5. Open the project files in Xcode.
-6. Review the code and make sure you understand what it does.
-7. Run the active scheme.
+3. Open the project files in Xcode.
+4. Run the active scheme.
 
 ## Architecture
 The IBAN Reader project follows the MVVM (Model-View-ViewModel) architecture pattern along with a custom navigation system based on coordinators. Below is an overview of each component:
@@ -63,12 +60,3 @@ The Resources folder contains various resources used by the application, includi
 - Plist Files: Property list files (plist) used for storing configuration data or other structured information.
 - Asset Catalog: The asset catalog (xcassets) containing image assets, app icons, and other graphical resources used in the application.
 - Localization Files: Files (strings) for localization and internationalization of the application's user interface strings.
-
-## Dependencies
-IBAN Reader utilizes the following dependencies, managed via CocoaPods:
-
-Firebase Analytics: Firebase Analytics is integrated into the project to provide insights into user behavior and app performance.
-
-Google ML Kit - Text Recognition: Google ML Kit's Text Recognition module is used for optical character recognition (OCR) to extract text from images, enabling IBAN extraction functionality.
-
-Ensure that you have CocoaPods installed on your system, and run pod install in your project directory to install these dependencies.
