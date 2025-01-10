@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		6124335F2B18E2040044BC70 /* IbanListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612433552B18E2040044BC70 /* IbanListVC.swift */; };
 		612433602B18E2040044BC70 /* IbanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612433572B18E2040044BC70 /* IbanCell.xib */; };
 		612433612B18E2040044BC70 /* SaveIbanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6124335A2B18E2040044BC70 /* SaveIbanVC.swift */; };
-		612433622B18E2040044BC70 /* IbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6124335B2B18E2040044BC70 /* IbanModel.swift */; };
 		6128392F2B23417B00F4B988 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128392E2B23417B00F4B988 /* CacheManager.swift */; };
 		612C59212AEBF34C00A6E997 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59202AEBF34C00A6E997 /* StringExtensions.swift */; };
 		612C59242AEBF36500A6E997 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C59232AEBF36500A6E997 /* BaseButton.swift */; };
@@ -51,9 +50,21 @@
 		61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */; };
 		61CFC6742B73CBC300FF9E37 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */; };
 		61CFC6762B73CBE200FF9E37 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */; };
+		61FA94852CF8CF3900AC5D0F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 61FA94842CF8CF3900AC5D0F /* FirebaseCrashlytics */; };
+		61FA94872CF8CF4900AC5D0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61FA94862CF8CF4900AC5D0F /* GoogleService-Info.plist */; };
 		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
 		61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF96E02AF92F1F00083069 /* FontExtenstions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61FC64D02D30150300116E22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6177A2912A8B9CF800B3F30A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6177A2982A8B9CF800B3F30A;
+			remoteInfo = IbanBookProject;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		61222F742B2C575C00982F89 /* TableViewCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocols.swift; sourceTree = "<group>"; };
@@ -65,7 +76,6 @@
 		612433552B18E2040044BC70 /* IbanListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanListVC.swift; sourceTree = "<group>"; };
 		612433572B18E2040044BC70 /* IbanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IbanCell.xib; sourceTree = "<group>"; };
 		6124335A2B18E2040044BC70 /* SaveIbanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveIbanVC.swift; sourceTree = "<group>"; };
-		6124335B2B18E2040044BC70 /* IbanModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanModel.swift; sourceTree = "<group>"; };
 		6128392E2B23417B00F4B988 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		612C59202AEBF34C00A6E997 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		612C59232AEBF36500A6E997 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -103,12 +113,29 @@
 		61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
 		61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		61FA94862CF8CF4900AC5D0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61FC64CC2D30150300116E22 /* IbanBookProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IbanBookProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		61FF96E02AF92F1F00083069 /* FontExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtenstions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		610F92562C9C8C2000BA03AD /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		610F92582C9C8C2C00BA03AD /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		61ABF9EB2C9C8DBE0092CA4A /* Constants */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Constants; sourceTree = "<group>"; };
+		61FC64CD2D30150300116E22 /* IbanBookProjectTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IbanBookProjectTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		6177A2962A8B9CF800B3F30A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61FA94852CF8CF3900AC5D0F /* FirebaseCrashlytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61FC64C92D30150300116E22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,6 +200,7 @@
 		612433582B18E2040044BC70 /* Save */ = {
 			isa = PBXGroup;
 			children = (
+				610F92582C9C8C2C00BA03AD /* Models */,
 				61702F612B1F78270022285C /* Constants */,
 				612433592B18E2040044BC70 /* Source */,
 				61702F582B1F69130022285C /* UserInterface */,
@@ -185,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				6124335A2B18E2040044BC70 /* SaveIbanVC.swift */,
-				6124335B2B18E2040044BC70 /* IbanModel.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -210,6 +237,7 @@
 		612C59142AEBF21F00A6E997 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				61FA94862CF8CF4900AC5D0F /* GoogleService-Info.plist */,
 				6145EC9A2B4D6F08000045AA /* Localization */,
 				61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */,
 				6177A2A52A8B9CF900B3F30A /* Assets.xcassets */,
@@ -333,6 +361,8 @@
 		616C32232C9351D200BA4B7A /* CameraSession */ = {
 			isa = PBXGroup;
 			children = (
+				61ABF9EB2C9C8DBE0092CA4A /* Constants */,
+				610F92562C9C8C2000BA03AD /* Models */,
 				616C32252C93525600BA4B7A /* UserInterface */,
 				616C32242C93525200BA4B7A /* Source */,
 			);
@@ -395,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				6177A29B2A8B9CF800B3F30A /* IbanBookProject */,
+				61FC64CD2D30150300116E22 /* IbanBookProjectTests */,
 				6177A29A2A8B9CF800B3F30A /* Products */,
 				3B56E5522729010C9AAEBD14 /* Frameworks */,
 			);
@@ -404,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				6177A2992A8B9CF800B3F30A /* IbanBookProject.app */,
+				61FC64CC2D30150300116E22 /* IbanBookProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -484,10 +516,38 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				610F92562C9C8C2000BA03AD /* Models */,
+				610F92582C9C8C2C00BA03AD /* Models */,
+				61ABF9EB2C9C8DBE0092CA4A /* Constants */,
+			);
 			name = IbanBookProject;
 			productName = AyBenAPP;
 			productReference = 6177A2992A8B9CF800B3F30A /* IbanBookProject.app */;
 			productType = "com.apple.product-type.application";
+		};
+		61FC64CB2D30150300116E22 /* IbanBookProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61FC64D42D30150300116E22 /* Build configuration list for PBXNativeTarget "IbanBookProjectTests" */;
+			buildPhases = (
+				61FC64C82D30150300116E22 /* Sources */,
+				61FC64C92D30150300116E22 /* Frameworks */,
+				61FC64CA2D30150300116E22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61FC64D12D30150300116E22 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				61FC64CD2D30150300116E22 /* IbanBookProjectTests */,
+			);
+			name = IbanBookProjectTests;
+			packageProductDependencies = (
+			);
+			productName = IbanBookProjectTests;
+			productReference = 61FC64CC2D30150300116E22 /* IbanBookProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -496,11 +556,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					6177A2982A8B9CF800B3F30A = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					61FC64CB2D30150300116E22 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 6177A2982A8B9CF800B3F30A;
 					};
 				};
 			};
@@ -514,11 +578,15 @@
 				Base,
 			);
 			mainGroup = 6177A2902A8B9CF800B3F30A;
+			packageReferences = (
+				61FA94832CF8CF3900AC5D0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 6177A29A2A8B9CF800B3F30A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				6177A2982A8B9CF800B3F30A /* IbanBookProject */,
+				61FC64CB2D30150300116E22 /* IbanBookProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -539,7 +607,15 @@
 				612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */,
 				61702F542B1F5F8E0022285C /* MainVC.xib in Resources */,
 				61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */,
+				61FA94872CF8CF4900AC5D0F /* GoogleService-Info.plist in Resources */,
 				616C32292C93531D00BA4B7A /* CameraSessionVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61FC64CA2D30150300116E22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,14 +656,28 @@
 				6124335C2B18E2040044BC70 /* IbanCellVM.swift in Sources */,
 				6191883C2AFA92FE006A9E0D /* TableViewExtensions.swift in Sources */,
 				6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */,
-				612433622B18E2040044BC70 /* IbanModel.swift in Sources */,
 				6130CCFC2C98373700E744F2 /* ControllerType.swift in Sources */,
 				6177A29F2A8B9CF800B3F30A /* SceneDelegate.swift in Sources */,
 				6168B06F2B28B5DB00D33D46 /* CustomAlertsConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		61FC64C82D30150300116E22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61FC64D12D30150300116E22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6177A2982A8B9CF800B3F30A /* IbanBookProject */;
+			targetProxy = 61FC64D02D30150300116E22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6177A2C12A8B9CF900B3F30A /* Debug */ = {
@@ -727,7 +817,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VF8279THZK;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Bu uygulama IBAN numaralarını taramak için kamera erişimi gerektirir.";
@@ -766,6 +858,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VF8279THZK;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Bu uygulama IBAN numaralarını taramak için kamera erişimi gerektirir.";
@@ -795,6 +888,51 @@
 			};
 			name = Release;
 		};
+		61FC64D22D30150300116E22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulsamedarslan.IbanBookProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IbanBookProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IbanBookProject";
+			};
+			name = Debug;
+		};
+		61FC64D32D30150300116E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8279THZK;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulsamedarslan.IbanBookProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IbanBookProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IbanBookProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -816,7 +954,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		61FC64D42D30150300116E22 /* Build configuration list for PBXNativeTarget "IbanBookProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61FC64D22D30150300116E22 /* Debug */,
+				61FC64D32D30150300116E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61FA94832CF8CF3900AC5D0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		61FA94842CF8CF3900AC5D0F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61FA94832CF8CF3900AC5D0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6177A2912A8B9CF800B3F30A /* Project object */;
 }

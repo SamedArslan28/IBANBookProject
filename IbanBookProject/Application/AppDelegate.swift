@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CacheManager.shared.setObject("tr", key: "languageCode")
             CacheManager.shared.setObject(true, key: "hasLaunchedBefore")
         }
+        FirebaseApp.configure()
         return true
     }
 

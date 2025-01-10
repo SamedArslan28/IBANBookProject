@@ -81,7 +81,7 @@ final class CameraSessionVC: BaseVC, Navigable {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        guard let previewLayer = previewLayer else { return}
+        guard let previewLayer = previewLayer else { return }
         previewLayer.frame = containerView.bounds
     }
 
@@ -144,6 +144,11 @@ final class CameraSessionVC: BaseVC, Navigable {
     func stopCameraSession() {
         guard let captureSession = captureSession else { return }
         captureSession.stopRunning()
+    }
+
+    func startCameraSession() {
+        guard let captureSession else { return }
+        captureSession.startRunning()
     }
 
     func extractBankCode(from iban: String) -> String {

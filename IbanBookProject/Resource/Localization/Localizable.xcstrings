@@ -341,6 +341,40 @@
         }
       }
     },
+    "invalidQrMessageKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please scan a valid QR Code"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen geçerli QR kod okutunuz"
+          }
+        }
+      }
+    },
+    "invalidQrTitleKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid QR Code"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geçersiz QR kod"
+          }
+        }
+      }
+    },
     "mainMessageKey" : {
       "extractionState" : "manual",
       "localizations" : {

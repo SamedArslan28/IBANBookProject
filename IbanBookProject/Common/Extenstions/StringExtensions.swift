@@ -71,4 +71,13 @@ extension String {
         let result = regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: "")
         return result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
+    
+    func formattedIban() -> String {
+        // Remove any existing whitespace
+        let iban = self.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
+
+        // Insert spaces every 4 characters
+        return iban.enumerated().map { $0.offset % 4 == 0 && $0.offset > 0 ? " \($0.element)" : "\($0.element)" }.joined()
+    }
+
 }

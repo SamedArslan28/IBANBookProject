@@ -16,7 +16,7 @@ final class SaveIbanVC: BaseVC, Navigable {
     private let saveConstants = SaveIbanConstants()
     private var viewModel = SaveIbanVM()
     private var ibanList = [IbanModel]()
-    var givenData:IbanDataModel?
+    var givenData: IbanDataModel?
 
     lazy var pickerView: UIPickerView = {
         let pickerView = UIPickerView()
@@ -82,7 +82,7 @@ final class SaveIbanVC: BaseVC, Navigable {
         otherTextField.isHidden = true
 
         guard let givenData else { return }
-        ibanTextField.text = givenData.iban
+        ibanTextField.text = givenData.iban.formattedIban()
         nameTextField.text = givenData.name
         bankNameTextField.text = givenData.bankName
     }
@@ -92,6 +92,7 @@ final class SaveIbanVC: BaseVC, Navigable {
         nameLabel.text = SaveIbanConstants.fullNameLabelText.localized()
         bankNameLabel.text = SaveIbanConstants.bankNameLabelText.localized()
     }
+
 
     private func setupSaveButton() {
         saveButton.setTitle(SaveIbanConstants.saveButtonTitle.localized(), for: .normal)
