@@ -7,7 +7,8 @@
 
 import AVFoundation
 import UIKit
-import Vision
+
+
 enum DetectionType {
     case textRecognition
     case qrCode
@@ -15,7 +16,6 @@ enum DetectionType {
 
 
 final class CameraSessionVC: BaseVC, Navigable {
-
 
     // MARK: - IBOUTLEST
 
@@ -77,6 +77,11 @@ final class CameraSessionVC: BaseVC, Navigable {
         recognitionType = data as? DetectionType
         setupCamera()
         setupCustomBackButton()
+        setupTitle()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeCurrentFromStack()
     }
 
     override func viewDidLayoutSubviews() {
@@ -86,6 +91,17 @@ final class CameraSessionVC: BaseVC, Navigable {
     }
 
     // MARK: - PRIVATE FUNCTIONS
+
+    private func setupTitle() {
+        switch recognitionType {
+            case .qrCode:
+                title = "QR Code"
+            case .textRecognition:
+                title = "Text Recognition"
+            default:
+                break
+        }
+    }
 
     private func setupCamera() {
         captureSession = AVCaptureSession()
@@ -128,8 +144,6 @@ final class CameraSessionVC: BaseVC, Navigable {
     }
 
     @objc func popToMainVC() {
-        guard let navigationController else { return }
-        if (navigationController.viewControllers.count) > 2 { popToMain() }
         popVC()
     }
 

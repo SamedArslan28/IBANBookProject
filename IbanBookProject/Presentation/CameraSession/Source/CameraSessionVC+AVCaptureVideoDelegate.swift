@@ -17,57 +17,55 @@ extension CameraSessionVC: AVCaptureVideoDataOutputSampleBufferDelegate {
                                                    options: [:])
 
         switch recognitionType {
-        case .qrCode:
-            /// Handles QR code recognition by configuring a barcode detection request.
-            let barcodeRequest = VNDetectBarcodesRequest { (request, error) in
-                if let results = request.results as? [VNBarcodeObservation] {
-                    for result in results {
-                        if let payloadString = result.payloadStringValue {
-                            guard let data = self.processDataFromQR(payload: payloadString) else { return }
-                            self.stopCameraSession()
-                            DispatchQueue.main.async {
-                                self.pushVC(key: .saveIban, data: data)
-                            }
-                            return
-                        }
-                    }
-                }
-            }
-            barcodeRequest.symbologies = [.qr]
-            do {
-                try requestHandler.perform([barcodeRequest])
-            } catch {
-                print("Error performing barcode request: \(error)")
-            }
-
-        case .textRecognition:
-            /// Handles text recognition, specifically detecting IBAN codes in the recognized text.
-            let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
-                if let results = request.results as? [VNRecognizedTextObservation] {
-                    for observation in results {
-                        if let topCandidate = observation.topCandidates(1).first {
-                            let detectedIban = topCandidate.string
-                            if detectedIban.isIban() {
+            case .qrCode:
+                let barcodeRequest = VNDetectBarcodesRequest { (request, error) in
+                    if let results = request.results as? [VNBarcodeObservation] {
+                        for result in results {
+                            if let payloadString = result.payloadStringValue {
+                                guard let data = self.processDataFromQR(payload: payloadString) else { return }
                                 self.stopCameraSession()
                                 DispatchQueue.main.async {
-                                    self.pushVC(key: .saveIban, data: self.proccessIbanData(detectecIban: detectedIban))
+                                    self.pushVC(key: .saveIban, data: data)
                                 }
                                 return
                             }
                         }
                     }
                 }
-            }
-            textRecognitionRequest.recognitionLevel = .accurate
-            textRecognitionRequest.usesLanguageCorrection = true
-            textRecognitionRequest.recognitionLanguages = ["tr", "en"]
-            do {
-                try requestHandler.perform([textRecognitionRequest])
-            } catch {
-                print("Error performing text recognition request: \(error)")
-            }
-        case .none:
-            break
+                barcodeRequest.symbologies = [.qr]
+                do {
+                    try requestHandler.perform([barcodeRequest])
+                } catch {
+                    print("Error performing barcode request: \(error)")
+                }
+
+            case .textRecognition:
+                let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
+                    if let results = request.results as? [VNRecognizedTextObservation] {
+                        for observation in results {
+                            if let topCandidate = observation.topCandidates(1).first {
+                                let detectedIban = topCandidate.string
+                                if detectedIban.isIban() {
+                                    self.stopCameraSession()
+                                    DispatchQueue.main.async {
+                                        self.pushVC(key: .saveIban, data: self.proccessIbanData(detectecIban: detectedIban))
+                                    }
+                                    return
+                                }
+                            }
+                        }
+                    }
+                }
+                textRecognitionRequest.recognitionLevel = .accurate
+                textRecognitionRequest.usesLanguageCorrection = true
+                textRecognitionRequest.recognitionLanguages = ["tr", "en"]
+                do {
+                    try requestHandler.perform([textRecognitionRequest])
+                } catch {
+                    print("Error performing text recognition request: \(error)")
+                }
+            case .none:
+                break
         }
     }
 
