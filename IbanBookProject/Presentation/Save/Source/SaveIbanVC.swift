@@ -123,11 +123,11 @@ final class SaveIbanVC: BaseVC, Navigable {
     }
 
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
-//        guard validateInput() else {
-//            showMissingInfoAlert()
-//            return
-//        }
-//        saveIban()
+        guard validateInput() else {
+            showMissingInfoAlert()
+            return
+        }
+        saveIban()
         pushVC(key: .ibanList)
     }
 
