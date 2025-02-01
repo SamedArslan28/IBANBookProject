@@ -70,14 +70,27 @@ extension Navigable where Self: UIViewController {
         navigationController.popToRootViewController(animated: true)
     }
 
-    /* Alternative implementation to pop to the main view controller.
-    func popToMain() {
-        guard let navigationController else { return }
-        for item in navigationController.viewControllers.reversed() where type(of: item) != MainVC.self {
-            item.navigationController?.popViewController(animated: true)
+    /// Removes current view controller from navigation stack.
+    ///  - Note: Use it with views disappear lifecycle functions.
+    func removeCurrentFromStack() {
+        if let navigationController = self.navigationController {
+            var viewControllers = navigationController.viewControllers
+            viewControllers.removeAll { $0 is Self }
+            navigationController.viewControllers = viewControllers
         }
     }
-    */
+
+    /// Resarts the application from Main view controller with animation.
+    func restartApplication() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first(where: { $0.isKeyWindow }),
+              let viewController = ControllerFactory.createVC(with: .main) else { return }
+
+        let navCtrl = UINavigationController(rootViewController: viewController)
+        UIView.transition(with: window, duration: 0.3, options: .curveEaseInOut, animations: {
+            window.rootViewController = navCtrl
+        })
+    }
 }
 
 /// A factory responsible for creating view controllers based on a specified key.

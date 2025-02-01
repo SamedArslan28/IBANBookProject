@@ -11,7 +11,6 @@ enum ControllerKey: String {
     case main
     case ibanList
     case saveIban
-    case settings
     case camera
 
     var controllerType: AnyClass {
@@ -22,8 +21,6 @@ enum ControllerKey: String {
             return IbanListVC.self
         case .saveIban:
             return SaveIbanVC.self
-        case .settings:
-            return SettingsVC.self
         case .camera:
             return CameraSessionVC.self
         }

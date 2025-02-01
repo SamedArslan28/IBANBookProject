@@ -5,12 +5,16 @@
 //  Created by Abdulsamed Arslan on 6.11.2023.
 //
 
-import Foundation
 import UIKit
 
 /// `BaseVC` is a base view controller class providing utility functions
 /// for setting navigation bar properties and applying background styling.
 class BaseVC: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setBackGesture()
+    }
 
     // MARK: - FUNCTIONS
 
@@ -29,7 +33,7 @@ class BaseVC: UIViewController {
     /// Sets the color of the navigation bar title text.
     /// - Parameter color: The color to use for the title text. Defaults to `.themeColor`.
     func setNavigationTitleColor(color: UIColor = .themeColor) {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: color]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: color]
     }
 
     /// Sets a gradient background for the view by calling `setGradientBackground`.
@@ -43,8 +47,20 @@ class BaseVC: UIViewController {
         let gradientLayer = CAGradientLayer()
         let screenBounds = UIScreen.main.bounds
         gradientLayer.frame = screenBounds
-        gradientLayer.colors = [UIColor.gradientTopColor.cgColor, UIColor.gradientBottomColor.cgColor]
-        gradientLayer.locations = [0.0, 0.5]
+        gradientLayer.colors = [UIColor.gradientTopColor.cgColor,
+                                UIColor.gradientBottomColor.cgColor]
+        gradientLayer.locations = [0.0,
+                                   0.5]
         view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
+
+extension BaseVC: UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+    func setBackGesture() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 }

@@ -72,11 +72,8 @@ extension String {
         return result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
-    func formattedIban() -> String {
-        // Remove any existing whitespace
+    func formatIban() -> String {
         let iban = self.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
-
-        // Insert spaces every 4 characters
         return iban.enumerated().map { $0.offset % 4 == 0 && $0.offset > 0 ? " \($0.element)" : "\($0.element)" }.joined()
     }
 
