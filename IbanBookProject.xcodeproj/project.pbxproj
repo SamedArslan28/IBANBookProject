@@ -25,6 +25,7 @@
 		6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */; };
 		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
 		61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */; };
+		614943A02D334CA3003F0C6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6149439F2D334CA3003F0C6D /* GoogleService-Info.plist */; };
 		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
 		615597FA2AF94032008351F7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615597F92AF94032008351F7 /* BaseVC.swift */; };
 		6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165D7062B1B71440097E4EB /* SaveIbanVM.swift */; };
@@ -48,10 +49,7 @@
 		6193C01F2B21130700AF009D /* MainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193C01E2B21130700AF009D /* MainConstants.swift */; };
 		6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */; };
 		61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */; };
-		61CFC6742B73CBC300FF9E37 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */; };
-		61CFC6762B73CBE200FF9E37 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */; };
 		61FA94852CF8CF3900AC5D0F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 61FA94842CF8CF3900AC5D0F /* FirebaseCrashlytics */; };
-		61FA94872CF8CF4900AC5D0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61FA94862CF8CF4900AC5D0F /* GoogleService-Info.plist */; };
 		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
 		61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF96E02AF92F1F00083069 /* FontExtenstions.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +83,7 @@
 		6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		6149439F2D334CA3003F0C6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615597F92AF94032008351F7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		6165D7062B1B71440097E4EB /* SaveIbanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanVM.swift; sourceTree = "<group>"; };
@@ -111,9 +110,6 @@
 		6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
 		619CFB5D2B35E84E0081A368 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
-		61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		61FA94862CF8CF4900AC5D0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61FC64CC2D30150300116E22 /* IbanBookProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IbanBookProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		61FF96E02AF92F1F00083069 /* FontExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtenstions.swift; sourceTree = "<group>"; };
@@ -237,11 +233,11 @@
 		612C59142AEBF21F00A6E997 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				61FA94862CF8CF4900AC5D0F /* GoogleService-Info.plist */,
 				6145EC9A2B4D6F08000045AA /* Localization */,
 				61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */,
 				6177A2A52A8B9CF900B3F30A /* Assets.xcassets */,
 				6177A2AA2A8B9CF900B3F30A /* Info.plist */,
+				6149439F2D334CA3003F0C6D /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -254,7 +250,6 @@
 				612C59172AEBF27600A6E997 /* Launch */,
 				612C59162AEBF26E00A6E997 /* Main */,
 				612433582B18E2040044BC70 /* Save */,
-				61CFC66E2B73CB7600FF9E37 /* Settings */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -476,31 +471,6 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		61CFC66E2B73CB7600FF9E37 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				61CFC6712B73CB9000FF9E37 /* Source */,
-				61CFC6722B73CBA400FF9E37 /* UserInterface */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		61CFC6712B73CB9000FF9E37 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				61CFC6752B73CBE200FF9E37 /* SettingsVC.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		61CFC6722B73CBA400FF9E37 /* UserInterface */ = {
-			isa = PBXGroup;
-			children = (
-				61CFC6732B73CBC300FF9E37 /* SettingsVC.xib */,
-			);
-			path = UserInterface;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -575,7 +545,6 @@
 			knownRegions = (
 				en,
 				tr,
-				Base,
 			);
 			mainGroup = 6177A2902A8B9CF800B3F30A;
 			packageReferences = (
@@ -596,18 +565,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614943A02D334CA3003F0C6D /* GoogleService-Info.plist in Resources */,
 				6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */,
 				61702F5A2B1F69570022285C /* SaveIbanVC.xib in Resources */,
 				6177A2A62A8B9CF900B3F30A /* Assets.xcassets in Resources */,
 				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
 				61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */,
-				61CFC6742B73CBC300FF9E37 /* SettingsVC.xib in Resources */,
 				61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */,
 				612433602B18E2040044BC70 /* IbanCell.xib in Resources */,
 				612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */,
 				61702F542B1F5F8E0022285C /* MainVC.xib in Resources */,
 				61702F5C2B1F6B690022285C /* IbanListVC.xib in Resources */,
-				61FA94872CF8CF4900AC5D0F /* GoogleService-Info.plist in Resources */,
 				616C32292C93531D00BA4B7A /* CameraSessionVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,7 +615,6 @@
 				61702F632B1F78390022285C /* SaveIbanConstants.swift in Sources */,
 				612366CE2B4D891900562376 /* EmptyIBANCellTableViewCell.swift in Sources */,
 				6124335F2B18E2040044BC70 /* IbanListVC.swift in Sources */,
-				61CFC6762B73CBE200FF9E37 /* SettingsVC.swift in Sources */,
 				612433612B18E2040044BC70 /* SaveIbanVC.swift in Sources */,
 				615597FA2AF94032008351F7 /* BaseVC.swift in Sources */,
 				61702F602B1F6E560022285C /* UIViewControllerExtensions.swift in Sources */,
@@ -735,7 +702,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -796,7 +763,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -815,6 +782,7 @@
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -830,6 +798,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -838,6 +807,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -855,6 +825,7 @@
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VF8279THZK;
@@ -869,6 +840,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -877,6 +849,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stajOkulu.IbanBookProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
