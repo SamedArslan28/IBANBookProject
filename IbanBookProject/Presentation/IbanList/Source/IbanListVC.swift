@@ -100,14 +100,14 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = viewModel.rowTypes.get(at: indexPath.section) else { return .init() }
         switch section {
-        case .favorites, .nonFavorites:
-            guard let cell = tableView.dequeue(withType: IbanCell.self, for: indexPath) as? IbanCell else { return .init() }
-            cell.delegate = self
-            cell.viewModel = viewModel.getIbanCellVM(at: indexPath)
-            return cell
-        case .empty:
-            guard let cell = tableView.dequeue(withType: EmptyIBANCellTableViewCell.self, for: indexPath) as? EmptyIBANCellTableViewCell else { return .init() }
-            return cell
+            case .favorites, .nonFavorites:
+                guard let cell = tableView.dequeue(withType: IbanCell.self, for: indexPath) as? IbanCell else { return .init() }
+                cell.delegate = self
+                cell.viewModel = viewModel.getIbanCellVM(at: indexPath)
+                return cell
+            case .empty:
+                guard let cell = tableView.dequeue(withType: EmptyIBANCellTableViewCell.self, for: indexPath) as? EmptyIBANCellTableViewCell else { return .init() }
+                return cell
         }
     }
 
@@ -127,7 +127,6 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
 
     @objc func popToMainVC() {
         guard let navigationController else { return }
-        if (navigationController.viewControllers.count) > 2 { popToMain() }
         popVC()
     }
 
@@ -138,20 +137,35 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     }
 
     @objc func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            let location = sender.location(in: self.tableView)
-            if let indexPath = tableView.indexPathForRow(at: location) {
-                if let cell = tableView.cellForRow(at: indexPath) as? IbanCell {
+        let location = sender.location(in: self.tableView)
+        guard let indexPath = tableView.indexPathForRow(at: location),
+              let cell = tableView.cellForRow(at: indexPath) as? IbanCell else { return }
+
+        switch sender.state {
+            case .began:
+                // Apply scale-up animation to indicate selection
+                UIView.animate(withDuration: 0.15, animations: {
+                    cell.transform = CGAffineTransform(scaleX: 1.05,
+                                                       y: 1.05)
+                })
+            case .ended:
+                // Revert back to the normal size
+                UIView.animate(withDuration: 0.15,
+                               animations: {
+                    cell.transform = .identity
+                }) { _ in
+                    // Copy IBAN to clipboard and provide feedback
                     let propertyToCopy = cell.viewModel?.iban
                     UIPasteboard.general.string = propertyToCopy
                     let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
-                    showToast(message: "copyIbanKey".localized(), font: .systemFont(ofSize: 12))
+                    self.showToast(message: "copyIbanKey".localized(),
+                                   font: .systemFont(ofSize: 12))
                 }
-            }
+            default:
+                break
         }
-    }
-}
+    }}
 
 // MARK: - IBAN CELL DELEGATE
 
@@ -169,7 +183,7 @@ extension IbanListVC: IbanCellDelegate {
         viewModel.changeFavoriteStatus(at: id)
         UIView.transition(
             with: tableView,
-            duration: 0.1,
+            duration: 0.2,
             options: .transitionCrossDissolve
         ) {
             self.tableView.reloadData()
