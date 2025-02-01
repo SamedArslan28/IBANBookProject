@@ -5,7 +5,7 @@
 //  Created by Abdulsamed Arslan on 6.11.2023.
 //
 
-import Foundation
+import OSLog
 import UIKit
 
 final class SaveIbanVC: BaseVC, Navigable {
@@ -46,6 +46,11 @@ final class SaveIbanVC: BaseVC, Navigable {
         ibanList = viewModel.getIbanList() ?? []
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeCurrentFromStack()
+    }
+
     // MARK: - SETUP FUNCTIONS
 
     private func setupUI() {
@@ -82,7 +87,7 @@ final class SaveIbanVC: BaseVC, Navigable {
         otherTextField.isHidden = true
 
         guard let givenData else { return }
-        ibanTextField.text = givenData.iban.formattedIban()
+        ibanTextField.text = givenData.iban.formatIban()
         nameTextField.text = givenData.name
         bankNameTextField.text = givenData.bankName
     }
@@ -118,11 +123,11 @@ final class SaveIbanVC: BaseVC, Navigable {
     }
 
     @IBAction private func saveButtonClicked(_ sender: BaseButton) {
-        guard validateInput() else {
-            showMissingInfoAlert()
-            return
-        }
-        saveIban()
+//        guard validateInput() else {
+//            showMissingInfoAlert()
+//            return
+//        }
+//        saveIban()
         pushVC(key: .ibanList)
     }
 

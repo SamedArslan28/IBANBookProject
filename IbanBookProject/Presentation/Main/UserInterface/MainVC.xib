@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainVC" customModule="IbanBookProject" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="4kd-AB-VhQ" id="G3S-xN-cTa"/>
-                <outlet property="ibanList" destination="yZx-M3-KZA" id="wVY-UR-VpN"/>
-                <outlet property="readIBANClicked" destination="3dq-JO-pbn" id="qqd-bB-gYh"/>
-                <outlet property="saveIban" destination="yi5-3C-vct" id="RQb-0j-FeL"/>
+                <outlet property="ibanListButton" destination="yZx-M3-KZA" id="3er-OM-3TN"/>
+                <outlet property="readIbanButton" destination="3dq-JO-pbn" id="Ihv-iW-jbu"/>
+                <outlet property="saveIbanButton" destination="yi5-3C-vct" id="4w4-uE-VLN"/>
                 <outlet property="view" destination="ykz-qB-7oW" id="0j3-Lc-ggl"/>
             </connections>
         </placeholder>

@@ -31,14 +31,14 @@ final class IbanListVC: BaseVC, Navigable {
         setBackground()
         prepareTableView()
         setupCustomBackButton()
-        setupCopyAllButton()
         setNavigationColor()
         setNavigationTitleColor()
     }
 
     private func prepareTableView() {
         setNavigationTitle(title: "ibanListKey".localized())
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
+        let longPressGesture = UILongPressGestureRecognizer(target: self,
+                                                            action: #selector(longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longPressGesture)
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,15 +46,6 @@ final class IbanListVC: BaseVC, Navigable {
         tableView.backgroundColor = .none
         tableView.register(type: IbanCell.self)
         tableView.register(type: EmptyIBANCellTableViewCell.self)
-    }
-
-    private func setupCopyAllButton() {
-        let copyAllButton = UIBarButtonItem(image: UIImage(systemName: "doc.on.doc")?.withTintColor(.themeColor),
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(copyAllIbans))
-        copyAllButton.customView?.isUserInteractionEnabled = true
-        navigationItem.rightBarButtonItem = copyAllButton
     }
 
     private func setupCustomBackButton() {
@@ -92,8 +83,14 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 32))
-        let label = BaseLabel(frame: CGRect(x: 32, y: 0, width: headerView.frame.width - 12, height: headerView.frame.height))
+        let headerView = UIView(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: tableView.frame.width,
+                                              height: 32))
+        let label = BaseLabel(frame: CGRect(x: 32,
+                                            y: 0,
+                                            width: headerView.frame.width - 12,
+                                            height: headerView.frame.height))
         label.text = viewModel.titleHeader(in: section)
         headerView.backgroundColor = .none
         headerView.addSubview(label)

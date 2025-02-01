@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  IbanBookProject
-//
-//  Created by Abdulsamed Arslan on 15.08.2023.
-//
-
 import UIKit
 import Vision
 import AVFoundation
@@ -12,16 +5,21 @@ import Photos
 
 final class MainVC: BaseVC, Navigable {
 
-    // MARK: - OUTLETS
+    // MARK: - Outlets
 
     @IBOutlet weak var descriptionLabel: BaseLabel!
-    @IBOutlet weak var saveIban: BaseButton!
-    @IBOutlet weak var ibanList: BaseButton!
-    @IBOutlet weak var readIBANClicked: BaseButton!
+    @IBOutlet weak var readIbanButton: BaseButton!
+    @IBOutlet weak var ibanListButton: BaseButton!
+    @IBOutlet weak var saveIbanButton: BaseButton!
 
-    // MARK: - PROPERTIES
+    // MARK: - Properties
 
-    private lazy var imagePicker: UIImagePickerController = UIImagePickerController()
+    private lazy var imagePicker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        return picker
+    }()
 
     lazy var textRecognitionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest()
@@ -31,40 +29,23 @@ final class MainVC: BaseVC, Navigable {
         return request
     }()
 
-    // MARK: - LIFECYCLE
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.setBackground()
+        setBackground()
         setupUI()
     }
 
-    // MARK: - PRIVATE FUNCTIONS
+    // MARK: - UI Setup
 
     private func setupUI() {
-        preapreComponents()
-        prepareNavBar()
-        setupImagePicker()
-        prepareSettingsButton()
-        setNavigationColor()
-        setNavigationTitleColor()
+        configureNavigationBar()
+        setupLanguageMenu()
+        configureComponents()
     }
 
-    private func setupImagePicker() {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-    }
-
-    private func prepareSettingsButton() {
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: MainConstants.settingButtonIcon),
-                                             style: .plain,
-                                             target: self,
-                                             action: #selector(pushSettingsVC))
-        settingsButton.tintColor = .themeColor
-        navigationItem.rightBarButtonItem = settingsButton
-    }
-
-    private func prepareNavBar() {
+    private func configureNavigationBar() {
         guard let navigationController else { return }
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
@@ -72,82 +53,92 @@ final class MainVC: BaseVC, Navigable {
         navigationController.navigationBar.compactAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = appearance
         navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.tintColor = .themeColor
+        navigationItem.titleView?.tintColor = .themeColor
     }
 
-    private func preapreComponents() {
-        descriptionLabel.text = MainConstants.descriptionLabelText.localized()
-        saveIban.setTitle(MainConstants.saveIbanButtonTitle.localized(), for: .normal)
-        ibanList.setTitle(MainConstants.ibanListButtonTitle.localized(), for: .normal)
-        readIBANClicked.setTitle(MainConstants.readIbanButtonTitle.localized(), for: .normal)
+    private func setupLanguageMenu() {
+        let languageButton = UIBarButtonItem(image: UIImage(systemName: "globe")?.withTintColor(.themeColor,
+                                                                                                renderingMode: .alwaysOriginal),
+                                             style: .plain,
+                                             target: nil,
+                                             action: nil)
+        languageButton.tintColor = .label
+        languageButton.menu = createLanguageMenu()
+        navigationItem.rightBarButtonItem = languageButton
     }
+
+    private func configureComponents() {
+        descriptionLabel.text = MainConstants.descriptionLabelText.localized()
+        saveIbanButton.setTitle(MainConstants.saveIbanButtonTitle.localized(), for: .normal)
+        ibanListButton.setTitle(MainConstants.ibanListButtonTitle.localized(), for: .normal)
+        readIbanButton.setTitle(MainConstants.readIbanButtonTitle.localized(), for: .normal)
+    }
+
+    // MARK: - Language Handling
+
+    private func createLanguageMenu() -> UIMenu {
+        let availableLanguages = ["en", "tr"]
+        let menuItems = availableLanguages.map { languageCode in
+            UIAction(title: "\(flagEmoji(for: languageCode)) \(Locale.current.localizedString(forLanguageCode: languageCode) ?? languageCode)",
+                     handler: { _ in self.changeLanguage(to: languageCode) })
+        }
+        return UIMenu(title: "Choose Language", children: menuItems)
+    }
+
+    private func changeLanguage(to languageCode: String) {
+        guard CacheManager.shared.getString(key: "languageCode") != languageCode else { return }
+        CacheManager.shared.setObject(languageCode, key: "languageCode")
+        UserDefaults.standard.setValue(languageCode, forKey: "languageCode")
+        restartApplication()
+    }
+
+    private func flagEmoji(for languageCode: String) -> String {
+        let countryCode = ["en": "US",
+                           "tr": "TR"][languageCode] ?? "TR"
+        return countryCode.unicodeScalars.compactMap { UnicodeScalar(127397 + $0.value) }.map { String($0) }.joined()
+    }
+
+    // MARK: - Image Picker
 
     private func showImagePickerAlert() {
         let alert = UIAlertController(title: CustomAlertsConstants.imagePickerTitle.localized(),
                                       message: CustomAlertsConstants.imagePickerMessage.localized(),
                                       preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker.localized(),
-                                      style: .default ,
-                                      handler: { [weak self] _ in
-            self?.checkCameraAccessAndProceed(detectionType: .textRecognition)
-        }))
-        alert.addAction(UIAlertAction(title: CustomAlertsConstants.qrPicker.localized(),
-                                      style: .default ,
-                                      handler: { [weak self] _ in
-            self?.checkCameraAccessAndProceed(detectionType: .qrCode)
-        }))
-        alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(),
-                                      style: .default ,
-                                      handler: { [weak self] _ in
-            self?.showImagePicker(sourceType: .photoLibrary)
-        }))
+
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cameraPicker.localized(), style: .default) { _ in
+            self.checkCameraAccessAndProceed(detectionType: .textRecognition)
+        })
+
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.qrPicker.localized(), style: .default) { _ in
+            self.checkCameraAccessAndProceed(detectionType: .qrCode)
+        })
+
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(), style: .default) { _ in
+            self.showImagePicker(sourceType: .photoLibrary)
+        })
+
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
+
+        present(alert, animated: true)
     }
 
     private func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         imagePicker.sourceType = sourceType
-        DispatchQueue.main.async {
-            self.present(self.imagePicker, animated: true, completion: nil)
-        }
-    }
-
-    @objc func pushSettingsVC() {
-        pushVC(key: .settings)
-    }
-
-    // MARK: - IBACTIONS
-
-    @IBAction private func ibanListTapped(_ sender: Any) {
-        pushVC(key: .ibanList)
-    }
-
-    @IBAction private func saveIbanTapped(_ sender: Any) {
-        pushVC(key: .saveIban)
-    }
-
-    @IBAction private func selectPhotoSource(_ sender: BaseButton) {
-        DispatchQueue.main.async { [weak self]  in
-            self?.showImagePickerAlert()
-        }
+        present(imagePicker, animated: true)
     }
 
     private func checkCameraAccessAndProceed(detectionType: DetectionType) {
-        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
-
-        switch cameraAuthorizationStatus {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                self.pushVC(key: .camera, data: detectionType)
+                pushVC(key: .camera, data: detectionType)
             }
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
-                        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                            self.pushVC(key: .camera, data: detectionType)
-                        }
+                        self.pushVC(key: .camera, data: detectionType)
                     }
                 }
             }
@@ -159,23 +150,30 @@ final class MainVC: BaseVC, Navigable {
     }
 
     private func showCameraAccessDeniedAlert() {
-        let alertController = UIAlertController(
-            title: MainConstants.accessDeniedTitle.localized(),
-            message: MainConstants.accessDeniedMessage.localized(),
-            preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(
-            title: MainConstants.settings.localized(),
-            style: .default) { _ in
-            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
-                return
-            }
-            if UIApplication.shared.canOpenURL(settingsURL) {
-                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-            }
-        })
-        alertController.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel, handler: nil))
+        let alert = UIAlertController(title: MainConstants.accessDeniedTitle.localized(),
+                                      message: MainConstants.accessDeniedMessage.localized(),
+                                      preferredStyle: .alert)
 
-        present(alertController, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: MainConstants.settings.localized(), style: .default) { _ in
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(settingsURL)
+        })
+
+        alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel))
+        present(alert, animated: true)
     }
 
+    // MARK: - Actions
+
+    @IBAction private func ibanListTapped(_ sender: Any) {
+        pushVC(key: .ibanList)
+    }
+
+    @IBAction private func saveIbanTapped(_ sender: Any) {
+        pushVC(key: .saveIban)
+    }
+
+    @IBAction private func selectPhotoSource(_ sender: BaseButton) {
+        showImagePickerAlert()
+    }
 }
