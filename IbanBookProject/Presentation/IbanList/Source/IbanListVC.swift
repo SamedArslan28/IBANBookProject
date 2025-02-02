@@ -126,7 +126,6 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     }
 
     @objc func popToMainVC() {
-        guard let navigationController else { return }
         popVC()
     }
 
