@@ -132,7 +132,8 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
     @objc func copyAllIbans() {
         let allIbansString = viewModel.getAllIbans()
         UIPasteboard.general.string = allIbansString
-        showToast(message: "copyIbanKey".localized(), font: .systemFont(ofSize: 12))
+        showToast(message: "copyIbanKey".localized(),
+                  font: .systemFont(ofSize: 12))
     }
 
     @objc func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
@@ -142,13 +143,11 @@ extension IbanListVC: UITableViewDelegate, UITableViewDataSource, UINavigationCo
 
         switch sender.state {
             case .began:
-                // Apply scale-up animation to indicate selection
                 UIView.animate(withDuration: 0.15, animations: {
                     cell.transform = CGAffineTransform(scaleX: 1.05,
                                                        y: 1.05)
                 })
             case .ended:
-                // Revert back to the normal size
                 UIView.animate(withDuration: 0.15,
                                animations: {
                     cell.transform = .identity
@@ -183,7 +182,7 @@ extension IbanListVC: IbanCellDelegate {
         UIView.transition(
             with: tableView,
             duration: 0.2,
-            options: .transitionCrossDissolve
+            options: .curveEaseIn
         ) {
             self.tableView.reloadData()
         }

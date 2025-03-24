@@ -29,8 +29,6 @@
 		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
 		615597FA2AF94032008351F7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615597F92AF94032008351F7 /* BaseVC.swift */; };
 		6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165D7062B1B71440097E4EB /* SaveIbanVM.swift */; };
-		6168B06F2B28B5DB00D33D46 /* CustomAlertsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6168B06E2B28B5DB00D33D46 /* CustomAlertsConstants.swift */; };
-		6168B0712B28B74F00D33D46 /* IbanReaderManangerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6168B0702B28B74F00D33D46 /* IbanReaderManangerConstants.swift */; };
 		616C32272C93526900BA4B7A /* CameraSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C32262C93526900BA4B7A /* CameraSessionVC.swift */; };
 		616C32292C93531D00BA4B7A /* CameraSessionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616C32282C93531D00BA4B7A /* CameraSessionVC.xib */; };
 		616C322B2C939F5D00BA4B7A /* MainVC+AVCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C322A2C939F5D00BA4B7A /* MainVC+AVCaptureDelegate.swift */; };
@@ -48,7 +46,10 @@
 		6191883C2AFA92FE006A9E0D /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191883B2AFA92FE006A9E0D /* TableViewExtensions.swift */; };
 		6193C01F2B21130700AF009D /* MainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6193C01E2B21130700AF009D /* MainConstants.swift */; };
 		6199CAAD2B24AA800007978C /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */; };
+		619FD7902D8FA1E600676B23 /* BankList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619FD78F2D8FA1E600676B23 /* BankList.swift */; };
+		619FD7922D8FA24B00676B23 /* CustomAlertsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619FD7912D8FA24B00676B23 /* CustomAlertsConstants.swift */; };
 		61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */; };
+		61B266212D51839600DE699E /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 61B266202D51839600DE699E /* GoogleMobileAds */; };
 		61FA94852CF8CF3900AC5D0F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 61FA94842CF8CF3900AC5D0F /* FirebaseCrashlytics */; };
 		61FF4A092B34AF4A008DB4CE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF4A082B34AF4A008DB4CE /* Coordinator.swift */; };
 		61FF96E12AF92F1F00083069 /* FontExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF96E02AF92F1F00083069 /* FontExtenstions.swift */; };
@@ -87,8 +88,6 @@
 		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615597F92AF94032008351F7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		6165D7062B1B71440097E4EB /* SaveIbanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanVM.swift; sourceTree = "<group>"; };
-		6168B06E2B28B5DB00D33D46 /* CustomAlertsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertsConstants.swift; sourceTree = "<group>"; };
-		6168B0702B28B74F00D33D46 /* IbanReaderManangerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanReaderManangerConstants.swift; sourceTree = "<group>"; };
 		616C32262C93526900BA4B7A /* CameraSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionVC.swift; sourceTree = "<group>"; };
 		616C32282C93531D00BA4B7A /* CameraSessionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraSessionVC.xib; sourceTree = "<group>"; };
 		616C322A2C939F5D00BA4B7A /* MainVC+AVCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+AVCaptureDelegate.swift"; sourceTree = "<group>"; };
@@ -109,6 +108,8 @@
 		6193C01E2B21130700AF009D /* MainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConstants.swift; sourceTree = "<group>"; };
 		6199CAAC2B24AA800007978C /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
 		619CFB5D2B35E84E0081A368 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		619FD78F2D8FA1E600676B23 /* BankList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankList.swift; sourceTree = "<group>"; };
+		619FD7912D8FA24B00676B23 /* CustomAlertsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertsConstants.swift; sourceTree = "<group>"; };
 		61AF92CE2C8FC64D00E5117B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		61FC64CC2D30150300116E22 /* IbanBookProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IbanBookProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FF4A082B34AF4A008DB4CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B266212D51839600DE699E /* GoogleMobileAds in Frameworks */,
 				61FA94852CF8CF3900AC5D0F /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,8 +349,8 @@
 		6168B06D2B28B5C600D33D46 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				6168B06E2B28B5DB00D33D46 /* CustomAlertsConstants.swift */,
-				6168B0702B28B74F00D33D46 /* IbanReaderManangerConstants.swift */,
+				619FD7912D8FA24B00676B23 /* CustomAlertsConstants.swift */,
+				619FD78F2D8FA1E600676B23 /* BankList.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -545,10 +547,12 @@
 			knownRegions = (
 				en,
 				tr,
+				Base,
 			);
 			mainGroup = 6177A2902A8B9CF800B3F30A;
 			packageReferences = (
 				61FA94832CF8CF3900AC5D0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				61B2661F2D51839600DE699E /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 6177A29A2A8B9CF800B3F30A /* Products */;
 			projectDirPath = "";
@@ -603,9 +607,9 @@
 				612C59212AEBF34C00A6E997 /* StringExtensions.swift in Sources */,
 				612C59242AEBF36500A6E997 /* BaseButton.swift in Sources */,
 				6128392F2B23417B00F4B988 /* CacheManager.swift in Sources */,
+				619FD7902D8FA1E600676B23 /* BankList.swift in Sources */,
 				616C322B2C939F5D00BA4B7A /* MainVC+AVCaptureDelegate.swift in Sources */,
 				6124335E2B18E2040044BC70 /* IbanCell.swift in Sources */,
-				6168B0712B28B74F00D33D46 /* IbanReaderManangerConstants.swift in Sources */,
 				61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */,
 				6177A2A12A8B9CF800B3F30A /* MainVC.swift in Sources */,
 				616C32272C93526900BA4B7A /* CameraSessionVC.swift in Sources */,
@@ -615,6 +619,7 @@
 				61702F632B1F78390022285C /* SaveIbanConstants.swift in Sources */,
 				612366CE2B4D891900562376 /* EmptyIBANCellTableViewCell.swift in Sources */,
 				6124335F2B18E2040044BC70 /* IbanListVC.swift in Sources */,
+				619FD7922D8FA24B00676B23 /* CustomAlertsConstants.swift in Sources */,
 				612433612B18E2040044BC70 /* SaveIbanVC.swift in Sources */,
 				615597FA2AF94032008351F7 /* BaseVC.swift in Sources */,
 				61702F602B1F6E560022285C /* UIViewControllerExtensions.swift in Sources */,
@@ -625,7 +630,6 @@
 				6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */,
 				6130CCFC2C98373700E744F2 /* ControllerType.swift in Sources */,
 				6177A29F2A8B9CF800B3F30A /* SceneDelegate.swift in Sources */,
-				6168B06F2B28B5DB00D33D46 /* CustomAlertsConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +802,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -840,7 +844,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -939,6 +943,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		61B2661F2D51839600DE699E /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
 		61FA94832CF8CF3900AC5D0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -950,6 +962,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		61B266202D51839600DE699E /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61B2661F2D51839600DE699E /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		61FA94842CF8CF3900AC5D0F /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61FA94832CF8CF3900AC5D0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

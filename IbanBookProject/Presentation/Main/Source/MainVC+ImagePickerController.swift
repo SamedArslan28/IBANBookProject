@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import PhotosUI
 
 extension MainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
-            picker.dismiss(animated: true, completion: nil)
-            return
+
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        guard let result = results.first else { return }
+        result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+            if let image = object as? UIImage {
+                DispatchQueue.main.async {
+                    self.processSelectedImage(image)
+                }
+            }
         }
-        picker.dismiss(animated: true, completion: nil)
+    }
+
+    private func processSelectedImage(_ image: UIImage) {
         processPickedImage(image)
     }
+
 }
+

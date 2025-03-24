@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit
+
 
 extension String {
 
@@ -17,7 +17,7 @@ extension String {
     ///
     /// - Returns: `true` if the string is in a valid Turkish IBAN format, otherwise `false`.
     func isIban() -> Bool {
-        let pattern = "TR\\s?[0-9]{2}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{4}\\s?[0-9]{2}"
+        let pattern = "TR\\s?[0-9]{2}(\\s?[0-9]{4}){5}\\s?[0-9]{2}$"
         guard let regex = try? NSRegularExpression(pattern: pattern) else {
             return false
         }
@@ -68,13 +68,39 @@ extension String {
             return self
         }
         let range = NSRange(location: 0, length: self.utf16.count)
-        let result = regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: "")
+        let result = regex.stringByReplacingMatches(in: self,
+                                                    options: [],
+                                                    range: range, withTemplate: "")
         return result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
-    
+
     func formatIban() -> String {
         let iban = self.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
-        return iban.enumerated().map { $0.offset % 4 == 0 && $0.offset > 0 ? " \($0.element)" : "\($0.element)" }.joined()
+        return iban.enumerated()
+            .map { $0.offset % 4 == 0 && $0.offset > 0 ? " \($0.element)" : "\($0.element)" }
+            .joined()
+    }
+
+    func extractBankCode() -> String {
+        let trimmedIban = self.replacingOccurrences(of: " ", with: "")
+        let startIndex = trimmedIban.index(self.startIndex, offsetBy: 4)
+        let endIndex = trimmedIban.index(startIndex, offsetBy: 4)
+        let bankCode = String(trimmedIban[startIndex...endIndex])
+        return turkishBanks[bankCode] ?? ""
+    }
+
+    func extractNameFromData(from payload: String) -> String {
+        let pattern = "[A-Za-zÇçĞğİıÖöŞşÜü\\s]+(?=\\d)"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        let data = payload.removeIban()
+        let range = NSRange(location: 0, length: data.utf16.count)
+        if let match = regex.firstMatch(in: data, options: [], range: range) {
+            if let nameRange = Range(match.range, in: data) {
+                let name = String(data[nameRange])
+                return name.trimmingCharacters(in: .whitespaces).lowercased().capitalized
+            }
+        }
+        return ""
     }
 
 }

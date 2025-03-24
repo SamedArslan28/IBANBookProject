@@ -36,7 +36,8 @@ extension CameraSessionVC: AVCaptureVideoDataOutputSampleBufferDelegate {
                 do {
                     try requestHandler.perform([barcodeRequest])
                 } catch {
-                    print("Error performing barcode request: \(error)")
+                    showActionAlertCancel(errorTitle: "Error",
+                                          errorMessage: error.localizedDescription)
                 }
 
             case .textRecognition:
@@ -62,7 +63,7 @@ extension CameraSessionVC: AVCaptureVideoDataOutputSampleBufferDelegate {
                 do {
                     try requestHandler.perform([textRecognitionRequest])
                 } catch {
-                    print("Error performing text recognition request: \(error)")
+                    showActionAlertCancel(errorTitle: "Error", errorMessage: error.localizedDescription)
                 }
             case .none:
                 break

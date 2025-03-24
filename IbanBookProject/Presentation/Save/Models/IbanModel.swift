@@ -7,7 +7,7 @@
 
 import Foundation
 
-class IbanModel: Codable, Hashable {
+class IbanModel: Codable {
 
     var itemId: String = ""
     var ibanNumber: String = ""
@@ -26,14 +26,6 @@ class IbanModel: Codable, Hashable {
         self.bankName = bankName
         self.ibanName = ibanName
         self.isFavorite = isFavorite
-    }
-
-    static func == (lhs: IbanModel, rhs: IbanModel) -> Bool {
-        return lhs.ibanNumber == rhs.ibanNumber
-    }
-
-    func hash(into hasher: inout Hasher) {
-
     }
 }
 

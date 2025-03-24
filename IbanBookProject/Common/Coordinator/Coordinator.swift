@@ -29,10 +29,6 @@ protocol Navigable { }
 extension Navigable where Self: UIViewController {
 
     /// Pushes a new view controller onto the navigation stack.
-    /// - Parameters:
-    ///   - key: The identifier for the target view controller type, defined by `ControllerKey`.
-    ///   - data: Optional data to associate with the target view controller.
-    ///   - animated: Boolean value to determine if the transition should be animated.
     func pushVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
         viewController.data = data
@@ -40,10 +36,6 @@ extension Navigable where Self: UIViewController {
     }
 
     /// Presents a new view controller modally.
-    /// - Parameters:
-    ///   - key: The identifier for the target view controller type, defined by `ControllerKey`.
-    ///   - data: Optional data to associate with the target view controller.
-    ///   - animated: Boolean value to determine if the transition should be animated.
     func presentVC(key: ControllerKey, data: Any? = nil, animated: Bool = true) {
         guard let viewController = ControllerFactory.createVC(with: key) else { return }
         viewController.data = data
@@ -56,10 +48,6 @@ extension Navigable where Self: UIViewController {
         navigationController?.popViewController(animated: animated)
     }
 
-    /// Dismisses the current view controller if it was presented modally.
-    /// - Parameters:
-    ///   - animated: Boolean value to determine if the transition should be animated.
-    ///   - completion: An optional completion block to execute after the dismissal.
     func dismissVC(animated: Bool = true, completion: CompletionBlock? = nil) {
         navigationController?.dismiss(animated: animated, completion: completion)
     }

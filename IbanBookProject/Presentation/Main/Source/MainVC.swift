@@ -1,9 +1,9 @@
 import UIKit
 import Vision
 import AVFoundation
-import Photos
+import PhotosUI
 
-final class MainVC: BaseVC, Navigable {
+final class MainVC: BaseVC, Navigable, PHPickerViewControllerDelegate {    
 
     // MARK: - Outlets
 
@@ -12,14 +12,21 @@ final class MainVC: BaseVC, Navigable {
     @IBOutlet weak var ibanListButton: BaseButton!
     @IBOutlet weak var saveIbanButton: BaseButton!
 
-    // MARK: - Properties
+    // MARK: - Actions
 
-    private lazy var imagePicker: UIImagePickerController = {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
-        return picker
-    }()
+    @IBAction private func ibanListTapped(_ sender: BaseButton) {
+        pushVC(key: .ibanList)
+    }
+
+    @IBAction private func saveIbanTapped(_ sender: BaseButton) {
+        pushVC(key: .saveIban)
+    }
+
+    @IBAction private func selectPhotoSource(_ sender: BaseButton) {
+        showImagePickerAlert()
+    }
+
+    // MARK: - Properties
 
     lazy var textRecognitionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest()
@@ -115,7 +122,7 @@ final class MainVC: BaseVC, Navigable {
         })
 
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.photoLibraryPicker.localized(), style: .default) { _ in
-            self.showImagePicker(sourceType: .photoLibrary)
+            self.showPhotoPicker()
         })
 
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel))
@@ -123,9 +130,14 @@ final class MainVC: BaseVC, Navigable {
         present(alert, animated: true)
     }
 
-    private func showImagePicker(sourceType: UIImagePickerController.SourceType) {
-        imagePicker.sourceType = sourceType
-        present(imagePicker, animated: true)
+    private func showPhotoPicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images 
+
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
     }
 
     private func checkCameraAccessAndProceed(detectionType: DetectionType) {
@@ -161,19 +173,5 @@ final class MainVC: BaseVC, Navigable {
 
         alert.addAction(UIAlertAction(title: CustomAlertsConstants.cancel.localized(), style: .cancel))
         present(alert, animated: true)
-    }
-
-    // MARK: - Actions
-
-    @IBAction private func ibanListTapped(_ sender: Any) {
-        pushVC(key: .ibanList)
-    }
-
-    @IBAction private func saveIbanTapped(_ sender: Any) {
-        pushVC(key: .saveIban)
-    }
-
-    @IBAction private func selectPhotoSource(_ sender: BaseButton) {
-        showImagePickerAlert()
     }
 }
