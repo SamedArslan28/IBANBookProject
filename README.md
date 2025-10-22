@@ -1,13 +1,13 @@
 # IBANBookProject
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.0%2B-orange" alt="Swift 5.0+">
-  <img src="https://img.shields.io/badge/Xcode-15.0%2B-blue" alt="Xcode 15.0+">
-  <img src="https://img.shields.io/badge/Platform-iOS-lightgrey" alt="Platform iOS">
+  <img src="https://img.shields.io/badge/Swift-5.0%2B-orange" alt="Swift 5.0+">
+  <img src="https://img.shields.io/badge/Xcode-15.0%2B-blue" alt="Xcode 15.0+">
+  <img src="https://img.shields.io/badge/Platform-iOS-lightgrey" alt="Platform iOS">
 </p>
 
 <p align="center">
-  <img src="/.github/assets/app-demo.gif" width="300" alt="IBANBookProject Demo GIF">
+  <img src="/.github/assets/app-demo.gif" width="300" alt="IBANBookProject Demo GIF">
 </p>
 
 IBANBookProject is a Swift-based iOS app designed to simplify extracting International Bank Account Numbers (IBANs) from images. Whether you're dealing with scanned documents, photographs, or screenshots, this app automates the extraction process, making it easier to manage and share IBAN information.
@@ -24,7 +24,7 @@ IBANBookProject is a Swift-based iOS app designed to simplify extracting Interna
     <img src="/.github/screenshot-scan.png" width="200" alt="Scanning Feature">
   &nbsp;&nbsp;&nbsp;&nbsp;
     <img src="/.github/screenshot-list.png" width="200" alt="Share Feature">
-  &nbsp;&nbsp;&nbsp;&nbsp;
+F  &nbsp;&nbsp;&nbsp;&nbsp;
     <img src="/.github/screenshot-scan.png" width="200" alt="Saved IBANs List">
 
 </p>
@@ -59,7 +59,7 @@ This architecture promotes a strong separation of concerns, high testability, an
 
 1.  Clone the repository:
     ```sh
-    git clone [https://github.com/your-username/IBANBookProject.git](https://github.com/your-username/IBANBookProject.git)
+    git clone [https://github.com/SamedArslan28/IBANBookProject.git](https://github.com/SamedArslan28/IBANBookProject.git)
     ```
 2.  Navigate to the project directory:
     ```sh
@@ -67,12 +67,9 @@ This architecture promotes a strong separation of concerns, high testability, an
     ```
 3.  Open the `.xcodeproj` or `.xcworkspace` file in Xcode:
     ```sh
-    open IbanBook.xcodeproj 
+    open IbanBook.xcodeproj
     ```
-4.  If you have any dependencies (like CocoaPods or Swift Package Manager), install them.
-    * **SPM:** Dependencies should resolve automatically in Xcode.
-    * **CocoaPods:** Run `pod install` from the terminal.
-
+4.  Swift Package Manager (SPM) dependencies should resolve automatically in Xcode.
 5.  Select your target device and run the active scheme (Product > Run or `Cmd+R`).
 
 ## 📂 Project Structure
