@@ -25,9 +25,9 @@
 		6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */; };
 		61361AF62AF45573003A93D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61361AF52AF45573003A93D9 /* ColorExtension.swift */; };
 		61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */; };
-		614943A02D334CA3003F0C6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6149439F2D334CA3003F0C6D /* GoogleService-Info.plist */; };
 		6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152A54F2B272A86004459AD /* Launch Screen.storyboard */; };
 		615597FA2AF94032008351F7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615597F92AF94032008351F7 /* BaseVC.swift */; };
+		6163846C2E93D32400E4678C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6163846B2E93D32400E4678C /* GoogleService-Info.plist */; };
 		6165D7072B1B71440097E4EB /* SaveIbanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165D7062B1B71440097E4EB /* SaveIbanVM.swift */; };
 		616C32272C93526900BA4B7A /* CameraSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C32262C93526900BA4B7A /* CameraSessionVC.swift */; };
 		616C32292C93531D00BA4B7A /* CameraSessionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616C32282C93531D00BA4B7A /* CameraSessionVC.xib */; };
@@ -84,9 +84,9 @@
 		6130CD012C9870C800E744F2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		61361AF52AF45573003A93D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		6149439F2D334CA3003F0C6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6152A54F2B272A86004459AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		615597F92AF94032008351F7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		6163846B2E93D32400E4678C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6165D7062B1B71440097E4EB /* SaveIbanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIbanVM.swift; sourceTree = "<group>"; };
 		616C32262C93526900BA4B7A /* CameraSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionVC.swift; sourceTree = "<group>"; };
 		616C32282C93531D00BA4B7A /* CameraSessionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraSessionVC.xib; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 				6145EC9A2B4D6F08000045AA /* Localization */,
 				61361AF72AF45A0D003A93D9 /* OpenSans-Regular.ttf */,
 				6177A2A52A8B9CF900B3F30A /* Assets.xcassets */,
+				6163846B2E93D32400E4678C /* GoogleService-Info.plist */,
 				6177A2AA2A8B9CF900B3F30A /* Info.plist */,
-				6149439F2D334CA3003F0C6D /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					6177A2982A8B9CF800B3F30A = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -569,12 +569,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				614943A02D334CA3003F0C6D /* GoogleService-Info.plist in Resources */,
 				6130CD022C9870C800E744F2 /* InfoPlist.xcstrings in Resources */,
 				61702F5A2B1F69570022285C /* SaveIbanVC.xib in Resources */,
 				6177A2A62A8B9CF900B3F30A /* Assets.xcassets in Resources */,
 				6152A5502B272A86004459AD /* Launch Screen.storyboard in Resources */,
 				61361AF82AF45A0D003A93D9 /* OpenSans-Regular.ttf in Resources */,
+				6163846C2E93D32400E4678C /* GoogleService-Info.plist in Resources */,
 				61AF92CF2C8FC64D00E5117B /* Localizable.xcstrings in Resources */,
 				612433602B18E2040044BC70 /* IbanCell.xib in Resources */,
 				612366CF2B4D891900562376 /* EmptyIBANCellTableViewCell.xib in Resources */,
@@ -687,6 +687,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VF8279THZK;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -712,6 +713,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -754,6 +756,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VF8279THZK;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -773,6 +776,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -790,7 +794,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = VF8279THZK;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
@@ -832,7 +835,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VF8279THZK;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IbanBookProject/Resource/Info.plist;
@@ -872,7 +874,6 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VF8279THZK;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -895,7 +896,6 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VF8279THZK;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
