@@ -1,62 +1,98 @@
 # IBANBookProject
-Swift IBAN Book Project, makes saving and sharing IBAN easier.
 
-## Description
+<p align="center">
+  <img src="https://img.shields.io/badge/Swift-5.0%2B-orange" alt="Swift 5.0+">
+  <img src="https://img.shields.io/badge/Xcode-15.0%2B-blue" alt="Xcode 15.0+">
+  <img src="https://img.shields.io/badge/Platform-iOS-lightgrey" alt="Platform iOS">
+</p>
 
-IBAN Reader is a project designed to simplify the process of extracting International Bank Account Numbers (IBANs) from images. Whether you're dealing with scanned documents, photographs, or screenshots, IBAN Reader automates the extraction process, making it easier to manage and share IBAN information
+<p align="center">
+  <img src="/.github/assets/app-demo.gif" width="300" alt="IBANBookProject Demo GIF">
+</p>
 
-## Getting Started
+IBANBookProject is a Swift-based iOS app designed to simplify extracting International Bank Account Numbers (IBANs) from images. Whether you're dealing with scanned documents, photographs, or screenshots, this app automates the extraction process, making it easier to manage and share IBAN information.
 
-1. Make sure you have the Xcode version 15.0 or above installed on your computer.
-2. Download the Iban Book project files from the repository.
-3. Open the project files in Xcode.
-4. Run the active scheme.
+## ✨ Features
 
-## Architecture
-The IBAN Reader project follows the MVVM (Model-View-ViewModel) architecture pattern along with a custom navigation system based on coordinators. Below is an overview of each component:
+* 📸 **Scan IBANs:** Use your camera to instantly capture and extract IBANs from paper.
+* 🖼️ **Import from Photos:** Select any image or screenshot from your photo library to read an IBAN.
+* 📋 **One-Tap Copy:** Easily copy the extracted IBAN to your clipboard.
+* 📤 **Share:** Share the IBAN string directly to other apps (Notes, Messages, etc.).
+* 💾 **Save:** Store and name your scanned IBANs for future use.
 
-* Coordinator.swift
-This file contains the Coordinator class, which is responsible for managing navigation within the application. Coordinators help to separate navigation logic from view controllers, promoting better organization and testability.
+<p align="center">
+    <img src="/.github/screenshot-scan.png" width="200" alt="Scanning Feature">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="/.github/screenshot-list.png" width="200" alt="Share Feature">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="/.github/screenshot-scan.png" width="200" alt="Saved IBANs List">
 
-* ControllerKey Enumeration
-The ControllerKey enumeration defines keys for different view controllers in the application. Each key is associated with a specific view controller type, facilitating navigation.
+</p>
 
-* Navigable Protocol and UIViewController Extension
-The Navigable protocol defines navigation methods that view controllers can conform to. These methods include pushing, presenting, popping, and dismissing view controllers. The UIViewController extension provides default implementations for these navigation methods, allowing view controllers to navigate within the application using predefined keys and optional data.
+## 💻 Tech Stack & Architecture
 
-* ControllerFactory
-The ControllerFactory class is responsible for creating view controllers based on their corresponding keys. It utilizes the keys defined in the ControllerKey enumeration to instantiate the appropriate view controller types, promoting modular and maintainable code.
+This project is built natively for iOS using the following technologies and patterns:
 
-This architecture promotes separation of concerns, maintainability, and testability by abstracting away the details of view controller instantiation and navigation logic. By following the MVVM pattern, business logic is decoupled from the user interface, making the codebase easier to understand and maintain.
+* **Language:** **Swift**
+* **UI:** **UIKit** (based on your `UIViewController` mentions)
+* **Text Recognition:** **VisionKit** (for live and static image text detection)
+* **Architecture:** **MVVM-C (Model-View-ViewModel-Coordinator)**
+* **Navigation:** Custom **Coordinator** pattern to manage navigation flow.
 
-## Structure
-The IBAN Reader project follows a well-organized folder structure to maintain clarity and modularity. Below is an overview of the main folders:
+The project follows the MVVM architecture along with a custom navigation system based on coordinators.
 
-### Common
-The Common folder contains shared components and utilities used throughout the project. It includes:
+* **Coordinator.swift:** Manages navigation within the application, separating navigation logic from view controllers.
+* **ControllerKey:** An enumeration that defines keys for different view controllers, facilitating decoupled navigation.
+* **Navigable Protocol:** A protocol that view controllers conform to, providing a clean API for navigation (push, present, pop, etc.).
+* **ControllerFactory:** Responsible for creating view controller instances based on their `ControllerKey`, promoting modularity.
 
-- Extensions: Extensions on built-in Swift types and UIKit classes to provide additional functionality or convenience methods.
-- Coordinator: Implementation of the coordinator pattern for managing navigation flow within the application.
-- Base Views: Base classes or protocols for view controllers, views, or other UI components to encapsulate common functionality and promote code reuse.
-- Managers: Classes responsible for managing application-wide tasks or resources, such as network requests, data caching, or user authentication.
+This architecture promotes a strong separation of concerns, high testability, and a maintainable codebase.
 
-### Application
-The Application folder houses classes directly related to the application lifecycle and scene management. It includes:
+## 🚀 Getting Started
 
-- Scenes: Each scene folder contains view controllers, view models, and views specific to a particular feature or screen in the application. This promotes modular development and encapsulation of related functionality.
-- App Delegate: The AppDelegate.swift file contains the main application delegate class responsible for handling system events and configuring the initial application state.
+### Prerequisites
 
-### Presentation
-The Presentation folder contains folders for each view in the application, along with their respective XIB files, view controllers, and constants files. It includes:
+* macOS with **Xcode 15.0** or later.
+* An iOS device or Simulator.
 
-- View Folders: Each view folder represents a specific UI component or screen in the application. It contains the following files:
-- ViewNameViewController.swift: The view controller responsible for handling the logic and behavior of the corresponding view.
-- ViewNameView.xib: The Interface Builder file defining the layout and appearance of the view.
-- ViewNameConstants.swift: Constants specific to the view, such as layout constraints, colors, or strings.
+### Installation
 
-### Resources
-The Resources folder contains various resources used by the application, including:
+1.  Clone the repository:
+    ```sh
+    git clone [https://github.com/your-username/IBANBookProject.git](https://github.com/your-username/IBANBookProject.git)
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd IBANBookProject
+    ```
+3.  Open the `.xcodeproj` or `.xcworkspace` file in Xcode:
+    ```sh
+    open IbanBook.xcodeproj 
+    ```
+4.  If you have any dependencies (like CocoaPods or Swift Package Manager), install them.
+    * **SPM:** Dependencies should resolve automatically in Xcode.
+    * **CocoaPods:** Run `pod install` from the terminal.
 
-- Plist Files: Property list files (plist) used for storing configuration data or other structured information.
-- Asset Catalog: The asset catalog (xcassets) containing image assets, app icons, and other graphical resources used in the application.
-- Localization Files: Files (strings) for localization and internationalization of the application's user interface strings.
+5.  Select your target device and run the active scheme (Product > Run or `Cmd+R`).
+
+## 📂 Project Structure
+
+The project follows a clean folder structure to maintain clarity and modularity:
+
+* **Application/**: Contains the `AppDelegate`, `SceneDelegate`, and the main **Coordinator** logic.
+* **Common/**: Shared components and utilities like `BaseViews`, `Extensions`, and `Managers`.
+* **Scenes/** (or Presentation/): Contains the individual screens of the app. Each scene has its own folder containing:
+    * `ViewNameViewController.swift`
+    * `ViewNameViewModel.swift`
+    * `ViewNameView.xib`
+    * `ViewNameConstants.swift`
+* **Resources/**: Contains all non-code assets, such as `Assets.xcassets`, `Info.plist`, and localization files.
+
+## 🗺️ Roadmap
+
+We have plans to make IBANBookProject even better!
+
+* [ ] iCloud synchronization across devices.
+* [ ] Add support for validating IBAN checksums.
+* [ ] Batch import/scan multiple images at once.
+* [ ] Localize the app into more languages.
