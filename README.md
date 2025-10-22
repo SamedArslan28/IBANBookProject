@@ -24,7 +24,7 @@ IBANBookProject is a Swift-based iOS app designed to simplify extracting Interna
     <img src="/.github/screenshot-scan.png" width="200" alt="Scanning Feature">
   &nbsp;&nbsp;&nbsp;&nbsp;
     <img src="/.github/screenshot-list.png" width="200" alt="Share Feature">
-F  &nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;
     <img src="/.github/screenshot-scan.png" width="200" alt="Saved IBANs List">
 
 </p>
